@@ -1672,6 +1672,7 @@ id btn_start
 id btn_stop
 id buttonPanel
 id cache_measures
+id calender
 id cancel_button
 id center
 id center_horizontal
@@ -1700,6 +1701,7 @@ id custom
 id customPanel
 id cut
 id date_picker_actions
+id date_view
 id decelerate
 id decelerateAndComplete
 id decor_content_parent
