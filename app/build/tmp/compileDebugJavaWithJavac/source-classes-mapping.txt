@@ -1,0 +1,13 @@
+com/example/ryhmakaakkoapplication/BuildConfig.java
+ com.example.ryhmakaakkoapplication.BuildConfig
+com/example/ryhmakaakkoapplication/StepDetector.java
+ com.example.ryhmakaakkoapplication.StepDetector
+com/example/ryhmakaakkoapplication/SensorFilter.java
+ com.example.ryhmakaakkoapplication.SensorFilter
+com/example/ryhmakaakkoapplication/MainActivity.java
+ com.example.ryhmakaakkoapplication.MainActivity
+ com.example.ryhmakaakkoapplication.MainActivity$1
+ com.example.ryhmakaakkoapplication.MainActivity$2
+ com.example.ryhmakaakkoapplication.MainActivity$3
+com/example/ryhmakaakkoapplication/StepListener.java
+ com.example.ryhmakaakkoapplication.StepListener
