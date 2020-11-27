@@ -2,19 +2,23 @@ package com.example.ryhmakaakkoapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 import com.google.gson.Gson;
-import android.content.Context;
+
+
 import android.hardware.Sensor;
 import android.content.SharedPreferences;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity implements SensorEventListener, StepListener {
     private TextView textView;
+    private static final String TAG = "MainActivity";
+    private static final String TAG2 = "MainActivity";
     Steps steps = new Steps();
     private StepDetector simpleStepDetector;
     private SensorManager sensorManager;
@@ -23,10 +27,13 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     private static final int RESET = 0;
     SharedPreferences sharedpreferences;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
 
 
 
@@ -54,8 +61,8 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             @Override
             public void onClick(View arg0) {
 
-
                 sensorManager.registerListener(MainActivity.this, accel, SensorManager.SENSOR_DELAY_FASTEST);
+
 
             }
         });
@@ -96,10 +103,19 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         editor.putString("steps", json);
         editor.commit();
     }
+    protected void onDestroy() {
+        super.onDestroy();
+        SharedPreferences.Editor editor = sharedpreferences.edit();
+        Gson gson = new Gson();
+        String json = gson.toJson(steps);
+        editor.putString("steps", json);
+        editor.commit();
+    }
 
     protected void onStart(){
         super.onStart();
     }
+
 
 
     @Override
@@ -119,6 +135,6 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         TextView Steps = findViewById(R.id.tv_steps);
         steps.add();
         Steps.setText(TEXT_NUM_STEPS + steps.steps());
+        Log.d(TAG2, "Stepcount: " + steps.steps());
     }
-
 }
