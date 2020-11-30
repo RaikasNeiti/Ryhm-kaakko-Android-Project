@@ -30,23 +30,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="07398ec2-f975-4197-ac7f-48b8f829f44d" name="Default Changelist" comment="uusi gitignore">
-      <change beforePath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+    <list default="true" id="07398ec2-f975-4197-ac7f-48b8f829f44d" name="Default Changelist" comment="Steps saving and ondestroy.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/dex/debug/mergeDexDebug/classes.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/dex/debug/mergeDexDebug/classes.dex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/example/ryhmakaakkoapplication/MainActivity$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/example/ryhmakaakkoapplication/MainActivity$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/example/ryhmakaakkoapplication/MainActivity$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/example/ryhmakaakkoapplication/MainActivity$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/example/ryhmakaakkoapplication/MainActivity$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/example/ryhmakaakkoapplication/MainActivity$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/example/ryhmakaakkoapplication/MainActivity.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/example/ryhmakaakkoapplication/MainActivity.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/example/ryhmakaakkoapplication/MainActivity$1.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/example/ryhmakaakkoapplication/MainActivity$1.dex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/example/ryhmakaakkoapplication/MainActivity$2.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/example/ryhmakaakkoapplication/MainActivity$2.dex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/example/ryhmakaakkoapplication/MainActivity$3.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/example/ryhmakaakkoapplication/MainActivity$3.dex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/example/ryhmakaakkoapplication/MainActivity.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/example/ryhmakaakkoapplication/MainActivity.dex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/outputs/apk/debug/app-debug.apk" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/outputs/apk/debug/app-debug.apk" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/ryhmakaakkoapplication/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/ryhmakaakkoapplication/MainActivity.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -80,7 +65,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/libs" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -185,7 +170,14 @@
       <option name="project" value="LOCAL" />
       <updated>1606480708600</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Steps saving and ondestroy.">
+      <created>1606486010662</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1606486010662</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -198,37 +190,43 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="git ignore" />
     <MESSAGE value="Steps saving added" />
     <MESSAGE value="uusi gitignore" />
-    <option name="LAST_COMMIT_MESSAGE" value="uusi gitignore" />
+    <MESSAGE value="Steps saving and ondestroy." />
+    <option name="LAST_COMMIT_MESSAGE" value="Steps saving and ondestroy." />
   </component>
   <component name="WindowStateProjectService">
     <state x="-1149" y="354" key="FileChooserDialogImpl" timestamp="1606478126486">
       <screen x="-1858" y="0" width="1858" height="1200" />
     </state>
     <state x="-1149" y="354" key="FileChooserDialogImpl/0.0.3440.1440/-1858.0.1858.1200@-1858.0.1858.1200" timestamp="1606478126486" />
-    <state width="1815" height="334" key="GridCell.Tab.0.bottom" timestamp="1606485531348">
+    <state width="1674" height="412" key="GridCell.Tab.0.bottom" timestamp="1606745713875">
+      <screen x="0" y="0" width="3440" height="1440" />
+    </state>
+    <state width="1815" height="334" key="GridCell.Tab.0.bottom/0.0.3440.1440/-1858.0.1858.1200@-1858.0.1858.1200" timestamp="1606486058215" />
+    <state width="1674" height="412" key="GridCell.Tab.0.bottom/0.0.3440.1440/-1858.0.1858.1200@0.0.3440.1440" timestamp="1606745713875" />
+    <state width="1674" height="412" key="GridCell.Tab.0.center" timestamp="1606745713875">
+      <screen x="0" y="0" width="3440" height="1440" />
+    </state>
+    <state width="1815" height="334" key="GridCell.Tab.0.center/0.0.3440.1440/-1858.0.1858.1200@-1858.0.1858.1200" timestamp="1606486058215" />
+    <state width="1674" height="412" key="GridCell.Tab.0.center/0.0.3440.1440/-1858.0.1858.1200@0.0.3440.1440" timestamp="1606745713875" />
+    <state width="1674" height="412" key="GridCell.Tab.0.left" timestamp="1606745713875">
+      <screen x="0" y="0" width="3440" height="1440" />
+    </state>
+    <state width="1815" height="334" key="GridCell.Tab.0.left/0.0.3440.1440/-1858.0.1858.1200@-1858.0.1858.1200" timestamp="1606486058215" />
+    <state width="1674" height="412" key="GridCell.Tab.0.left/0.0.3440.1440/-1858.0.1858.1200@0.0.3440.1440" timestamp="1606745713875" />
+    <state width="1674" height="412" key="GridCell.Tab.0.right" timestamp="1606745713875">
+      <screen x="0" y="0" width="3440" height="1440" />
+    </state>
+    <state width="1815" height="334" key="GridCell.Tab.0.right/0.0.3440.1440/-1858.0.1858.1200@-1858.0.1858.1200" timestamp="1606486058215" />
+    <state width="1674" height="412" key="GridCell.Tab.0.right/0.0.3440.1440/-1858.0.1858.1200@0.0.3440.1440" timestamp="1606745713875" />
+    <state x="-1337" y="332" key="Vcs.Push.Dialog.v2" timestamp="1606486022671">
       <screen x="-1858" y="0" width="1858" height="1200" />
     </state>
-    <state width="1815" height="334" key="GridCell.Tab.0.bottom/0.0.3440.1440/-1858.0.1858.1200@-1858.0.1858.1200" timestamp="1606485531348" />
-    <state width="1815" height="334" key="GridCell.Tab.0.center" timestamp="1606485531348">
-      <screen x="-1858" y="0" width="1858" height="1200" />
-    </state>
-    <state width="1815" height="334" key="GridCell.Tab.0.center/0.0.3440.1440/-1858.0.1858.1200@-1858.0.1858.1200" timestamp="1606485531348" />
-    <state width="1815" height="334" key="GridCell.Tab.0.left" timestamp="1606485531348">
-      <screen x="-1858" y="0" width="1858" height="1200" />
-    </state>
-    <state width="1815" height="334" key="GridCell.Tab.0.left/0.0.3440.1440/-1858.0.1858.1200@-1858.0.1858.1200" timestamp="1606485531348" />
-    <state width="1815" height="334" key="GridCell.Tab.0.right" timestamp="1606485531348">
-      <screen x="-1858" y="0" width="1858" height="1200" />
-    </state>
-    <state width="1815" height="334" key="GridCell.Tab.0.right/0.0.3440.1440/-1858.0.1858.1200@-1858.0.1858.1200" timestamp="1606485531348" />
-    <state x="-1337" y="332" key="Vcs.Push.Dialog.v2" timestamp="1606480216521">
-      <screen x="-1858" y="0" width="1858" height="1200" />
-    </state>
-    <state x="-1337" y="332" key="Vcs.Push.Dialog.v2/0.0.3440.1440/-1858.0.1858.1200@-1858.0.1858.1200" timestamp="1606480216521" />
+    <state x="-1337" y="332" key="Vcs.Push.Dialog.v2/0.0.3440.1440/-1858.0.1858.1200@-1858.0.1858.1200" timestamp="1606486022671" />
   </component>
 </project>
