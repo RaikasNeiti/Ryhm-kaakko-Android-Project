@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\jonit\\AndroidStudioProjects\\Ryhm-kaakko-Android-Project2\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-watch-v21\\values-watch-v21.xml",
+            "outputFile": "C:\\Users\\rip\\AndroidStudioProjects\\Ryhm-kaakko-Android-Project\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-watch-v21\\values-watch-v21.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\jonit\\.gradle\\caches\\transforms-2\\files-2.1\\a527ad4f532df6b258c428a911debd89\\appcompat-1.2.0\\res\\values-watch-v21\\values-watch-v21.xml",
+                    "source": "C:\\Users\\rip\\.gradle\\caches\\transforms-2\\files-2.1\\4f9c7f78c15bb692cf0895b881aafbad\\appcompat-1.2.0\\res\\values-watch-v21\\values-watch-v21.xml",
                     "from": {
                         "startLines": "2,6,10",
                         "startColumns": "4,4,4",
