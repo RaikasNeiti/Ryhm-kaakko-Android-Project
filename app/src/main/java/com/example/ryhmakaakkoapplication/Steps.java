@@ -12,7 +12,7 @@ public class Steps {
         this.numSteps++;
 
     }
-    public int steps(){
+    public int value(){
 
         return this.numSteps;
 

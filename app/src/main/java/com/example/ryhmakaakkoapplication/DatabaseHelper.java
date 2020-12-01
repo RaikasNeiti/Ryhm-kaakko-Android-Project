@@ -28,8 +28,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public boolean addToDB(int steps){
         SQLiteDatabase db = getWritableDatabase();
         ContentValues cv = new ContentValues();
-        cv.put("DAY", 23);
-        cv.put("MONTH", 11);
+        cv.put("DAY", TimeStamp.date());
+        cv.put("MONTH", TimeStamp.month());
         cv.put("STEPS", steps);
 
         long insert = db.insert("STEPCOUNTER", null, cv);
