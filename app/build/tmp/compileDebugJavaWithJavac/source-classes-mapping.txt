@@ -4,25 +4,25 @@ com/example/ryhmakaakkoapplication/Entry.java
  com.example.ryhmakaakkoapplication.Entry
 com/example/ryhmakaakkoapplication/BuildConfig.java
  com.example.ryhmakaakkoapplication.BuildConfig
-com/example/ryhmakaakkoapplication/activity_diary_entry.java
- com.example.ryhmakaakkoapplication.activity_diary_entry
+com/example/ryhmakaakkoapplication/activity_entry_display.java
+ com.example.ryhmakaakkoapplication.activity_entry_display
 com/example/ryhmakaakkoapplication/StepDetector.java
  com.example.ryhmakaakkoapplication.StepDetector
 com/example/ryhmakaakkoapplication/SensorFilter.java
  com.example.ryhmakaakkoapplication.SensorFilter
 com/example/ryhmakaakkoapplication/StepListener.java
  com.example.ryhmakaakkoapplication.StepListener
+com/example/ryhmakaakkoapplication/activity_diary.java
+ com.example.ryhmakaakkoapplication.activity_diary
+ com.example.ryhmakaakkoapplication.activity_diary$1
+com/example/ryhmakaakkoapplication/EntryData.java
+ com.example.ryhmakaakkoapplication.EntryData
+com/example/ryhmakaakkoapplication/Steps.java
+ com.example.ryhmakaakkoapplication.Steps
+com/example/ryhmakaakkoapplication/activity_diary_entry.java
+ com.example.ryhmakaakkoapplication.activity_diary_entry
 com/example/ryhmakaakkoapplication/MainActivity.java
  com.example.ryhmakaakkoapplication.MainActivity
  com.example.ryhmakaakkoapplication.MainActivity$1
  com.example.ryhmakaakkoapplication.MainActivity$2
  com.example.ryhmakaakkoapplication.MainActivity$3
-com/example/ryhmakaakkoapplication/EntryData.java
- com.example.ryhmakaakkoapplication.EntryData
-com/example/ryhmakaakkoapplication/Steps.java
- com.example.ryhmakaakkoapplication.Steps
-com/example/ryhmakaakkoapplication/activity_diary.java
- com.example.ryhmakaakkoapplication.activity_diary
- com.example.ryhmakaakkoapplication.activity_diary$1
-com/example/ryhmakaakkoapplication/activity_entry_display.java
- com.example.ryhmakaakkoapplication.activity_entry_display
