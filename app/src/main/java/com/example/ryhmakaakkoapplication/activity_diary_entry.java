@@ -39,6 +39,7 @@ public class activity_diary_entry extends AppCompatActivity {
         EditText editText = (EditText) findViewById(R.id.editText);
         String input = editText.getText().toString();
         entry = new Entry(input, dayOfMonth, month, year);
+
         EntryData.getInstance().getArray().add(entry);
         startActivity(intent);
     }

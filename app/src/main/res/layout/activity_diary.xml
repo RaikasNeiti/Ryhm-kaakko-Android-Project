@@ -8,19 +8,6 @@
 
     <!-- Add CalenderView to display the Calender -->
 
-    <TextView
-        android:id="@+id/date"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Set the Date"
-        android:textColor="@android:color/background_dark"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/calendar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <CalendarView
         android:id="@+id/calendar"
         android:layout_width="wrap_content"
@@ -30,4 +17,17 @@
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"></CalendarView>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="239dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="Katso vanhoja merkintöjä"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/calendar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

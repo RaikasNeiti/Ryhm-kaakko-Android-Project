@@ -5,6 +5,7 @@ public class Entry {
     private int dayOfMonth;
     private int month;
     private int year;
+    private int time;
 
 
     public Entry(String glukoosi, int dayOfMonth, int month, int year) {
@@ -12,6 +13,7 @@ public class Entry {
         this.dayOfMonth = dayOfMonth;
         this.month = month;
         this.year = year;
+        this.time = time;
     }
 
     @Override

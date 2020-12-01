@@ -38,16 +38,8 @@ public class activity_entry_display extends AppCompatActivity {
 
         for(int i = 0; i < list.size(); i++)    {
             testEntry = EntryData.getInstance().getArray().get(i);
-            Log.d("diary1", Integer.toString(dayOfMonth));
-            Log.d("diary2", Integer.toString(testEntry.getDayOfMonth()));
-            Log.d("diary1", Integer.toString(month));
-            Log.d("diary2", Integer.toString(testEntry.getMonth()));
-            Log.d("diary1", Integer.toString(year));
-            Log.d("diary2", Integer.toString(testEntry.getYear()));
             if((testEntry.getMonth() == month) && (testEntry.getDayOfMonth() == dayOfMonth) && (testEntry.getYear() == year))  {
-                entryText.setText(testEntry.getGlukoosi());
-
-
+                entryText.setText(testEntry.toString());
 
             } else  {
                 entryText.setText("Ei merkintää!");
