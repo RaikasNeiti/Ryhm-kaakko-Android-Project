@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //Databasetesting
+
         //end
         // Get an instance of the SensorManager
         sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
@@ -108,7 +108,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         TextView Steps = findViewById(R.id.tv_steps);
         if(TimeStamp.date() != sharedpreferences.getInt("date", 0 ) || TimeStamp.month() != sharedpreferences.getInt("month", 0)){
             Log.d(TAG, "Date Gotten" + sharedpreferences.getInt("date", 0));
-            databaseHelper.addToDB(steps.value());
+            databaseHelper.addToDB(steps.value(), 23);
             steps.reset();
             Steps.setText(TEXT_NUM_STEPS + steps.value());
             sensorManager.unregisterListener(MainActivity.this);
