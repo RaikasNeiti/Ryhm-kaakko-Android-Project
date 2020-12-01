@@ -3,6 +3,7 @@ package com.example.ryhmakaakkoapplication;
 import androidx.appcompat.app.AppCompatActivity;
 import com.google.gson.Gson;
 import android.content.Context;
+import android.content.Intent;
 import android.hardware.Sensor;
 import android.content.SharedPreferences;
 import android.hardware.SensorEvent;
@@ -15,6 +16,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity implements SensorEventListener, StepListener {
+    public static final String EXTRA_MESSAGE = "blaa";
     private TextView textView;
     Steps steps = new Steps();
     private StepDetector simpleStepDetector;
@@ -26,6 +28,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -123,6 +126,16 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         TextView Steps = findViewById(R.id.tv_steps);
         steps.add();
         Steps.setText(TEXT_NUM_STEPS + steps.steps());
+    }
+
+    public void openDiary(View view)    {
+        Intent intent = new Intent(this, activity_diary.class);
+        startActivity(intent);
+    }
+
+    public void openNote(View view)    {
+        Intent intent = new Intent(this, activity_diary_entry.class);
+        startActivity(intent);
     }
 
 

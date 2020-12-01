@@ -35,5 +35,21 @@
         android:text=" Save Steps"
         />
 
+    <Button
+        android:id="@+id/note"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="openNote"
+        android:text="Tee merkintä" />
+
+    <Button
+        android:id="@+id/diary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="openDiary"
+        android:text="Katso merkintöjä" />
+
+    <!-- Add CalenderView to display the Calender -->
+
 
 </LinearLayout>
