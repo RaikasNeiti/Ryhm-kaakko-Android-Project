@@ -1,9 +1,20 @@
+com/example/ryhmakaakkoapplication/Entry.java
+ com.example.ryhmakaakkoapplication.Entry
 com/example/ryhmakaakkoapplication/BuildConfig.java
  com.example.ryhmakaakkoapplication.BuildConfig
+com/example/ryhmakaakkoapplication/activity_diary_entry.java
+ com.example.ryhmakaakkoapplication.activity_diary_entry
 com/example/ryhmakaakkoapplication/StepDetector.java
  com.example.ryhmakaakkoapplication.StepDetector
 com/example/ryhmakaakkoapplication/SensorFilter.java
  com.example.ryhmakaakkoapplication.SensorFilter
+com/example/ryhmakaakkoapplication/activity_diary.java
+ com.example.ryhmakaakkoapplication.activity_diary
+ com.example.ryhmakaakkoapplication.activity_diary$1
+com/example/ryhmakaakkoapplication/activity_entry_display.java
+ com.example.ryhmakaakkoapplication.activity_entry_display
+com/example/ryhmakaakkoapplication/EntryData.java
+ com.example.ryhmakaakkoapplication.EntryData
 com/example/ryhmakaakkoapplication/Steps.java
  com.example.ryhmakaakkoapplication.Steps
 com/example/ryhmakaakkoapplication/MainActivity.java

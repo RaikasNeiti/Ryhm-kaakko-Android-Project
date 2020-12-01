@@ -1670,9 +1670,10 @@ id bounce
 id btn_save
 id btn_start
 id btn_stop
+id button
 id buttonPanel
 id cache_measures
-id calender
+id calendar
 id cancel_button
 id center
 id center_horizontal
@@ -1700,8 +1701,8 @@ id cos
 id custom
 id customPanel
 id cut
+id date
 id date_picker_actions
-id date_view
 id decelerate
 id decelerateAndComplete
 id decor_content_parent
@@ -1714,6 +1715,7 @@ id design_menu_item_action_area_stub
 id design_menu_item_text
 id design_navigation_view
 id dialog_button
+id diary
 id dimensions
 id direct
 id disableHome
@@ -1729,10 +1731,12 @@ id dropdown_menu
 id easeIn
 id easeInOut
 id easeOut
+id editText
 id edit_query
 id end
 id enterAlways
 id enterAlwaysCollapsed
+id entryText
 id exitUntilCollapsed
 id expand_activities_button
 id expanded_menu
@@ -1817,6 +1821,7 @@ id never
 id noScroll
 id none
 id normal
+id note
 id notification_background
 id notification_main_column
 id notification_main_column_container
@@ -2017,6 +2022,9 @@ layout abc_search_dropdown_item_icons_2line
 layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
+layout activity_diary
+layout activity_diary_entry
+layout activity_entry_display
 layout activity_main
 layout custom_dialog
 layout design_bottom_navigation_item

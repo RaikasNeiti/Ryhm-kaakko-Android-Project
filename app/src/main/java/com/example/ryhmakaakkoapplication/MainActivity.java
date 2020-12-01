@@ -3,6 +3,7 @@ package com.example.ryhmakaakkoapplication;
 import androidx.appcompat.app.AppCompatActivity;
 import com.google.gson.Gson;
 import android.content.Context;
+import android.content.Intent;
 import android.hardware.Sensor;
 import android.content.SharedPreferences;
 import android.hardware.SensorEvent;
@@ -11,9 +12,12 @@ import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CalendarView;
+import android.widget.EditText;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity implements SensorEventListener, StepListener {
+    public static final String EXTRA_MESSAGE = "blaa";
     private TextView textView;
     Steps steps = new Steps();
     private StepDetector simpleStepDetector;
@@ -22,6 +26,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     private static final String TEXT_NUM_STEPS = "Number of Steps: ";
     private static final int RESET = 0;
     SharedPreferences sharedpreferences;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +45,10 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         Button BtnStart = findViewById(R.id.btn_start);
         Button BtnStop = findViewById(R.id.btn_stop);
         Button BtnSave = findViewById(R.id.btn_save);
+        Button BtnDiary = findViewById(R.id.diary);
+        Button BtnNote = findViewById(R.id.note);
         sharedpreferences = getPreferences(MODE_PRIVATE);
+
         if(sharedpreferences.contains("steps")) {
             Gson gson = new Gson();
             String json = sharedpreferences.getString("steps", "");
@@ -59,6 +67,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 
             }
         });
+
 
 
         BtnStop.setOnClickListener(new View.OnClickListener() {
@@ -120,5 +129,17 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         steps.add();
         Steps.setText(TEXT_NUM_STEPS + steps.steps());
     }
+
+    public void openDiary(View view)    {
+        Intent intent = new Intent(this, activity_diary.class);
+        startActivity(intent);
+    }
+
+    public void openNote(View view)    {
+        Intent intent = new Intent(this, activity_diary_entry.class);
+        startActivity(intent);
+    }
+
+
 
 }
