@@ -11,7 +11,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String STEPCOUNTER = "STEPCOUNTER";
 
     public DatabaseHelper(@Nullable Context context) {
-        super(context, "stepcounter.db", null, 2);
+        super(context, "stepcounter.db", null, 3);
     }
 
     @Override
@@ -23,6 +23,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS " + STEPCOUNTER);
+        onCreate(db);
     }
 
     public boolean addToDB(int steps, int calories){

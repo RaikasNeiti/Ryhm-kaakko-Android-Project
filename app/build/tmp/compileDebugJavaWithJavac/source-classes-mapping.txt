@@ -28,14 +28,3 @@ com/example/ryhmakaakkoapplication/TimeStamp.java
  com.example.ryhmakaakkoapplication.TimeStamp
 com/example/ryhmakaakkoapplication/StepListener.java
  com.example.ryhmakaakkoapplication.StepListener
-com/example/ryhmakaakkoapplication/EntryData.java
- com.example.ryhmakaakkoapplication.EntryData
-com/example/ryhmakaakkoapplication/Steps.java
- com.example.ryhmakaakkoapplication.Steps
-com/example/ryhmakaakkoapplication/MainActivity.java
- com.example.ryhmakaakkoapplication.MainActivity
- com.example.ryhmakaakkoapplication.MainActivity$1
- com.example.ryhmakaakkoapplication.MainActivity$2
- com.example.ryhmakaakkoapplication.MainActivity$3
-com/example/ryhmakaakkoapplication/StepListener.java
- com.example.ryhmakaakkoapplication.StepListener
