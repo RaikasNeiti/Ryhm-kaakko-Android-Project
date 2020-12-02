@@ -6,6 +6,7 @@ INJECTED from C:\Users\okolk\AndroidStudioProjects\Ryhm-kaakko-Android-Project\a
 INJECTED from C:\Users\okolk\AndroidStudioProjects\Ryhm-kaakko-Android-Project\app\src\main\AndroidManifest.xml:2:1-24:12
 MERGED from [com.google.android.material:material:1.2.1] C:\Users\okolk\.gradle\caches\transforms-2\files-2.1\c63d4a666c0a1ba98c2e2f24b9638d9e\material-1.2.1\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.4] C:\Users\okolk\.gradle\caches\transforms-2\files-2.1\b8718484daa03109e40dacfa216193fb\constraintlayout-2.0.4\AndroidManifest.xml:2:1-11:12
+MERGED from [com.tomer:fadingtextview:2.5] C:\Users\okolk\.gradle\caches\transforms-2\files-2.1\71add816c2cd0283285f1cb91e718aca\jetified-fadingtextview-2.5\AndroidManifest.xml:2:1-10:12
 MERGED from [androidx.appcompat:appcompat:1.2.0] C:\Users\okolk\.gradle\caches\transforms-2\files-2.1\4f9c7f78c15bb692cf0895b881aafbad\appcompat-1.2.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\okolk\.gradle\caches\transforms-2\files-2.1\129d7c6539a600a7346451cc911530ca\cursoradapter-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.viewpager2:viewpager2:1.0.0] C:\Users\okolk\.gradle\caches\transforms-2\files-2.1\1fa276bd61947c3e74ed195b3ad0a13b\jetified-viewpager2-1.0.0\AndroidManifest.xml:17:1-24:12
@@ -74,7 +75,7 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\ok
 	android:theme
 		ADDED from C:\Users\okolk\AndroidStudioProjects\Ryhm-kaakko-Android-Project\app\src\main\AndroidManifest.xml:11:9-60
 activity#com.example.ryhmakaakkoapplication.activity_diary
-ADDED from C:\Users\okolk\AndroidStudioProjects\Ryhm-kaakko-Android-Project\app\src\main\AndroidManifest.xml:12:9-61
+ADDED from C:\Users\okolk\AndroidStudioProjects\Ryhm-kaakko-Android-Project\app\src\main\AndroidManifest.xml:12:9-52
 	android:name
 		ADDED from C:\Users\okolk\AndroidStudioProjects\Ryhm-kaakko-Android-Project\app\src\main\AndroidManifest.xml:12:19-49
 activity#com.example.ryhmakaakkoapplication.activity_entry_display
@@ -107,6 +108,8 @@ MERGED from [com.google.android.material:material:1.2.1] C:\Users\okolk\.gradle\
 MERGED from [com.google.android.material:material:1.2.1] C:\Users\okolk\.gradle\caches\transforms-2\files-2.1\c63d4a666c0a1ba98c2e2f24b9638d9e\material-1.2.1\AndroidManifest.xml:20:5-44
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.4] C:\Users\okolk\.gradle\caches\transforms-2\files-2.1\b8718484daa03109e40dacfa216193fb\constraintlayout-2.0.4\AndroidManifest.xml:5:5-7:41
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.4] C:\Users\okolk\.gradle\caches\transforms-2\files-2.1\b8718484daa03109e40dacfa216193fb\constraintlayout-2.0.4\AndroidManifest.xml:5:5-7:41
+MERGED from [com.tomer:fadingtextview:2.5] C:\Users\okolk\.gradle\caches\transforms-2\files-2.1\71add816c2cd0283285f1cb91e718aca\jetified-fadingtextview-2.5\AndroidManifest.xml:6:5-8:41
+MERGED from [com.tomer:fadingtextview:2.5] C:\Users\okolk\.gradle\caches\transforms-2\files-2.1\71add816c2cd0283285f1cb91e718aca\jetified-fadingtextview-2.5\AndroidManifest.xml:6:5-8:41
 MERGED from [androidx.appcompat:appcompat:1.2.0] C:\Users\okolk\.gradle\caches\transforms-2\files-2.1\4f9c7f78c15bb692cf0895b881aafbad\appcompat-1.2.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.appcompat:appcompat:1.2.0] C:\Users\okolk\.gradle\caches\transforms-2\files-2.1\4f9c7f78c15bb692cf0895b881aafbad\appcompat-1.2.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\okolk\.gradle\caches\transforms-2\files-2.1\129d7c6539a600a7346451cc911530ca\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44

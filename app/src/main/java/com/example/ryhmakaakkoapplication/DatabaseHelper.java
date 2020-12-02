@@ -22,7 +22,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         String createTable = "CREATE TABLE " + STEPCOUNTER + "(ID INTEGER PRIMARY KEY AUTOINCREMENT, DAY INTEGER, MONTH INTEGER, STEPS INTEGER, CALORIES INTEGER)";
-        String createEntryTable = "CREATE TABLE " + ENTRY_TABLE + "(ID INTEGER PRIMARY KEY AUTOINCREMENT, " + COL1 +" TEXT)";
+        String createEntryTable = "CREATE TABLE " + ENTRY_TABLE + "(ID INTEGER PRIMARY KEY AUTOINCREMENT, DAY INTEGER, MONTH INTEGER, " + COL1 +" TEXT)";
         db.execSQL(createTable);
         db.execSQL(createEntryTable);
     }
@@ -53,9 +53,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public boolean addtoEntryDB(String item)    {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
+        cv.put("DAY", TimeStamp.date());
+        cv.put("MONTH", TimeStamp.month());
         cv.put(COL1, item);
 
         long insert = db.insert("ENTRY_TABLE", null, cv);
+
         if(insert == -1){
             return false;
         }else{
@@ -68,4 +71,5 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         Cursor data = db.rawQuery("SELECT * FROM " + ENTRY_TABLE, null); //valitsee taulun nimen
         return data;
     }
+
 }
