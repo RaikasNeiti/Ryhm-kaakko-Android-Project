@@ -13,12 +13,11 @@ public class Entry {
         this.dayOfMonth = dayOfMonth;
         this.month = month;
         this.year = year;
-        this.time = time;
     }
 
     @Override
     public String toString() {
-        return "Glukoosiarvo on " + glukoosi;
+        return TimeStamp.hour() + ":" + TimeStamp.minute() + " " + glukoosi;
     }
 
     public String getGlukoosi() {
@@ -40,6 +39,7 @@ public class Entry {
     public void setGlukoosi(String glukoosi) {
         this.glukoosi = glukoosi;
     }
+
 
 
 }

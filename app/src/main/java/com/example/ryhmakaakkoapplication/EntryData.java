@@ -1,5 +1,7 @@
 package com.example.ryhmakaakkoapplication;
 
+import com.google.gson.Gson;
+
 import java.util.ArrayList;
 
 class EntryData {
@@ -15,7 +17,7 @@ class EntryData {
     }
 
     public ArrayList<Entry> getArray() {
-        return this.entries;
+        return entries;
     }
 
     public void addToArray(Entry entry) {
@@ -23,8 +25,6 @@ class EntryData {
     }
 
     public void getTime()   {
-
-
 
     }
 

@@ -40,14 +40,9 @@ public class activity_diary extends AppCompatActivity {
                         // format in String type Variable
                         // Add 1 in month because month
                         // index is start with 0
-                        String Date
-                                = dayOfMonth + "-"
-                                + (month + 1) + "-" + year;
 
                         // set this date in TextView for Display
-                        String test = Integer.toString(dayOfMonth);
-
-
+                        month++;
                         katsoMerkinta(view, dayOfMonth, month, year);
 
                     }
