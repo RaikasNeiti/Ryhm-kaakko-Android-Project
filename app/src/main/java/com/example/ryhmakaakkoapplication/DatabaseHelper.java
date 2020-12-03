@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import androidx.annotation.Nullable;
 
@@ -22,7 +23,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         String createTable = "CREATE TABLE " + STEPCOUNTER + "(ID INTEGER PRIMARY KEY AUTOINCREMENT, DAY INTEGER, MONTH INTEGER, STEPS INTEGER, CALORIES INTEGER)";
-        String createEntryTable = "CREATE TABLE " + ENTRY_TABLE + "(ID INTEGER PRIMARY KEY AUTOINCREMENT, DAY INTEGER, MONTH INTEGER, " + COL1 +" TEXT)";
+        String createEntryTable = "CREATE TABLE " + ENTRY_TABLE + "(ID INTEGER PRIMARY KEY AUTOINCREMENT, DAY INTEGER, MONTH INTEGER, YEAR INTEGER, " + COL1 +" TEXT)";
         db.execSQL(createTable);
         db.execSQL(createEntryTable);
     }
@@ -55,6 +56,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         ContentValues cv = new ContentValues();
         cv.put("DAY", TimeStamp.date());
         cv.put("MONTH", TimeStamp.month());
+        cv.put("YEAR", TimeStamp.year());
         cv.put(COL1, item);
 
         long insert = db.insert("ENTRY_TABLE", null, cv);
@@ -70,6 +72,18 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor data = db.rawQuery("SELECT * FROM " + ENTRY_TABLE, null); //valitsee taulun nimen
         return data;
+    }
+
+    public int countRows()  {
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor data = db.rawQuery("SELECT COUNT(*) FROM " + ENTRY_TABLE, null);
+        if(data!=null &&  data.moveToFirst()) {
+            int count = data.getInt(0);
+            Log.d("db", Integer.toString(count));
+            return count;
+        } else  {
+            return 0;
+        }
     }
 
 }

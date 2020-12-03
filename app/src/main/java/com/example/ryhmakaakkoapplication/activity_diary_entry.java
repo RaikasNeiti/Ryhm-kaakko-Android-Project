@@ -29,9 +29,6 @@ public class activity_diary_entry extends AppCompatActivity {       // tehty htt
         dayOfMonth = TimeStamp.date();
         year = TimeStamp.year();
         mDatabaseHelper = new DatabaseHelper(this);
-
-
-
     }
 
     public void addData(String newEntry)    {
@@ -39,20 +36,20 @@ public class activity_diary_entry extends AppCompatActivity {       // tehty htt
         if (insertData) {
             Log.d("db", "Datan syöttö onnistui");
         }   else    {
-            Log.d("db", "Datan syöttö eopäonnistui");
+            Log.d("db", "Datan syöttö epäonnistui");
         }
     }
 
     public void sendEntry(View view)    {
         EditText editText = (EditText) findViewById(R.id.editText);
-        String input = TimeStamp.hour() + ":" + TimeStamp.minute() + " " + editText.getText().toString();
+        String input = editText.getText().toString();
         addData(input);
-        editText.setText("");
         if (editText.length() != 0) {
             Log.d("db", "Datan syöttö onnistui");
         } else  {
             Log.d("db", "Datan syöttö eopäonnistui");
         }
+        editText.setText("");
         entry = new Entry(input, dayOfMonth, month, year);
         EntryData.getInstance().getArray().add(entry);
     }

@@ -1669,6 +1669,7 @@ id baseline
 id beginOnFirstDraw
 id beginning
 id blocking
+id bloodsugar
 id bottom
 id bounce
 id btn_save
@@ -1930,6 +1931,7 @@ id textSpacerNoButtons
 id textSpacerNoTitle
 id textStart
 id textView
+id textView2
 id text_input_end_icon
 id text_input_start_icon
 id textinput_counter
