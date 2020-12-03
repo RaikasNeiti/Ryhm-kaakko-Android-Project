@@ -55,7 +55,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:onClick="openNote"
-        android:text="Tee merkintä"
+        android:text="UUSI MERKINTÄ"
         app:layout_constraintBottom_toTopOf="@+id/diary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -66,11 +66,24 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:onClick="openDiary"
-        android:text="Katso merkintöjä"
+        android:text="PÄIVÄKIRJA"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/note" />
+
+    <Button
+        android:id="@+id/goalBtn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:onClick="openGoal"
+        android:text="Aseta tavoite"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/note"
+        app:layout_constraintVertical_bias="0.204" />
 
     <!-- Add CalenderView to display the Calender -->
 

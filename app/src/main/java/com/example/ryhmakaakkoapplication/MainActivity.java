@@ -148,6 +148,11 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         startActivity(intent);
     }
 
+    public void openGoal(View view) {
+        Intent intent = new Intent(this, activity_goal_entry.class);
+        startActivity(intent);
+    }
+
 
 
 }

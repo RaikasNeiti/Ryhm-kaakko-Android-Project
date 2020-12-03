@@ -18,7 +18,6 @@ public class activity_diary_entry extends AppCompatActivity {       // tehty htt
     private Entry entry;
     DatabaseHelper mDatabaseHelper;
     private boolean insertData;
-    private Animation fade;
 
 
     @Override

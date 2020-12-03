@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\okolk\AndroidStudioProjects\Ryhm-kaakko-Android-Project\app\src\main\AndroidManifest.xml:2:1-24:12
-INJECTED from C:\Users\okolk\AndroidStudioProjects\Ryhm-kaakko-Android-Project\app\src\main\AndroidManifest.xml:2:1-24:12
-INJECTED from C:\Users\okolk\AndroidStudioProjects\Ryhm-kaakko-Android-Project\app\src\main\AndroidManifest.xml:2:1-24:12
-INJECTED from C:\Users\okolk\AndroidStudioProjects\Ryhm-kaakko-Android-Project\app\src\main\AndroidManifest.xml:2:1-24:12
+ADDED from C:\Users\okolk\AndroidStudioProjects\Ryhm-kaakko-Android-Project\app\src\main\AndroidManifest.xml:2:1-25:12
+INJECTED from C:\Users\okolk\AndroidStudioProjects\Ryhm-kaakko-Android-Project\app\src\main\AndroidManifest.xml:2:1-25:12
+INJECTED from C:\Users\okolk\AndroidStudioProjects\Ryhm-kaakko-Android-Project\app\src\main\AndroidManifest.xml:2:1-25:12
+INJECTED from C:\Users\okolk\AndroidStudioProjects\Ryhm-kaakko-Android-Project\app\src\main\AndroidManifest.xml:2:1-25:12
 MERGED from [com.google.android.material:material:1.2.1] C:\Users\okolk\.gradle\caches\transforms-2\files-2.1\c63d4a666c0a1ba98c2e2f24b9638d9e\material-1.2.1\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.4] C:\Users\okolk\.gradle\caches\transforms-2\files-2.1\b8718484daa03109e40dacfa216193fb\constraintlayout-2.0.4\AndroidManifest.xml:2:1-11:12
 MERGED from [com.tomer:fadingtextview:2.5] C:\Users\okolk\.gradle\caches\transforms-2\files-2.1\71add816c2cd0283285f1cb91e718aca\jetified-fadingtextview-2.5\AndroidManifest.xml:2:1-10:12
@@ -33,25 +33,25 @@ MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\okolk\.gradle
 MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] C:\Users\okolk\.gradle\caches\transforms-2\files-2.1\06bc4641de51b04d4df94808d6e05292\lifecycle-livedata-core-2.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.arch.core:core-runtime:2.0.0] C:\Users\okolk\.gradle\caches\transforms-2\files-2.1\1b64911e987df0fea019408e241659d7\core-runtime-2.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.annotation:annotation-experimental:1.0.0] C:\Users\okolk\.gradle\caches\transforms-2\files-2.1\a77c810a56173ccf6fb339f045a6aacd\jetified-annotation-experimental-1.0.0\AndroidManifest.xml:17:1-24:12
-INJECTED from C:\Users\okolk\AndroidStudioProjects\Ryhm-kaakko-Android-Project\app\src\main\AndroidManifest.xml:2:1-24:12
-INJECTED from C:\Users\okolk\AndroidStudioProjects\Ryhm-kaakko-Android-Project\app\src\main\AndroidManifest.xml:2:1-24:12
-INJECTED from C:\Users\okolk\AndroidStudioProjects\Ryhm-kaakko-Android-Project\app\src\main\AndroidManifest.xml:2:1-24:12
+INJECTED from C:\Users\okolk\AndroidStudioProjects\Ryhm-kaakko-Android-Project\app\src\main\AndroidManifest.xml:2:1-25:12
+INJECTED from C:\Users\okolk\AndroidStudioProjects\Ryhm-kaakko-Android-Project\app\src\main\AndroidManifest.xml:2:1-25:12
+INJECTED from C:\Users\okolk\AndroidStudioProjects\Ryhm-kaakko-Android-Project\app\src\main\AndroidManifest.xml:2:1-25:12
 	package
 		ADDED from C:\Users\okolk\AndroidStudioProjects\Ryhm-kaakko-Android-Project\app\src\main\AndroidManifest.xml:3:5-49
 		INJECTED from C:\Users\okolk\AndroidStudioProjects\Ryhm-kaakko-Android-Project\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\okolk\AndroidStudioProjects\Ryhm-kaakko-Android-Project\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from C:\Users\okolk\AndroidStudioProjects\Ryhm-kaakko-Android-Project\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\okolk\AndroidStudioProjects\Ryhm-kaakko-Android-Project\app\src\main\AndroidManifest.xml:2:1-24:12
+		ADDED from C:\Users\okolk\AndroidStudioProjects\Ryhm-kaakko-Android-Project\app\src\main\AndroidManifest.xml:2:1-25:12
 		INJECTED from C:\Users\okolk\AndroidStudioProjects\Ryhm-kaakko-Android-Project\app\src\main\AndroidManifest.xml
 	android:versionCode
 		INJECTED from C:\Users\okolk\AndroidStudioProjects\Ryhm-kaakko-Android-Project\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\okolk\AndroidStudioProjects\Ryhm-kaakko-Android-Project\app\src\main\AndroidManifest.xml:2:1-24:12
+		ADDED from C:\Users\okolk\AndroidStudioProjects\Ryhm-kaakko-Android-Project\app\src\main\AndroidManifest.xml:2:1-25:12
 		INJECTED from C:\Users\okolk\AndroidStudioProjects\Ryhm-kaakko-Android-Project\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from C:\Users\okolk\AndroidStudioProjects\Ryhm-kaakko-Android-Project\app\src\main\AndroidManifest.xml:2:11-69
 application
-ADDED from C:\Users\okolk\AndroidStudioProjects\Ryhm-kaakko-Android-Project\app\src\main\AndroidManifest.xml:5:5-22:19
+ADDED from C:\Users\okolk\AndroidStudioProjects\Ryhm-kaakko-Android-Project\app\src\main\AndroidManifest.xml:5:5-23:19
 MERGED from [com.google.android.material:material:1.2.1] C:\Users\okolk\.gradle\caches\transforms-2\files-2.1\c63d4a666c0a1ba98c2e2f24b9638d9e\material-1.2.1\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.2.1] C:\Users\okolk\.gradle\caches\transforms-2\files-2.1\c63d4a666c0a1ba98c2e2f24b9638d9e\material-1.2.1\AndroidManifest.xml:22:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.4] C:\Users\okolk\.gradle\caches\transforms-2\files-2.1\b8718484daa03109e40dacfa216193fb\constraintlayout-2.0.4\AndroidManifest.xml:9:5-20
@@ -74,32 +74,36 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\ok
 		ADDED from C:\Users\okolk\AndroidStudioProjects\Ryhm-kaakko-Android-Project\app\src\main\AndroidManifest.xml:6:9-35
 	android:theme
 		ADDED from C:\Users\okolk\AndroidStudioProjects\Ryhm-kaakko-Android-Project\app\src\main\AndroidManifest.xml:11:9-60
+activity#com.example.ryhmakaakkoapplication.activity_goal_entry
+ADDED from C:\Users\okolk\AndroidStudioProjects\Ryhm-kaakko-Android-Project\app\src\main\AndroidManifest.xml:12:9-66
+	android:name
+		ADDED from C:\Users\okolk\AndroidStudioProjects\Ryhm-kaakko-Android-Project\app\src\main\AndroidManifest.xml:12:19-54
 activity#com.example.ryhmakaakkoapplication.activity_diary
-ADDED from C:\Users\okolk\AndroidStudioProjects\Ryhm-kaakko-Android-Project\app\src\main\AndroidManifest.xml:12:9-52
+ADDED from C:\Users\okolk\AndroidStudioProjects\Ryhm-kaakko-Android-Project\app\src\main\AndroidManifest.xml:13:9-52
 	android:name
-		ADDED from C:\Users\okolk\AndroidStudioProjects\Ryhm-kaakko-Android-Project\app\src\main\AndroidManifest.xml:12:19-49
+		ADDED from C:\Users\okolk\AndroidStudioProjects\Ryhm-kaakko-Android-Project\app\src\main\AndroidManifest.xml:13:19-49
 activity#com.example.ryhmakaakkoapplication.activity_entry_display
-ADDED from C:\Users\okolk\AndroidStudioProjects\Ryhm-kaakko-Android-Project\app\src\main\AndroidManifest.xml:13:9-60
+ADDED from C:\Users\okolk\AndroidStudioProjects\Ryhm-kaakko-Android-Project\app\src\main\AndroidManifest.xml:14:9-60
 	android:name
-		ADDED from C:\Users\okolk\AndroidStudioProjects\Ryhm-kaakko-Android-Project\app\src\main\AndroidManifest.xml:13:19-57
+		ADDED from C:\Users\okolk\AndroidStudioProjects\Ryhm-kaakko-Android-Project\app\src\main\AndroidManifest.xml:14:19-57
 activity#com.example.ryhmakaakkoapplication.activity_diary_entry
-ADDED from C:\Users\okolk\AndroidStudioProjects\Ryhm-kaakko-Android-Project\app\src\main\AndroidManifest.xml:14:9-58
+ADDED from C:\Users\okolk\AndroidStudioProjects\Ryhm-kaakko-Android-Project\app\src\main\AndroidManifest.xml:15:9-58
 	android:name
-		ADDED from C:\Users\okolk\AndroidStudioProjects\Ryhm-kaakko-Android-Project\app\src\main\AndroidManifest.xml:14:19-55
+		ADDED from C:\Users\okolk\AndroidStudioProjects\Ryhm-kaakko-Android-Project\app\src\main\AndroidManifest.xml:15:19-55
 activity#com.example.ryhmakaakkoapplication.MainActivity
-ADDED from C:\Users\okolk\AndroidStudioProjects\Ryhm-kaakko-Android-Project\app\src\main\AndroidManifest.xml:15:9-21:20
+ADDED from C:\Users\okolk\AndroidStudioProjects\Ryhm-kaakko-Android-Project\app\src\main\AndroidManifest.xml:16:9-22:20
 	android:name
-		ADDED from C:\Users\okolk\AndroidStudioProjects\Ryhm-kaakko-Android-Project\app\src\main\AndroidManifest.xml:15:19-47
+		ADDED from C:\Users\okolk\AndroidStudioProjects\Ryhm-kaakko-Android-Project\app\src\main\AndroidManifest.xml:16:19-47
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Users\okolk\AndroidStudioProjects\Ryhm-kaakko-Android-Project\app\src\main\AndroidManifest.xml:16:13-20:29
+ADDED from C:\Users\okolk\AndroidStudioProjects\Ryhm-kaakko-Android-Project\app\src\main\AndroidManifest.xml:17:13-21:29
 action#android.intent.action.MAIN
-ADDED from C:\Users\okolk\AndroidStudioProjects\Ryhm-kaakko-Android-Project\app\src\main\AndroidManifest.xml:17:17-69
+ADDED from C:\Users\okolk\AndroidStudioProjects\Ryhm-kaakko-Android-Project\app\src\main\AndroidManifest.xml:18:17-69
 	android:name
-		ADDED from C:\Users\okolk\AndroidStudioProjects\Ryhm-kaakko-Android-Project\app\src\main\AndroidManifest.xml:17:25-66
+		ADDED from C:\Users\okolk\AndroidStudioProjects\Ryhm-kaakko-Android-Project\app\src\main\AndroidManifest.xml:18:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\okolk\AndroidStudioProjects\Ryhm-kaakko-Android-Project\app\src\main\AndroidManifest.xml:19:17-77
+ADDED from C:\Users\okolk\AndroidStudioProjects\Ryhm-kaakko-Android-Project\app\src\main\AndroidManifest.xml:20:17-77
 	android:name
-		ADDED from C:\Users\okolk\AndroidStudioProjects\Ryhm-kaakko-Android-Project\app\src\main\AndroidManifest.xml:19:27-74
+		ADDED from C:\Users\okolk\AndroidStudioProjects\Ryhm-kaakko-Android-Project\app\src\main\AndroidManifest.xml:20:27-74
 uses-sdk
 INJECTED from C:\Users\okolk\AndroidStudioProjects\Ryhm-kaakko-Android-Project\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\okolk\AndroidStudioProjects\Ryhm-kaakko-Android-Project\app\src\main\AndroidManifest.xml

@@ -1540,6 +1540,7 @@ drawable btn_radio_off_mtrl
 drawable btn_radio_off_to_on_mtrl_animation
 drawable btn_radio_on_mtrl
 drawable btn_radio_on_to_off_mtrl_animation
+drawable circle
 drawable design_bottom_navigation_item_background
 drawable design_fab_background
 drawable design_ic_visibility
@@ -1581,6 +1582,7 @@ drawable notification_template_icon_bg
 drawable notification_template_icon_low_bg
 drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
+drawable round_textview
 drawable test_custom_background
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
@@ -1670,6 +1672,8 @@ id beginOnFirstDraw
 id beginning
 id blocking
 id bloodsugar
+id bloodsugarDesc
+id bloodsugaravg
 id bottom
 id bounce
 id btn_save
@@ -1756,12 +1760,14 @@ id floating
 id forever
 id ghost_view
 id ghost_view_holder
+id goalBtn
 id gone
 id graph
 id graph_wrap
 id group_divider
 id grouping
 id groups
+id guideline
 id hideable
 id home
 id homeAsUp
@@ -1778,6 +1784,7 @@ id italic
 id item_touch_helper_previous_elevation
 id jumpToEnd
 id jumpToStart
+id keskiarvo
 id labeled
 id largeLabel
 id layout
@@ -1907,6 +1914,8 @@ id startHorizontal
 id startVertical
 id staticLayout
 id staticPostLayout
+id steps
+id stepsDesc
 id stop
 id stretch
 id submenuarrow
@@ -1964,6 +1973,8 @@ id up
 id useLogo
 id view_offset_helper
 id visible
+id weight
+id weightDesc
 id withText
 id withinBounds
 id wrap
@@ -2032,6 +2043,7 @@ layout abc_tooltip
 layout activity_diary
 layout activity_diary_entry
 layout activity_entry_display
+layout activity_goal_entry
 layout activity_main
 layout custom_dialog
 layout design_bottom_navigation_item

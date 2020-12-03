@@ -1,4 +1,4 @@
-#Thu Dec 03 15:35:39 EET 2020
+#Thu Dec 03 19:35:43 EET 2020
 base.0=C\:\\Users\\okolk\\AndroidStudioProjects\\Ryhm-kaakko-Android-Project\\app\\build\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
 path.0=classes.dex
 renamed.0=classes.dex

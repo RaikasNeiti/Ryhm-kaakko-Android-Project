@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.RyhmaKaakkoApplication">
+        <activity android:name=".activity_goal_entry"></activity>
         <activity android:name=".activity_diary" />
         <activity android:name=".activity_entry_display" />
         <activity android:name=".activity_diary_entry" />

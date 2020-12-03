@@ -68,11 +68,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
-    public Cursor getData() {
+    public Cursor getData(String table) {
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor data = db.rawQuery("SELECT * FROM " + ENTRY_TABLE, null); //valitsee taulun nimen
+        Cursor data = db.rawQuery("SELECT * FROM " + table, null); //valitsee taulun nimen
         return data;
     }
+
+
 
     public int countRows()  {
         SQLiteDatabase db = this.getWritableDatabase();
