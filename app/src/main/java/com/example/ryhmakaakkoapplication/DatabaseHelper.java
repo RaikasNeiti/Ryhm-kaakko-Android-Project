@@ -17,13 +17,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 
     public DatabaseHelper(@Nullable Context context) {
-        super(context, "stepcounter.db", null, 3);
+        super(context, "stepcounter.db", null, 6);
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
         String createTable = "CREATE TABLE " + STEPCOUNTER + "(ID INTEGER PRIMARY KEY AUTOINCREMENT, DAY INTEGER, MONTH INTEGER, STEPS INTEGER, CALORIES INTEGER)";
-        String createEntryTable = "CREATE TABLE " + ENTRY_TABLE + "(ID INTEGER PRIMARY KEY AUTOINCREMENT, DAY INTEGER, MONTH INTEGER, YEAR INTEGER, " + COL1 +" TEXT)";
+        String createEntryTable = "CREATE TABLE " + ENTRY_TABLE + "(ID INTEGER PRIMARY KEY AUTOINCREMENT, DAY INTEGER, MONTH INTEGER, YEAR INTEGER, " + COL1 +" TEXT, TIME STRING)";
         db.execSQL(createTable);
         db.execSQL(createEntryTable);
     }
@@ -58,6 +58,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         cv.put("MONTH", TimeStamp.month());
         cv.put("YEAR", TimeStamp.year());
         cv.put(COL1, item);
+        cv.put("TIME", TimeStamp.hour() + ":" + TimeStamp.minute());
 
         long insert = db.insert("ENTRY_TABLE", null, cv);
 

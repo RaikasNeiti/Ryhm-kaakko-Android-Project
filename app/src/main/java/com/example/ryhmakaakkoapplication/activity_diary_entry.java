@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.widget.EditText;
+import android.widget.Toast;
 
 
 public class activity_diary_entry extends AppCompatActivity {       // tehty https://www.youtube.com/watch?v=aQAIMY-HzL8 ohjeen pohjalta
@@ -36,6 +37,8 @@ public class activity_diary_entry extends AppCompatActivity {       // tehty htt
             Log.d("db", "Datan syöttö onnistui");
         }   else    {
             Log.d("db", "Datan syöttö epäonnistui");
+            Toast.makeText(getApplicationContext(),"Datan syöttö epäonnistui",Toast.LENGTH_SHORT).show();
+
         }
     }
 
@@ -47,6 +50,7 @@ public class activity_diary_entry extends AppCompatActivity {       // tehty htt
             Log.d("db", "Datan syöttö onnistui");
         } else  {
             Log.d("db", "Datan syöttö eopäonnistui");
+            Toast.makeText(getApplicationContext(),"Datan syöttö epäonnistui",Toast.LENGTH_SHORT).show();
         }
         editText.setText("");
         entry = new Entry(input, dayOfMonth, month, year);

@@ -84,8 +84,6 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
                 Steps.setText("Steps Saved");
                 steps.reset();
                 sensorManager.unregisterListener(MainActivity.this);
-
-
             }
         });
 

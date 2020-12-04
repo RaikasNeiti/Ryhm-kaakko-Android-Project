@@ -2,22 +2,14 @@ package com.example.ryhmakaakkoapplication;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
-
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
-import android.widget.EditText;
-
-import com.google.android.material.slider.LabelFormatter;
 import com.google.android.material.slider.RangeSlider;
 import com.google.android.material.slider.Slider;
-
 import java.util.Collections;
 import java.util.List;
-import java.util.Locale;
+
 
 
 public class activity_goal_entry extends AppCompatActivity {
@@ -34,7 +26,10 @@ public class activity_goal_entry extends AppCompatActivity {
         stepslider = findViewById(R.id.stepslider);
         sugarslider.setLabelFormatter(value -> value + " mmol/L");
         stepslider.setLabelFormatter(value -> value + " askelta");
-
+        SharedPreferences sp =
+                getSharedPreferences("Kaakko", Context.MODE_PRIVATE);
+        sugarslider.setValues(sp.getFloat("minSugar", 0), sp.getFloat("maxSugar", 0));
+        stepslider.setValue(sp.getInt("stepGoal", 10000));
         stepslider.addOnChangeListener(new Slider.OnChangeListener() {
             @Override
             public void onValueChange(@NonNull Slider slider, float value, boolean fromUser) {
@@ -60,8 +55,24 @@ public class activity_goal_entry extends AppCompatActivity {
                 spe.apply();
             }
         });
-
-
-
     }
+
+    public void sendSteps(float value)  {
+        SharedPreferences sp =
+                getSharedPreferences("Kaakko", Context.MODE_PRIVATE);
+        SharedPreferences.Editor spe = sp.edit();
+        spe.putInt("stepGoal", Math.round(value));
+        spe.apply();
+    }
+
+    public void sendSugar(float min, float max) {
+        SharedPreferences sp =
+                getSharedPreferences("Kaakko", Context.MODE_PRIVATE);
+        SharedPreferences.Editor spe = sp.edit();
+        spe.putFloat("minSugar", min);
+        spe.putFloat("maxSugar", max);
+        spe.apply();
+    }
+
+
 }

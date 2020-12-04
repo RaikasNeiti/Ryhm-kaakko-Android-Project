@@ -25,7 +25,6 @@ import java.util.ArrayList;
 public class activity_entry_display extends AppCompatActivity {
     static final String EXTRA_ENTRY_INDEX = "com.example.RyhmaKaakko_Application.EXTRA_PRESIDENT_INDEX";
 
-
     private int dayOfMonth;
     private int month;
     private int year;
@@ -37,12 +36,12 @@ public class activity_entry_display extends AppCompatActivity {
     private TextView stepsView;
     private TextView bloodsugarTitle;
     DatabaseHelper mDatabaseHelper;
-    private int i = 0;
     private int stepcount;
     private int stepGoal;
-    private float sugarMin;
-    private float sugarMax;
+    private float minSugar;
+    private float maxSugar;
     private double roundedDouble = 0;
+    private String timeData;
 
 
     @Override
@@ -76,14 +75,14 @@ public class activity_entry_display extends AppCompatActivity {
         Cursor data = mDatabaseHelper.getData("ENTRY_TABLE");
         ArrayList<String> listData = new ArrayList<>();
         ArrayList<Double> doubleList = new ArrayList<>();
-        while(data.moveToNext())    {                                                         //käydään läpi tietokanta keskiarvolaskuria ja oikean timestampin löytämistä varten
+        data.moveToLast();
+        for(int i = 0; i < mDatabaseHelper.countRows(); i++)    {//käydään läpi tietokanta keskiarvolaskuria ja oikean timestampin löytämistä varten
             dayData = data.getInt(1);
             monthData = data.getInt(2);
             yearData = data.getInt(3);
+            timeData = data.getString(5);
             doubleList.add(Double.parseDouble(data.getString(4)));
-            listData.add(TimeStamp.hour() + ":" + TimeStamp.minute() + " " + data.getString(4) + " mmol/l");
-            i++;
-
+            listData.add(dayData + "." + monthData + "." + yearData + " " + timeData + " " + data.getString(4) + " mmol/l");
             if((monthData == month) && (dayData == dayOfMonth) && (yearData == year)) {       //jos tietokannan timestamp on sama kuin klikatun
                 entriesListView.setAdapter(new ArrayAdapter<>(          //päivämäärän
                         this,
@@ -97,6 +96,7 @@ public class activity_entry_display extends AppCompatActivity {
                 bloodsugar.setText("0");
                 bloodsugarTitle.setText("");
             }
+            data.moveToPrevious();
 
         }
     }
@@ -122,9 +122,9 @@ public class activity_entry_display extends AppCompatActivity {
     private void updateColor()  {       //säätää ympyröiden väriä tavoitteen mukaan
         SharedPreferences sp =
                 getSharedPreferences("Kaakko", Context.MODE_PRIVATE);
-        stepGoal = sp.getInt("stepGoal", 0);
-        sugarMax = sp.getFloat("minSugar", 0);
-        sugarMin  = sp.getFloat("maxSugar", 0);
+        stepGoal = sp.getInt("stepGoal", 10000);
+        minSugar = sp.getFloat("minSugar", 0);
+        maxSugar  = sp.getFloat("maxSugar", 14);
         StateListDrawable stepsViewBackground = (StateListDrawable) stepsView.getBackground();
         StateListDrawable sugarViewBackground = (StateListDrawable) bloodsugar.getBackground();
 
@@ -136,7 +136,7 @@ public class activity_entry_display extends AppCompatActivity {
             stepsViewBackground.setColorFilter(Color.parseColor("#008000"), PorterDuff.Mode.SRC_ATOP);
         }
 
-        if((roundedDouble <= sugarMax) && (roundedDouble >= sugarMin))    {
+        if((roundedDouble <= maxSugar) && (roundedDouble >= minSugar))    {
             sugarViewBackground.setColorFilter(Color.parseColor("#008000"), PorterDuff.Mode.SRC_ATOP);
             } else  {
             sugarViewBackground.setColorFilter(Color.parseColor("#FF0000"), PorterDuff.Mode.SRC_ATOP);
