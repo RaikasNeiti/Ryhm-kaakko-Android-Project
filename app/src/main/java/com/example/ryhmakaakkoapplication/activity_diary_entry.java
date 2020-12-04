@@ -13,10 +13,6 @@ import android.widget.Toast;
 
 public class activity_diary_entry extends AppCompatActivity {       // tehty https://www.youtube.com/watch?v=aQAIMY-HzL8 ohjeen pohjalta
 
-    private int dayOfMonth;
-    private int month;
-    private int year;
-    private Entry entry;
     DatabaseHelper mDatabaseHelper;
     private boolean insertData;
 
@@ -25,9 +21,6 @@ public class activity_diary_entry extends AppCompatActivity {       // tehty htt
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_diary_entry);
-        month = TimeStamp.month();
-        dayOfMonth = TimeStamp.date();
-        year = TimeStamp.year();
         mDatabaseHelper = new DatabaseHelper(this);
     }
 
@@ -38,7 +31,6 @@ public class activity_diary_entry extends AppCompatActivity {       // tehty htt
         }   else    {
             Log.d("db", "Datan syöttö epäonnistui");
             Toast.makeText(getApplicationContext(),"Datan syöttö epäonnistui",Toast.LENGTH_SHORT).show();
-
         }
     }
 
@@ -53,7 +45,5 @@ public class activity_diary_entry extends AppCompatActivity {       // tehty htt
             Toast.makeText(getApplicationContext(),"Datan syöttö epäonnistui",Toast.LENGTH_SHORT).show();
         }
         editText.setText("");
-        entry = new Entry(input, dayOfMonth, month, year);
-        EntryData.getInstance().getArray().add(entry);
     }
 }
