@@ -2,9 +2,14 @@ package com.example.ryhmakaakkoapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.graphics.Color;
+import android.graphics.PorterDuff;
+import android.graphics.drawable.GradientDrawable;
+import android.graphics.drawable.StateListDrawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -30,13 +35,14 @@ public class activity_entry_display extends AppCompatActivity {
     private ListView entriesListView;
     private TextView bloodsugar;
     private TextView stepsView;
+    private TextView bloodsugarTitle;
     DatabaseHelper mDatabaseHelper;
     private int i = 0;
-    private double total = 0;
     private int stepcount;
-    private int actualSteps;
-    private int dataSteps;
     private int stepGoal;
+    private float sugarMin;
+    private float sugarMax;
+    private double roundedDouble = 0;
 
 
     @Override
@@ -44,8 +50,9 @@ public class activity_entry_display extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_entry_display);
         entriesListView = findViewById(R.id.entriesListView);
-        bloodsugar = findViewById(R.id.bloodsugaravg);
+        bloodsugar = findViewById(R.id.bloodsugar);
         stepsView = findViewById(R.id.steps);
+        bloodsugarTitle = findViewById(R.id.bloodsugarTitle);
 
         Intent intent = getIntent();
         Bundle extras = intent.getExtras();
@@ -55,6 +62,7 @@ public class activity_entry_display extends AppCompatActivity {
         mDatabaseHelper = new DatabaseHelper(this);
         updateListView();
         updateSteps();
+        updateColor();
 
         entriesListView.setOnItemClickListener(new AdapterView.OnItemClickListener()    {
             public void onItemClick(AdapterView <?>adapterView, View view, int i, long l)    {
@@ -68,12 +76,10 @@ public class activity_entry_display extends AppCompatActivity {
         Cursor data = mDatabaseHelper.getData("ENTRY_TABLE");
         ArrayList<String> listData = new ArrayList<>();
         ArrayList<Double> doubleList = new ArrayList<>();
-        Log.d("listview", Integer.toString(mDatabaseHelper.countRows()));
         while(data.moveToNext())    {                                                         //käydään läpi tietokanta keskiarvolaskuria ja oikean timestampin löytämistä varten
             dayData = data.getInt(1);
             monthData = data.getInt(2);
             yearData = data.getInt(3);
-            Log.d("listview2", Integer.toString(i));
             doubleList.add(Double.parseDouble(data.getString(4)));
             listData.add(TimeStamp.hour() + ":" + TimeStamp.minute() + " " + data.getString(4) + " mmol/l");
             i++;
@@ -83,14 +89,13 @@ public class activity_entry_display extends AppCompatActivity {
                         this,
                         R.layout.entry_item_layout,
                         listData
-
                 ));
                 bloodsugar.setText(Double.toString(avgCalculator(doubleList)));
                 Log.d("db", "ka asetettu");
             } else  {
                 Log.d("db", "ka nollattu");
                 bloodsugar.setText("0");
-
+                bloodsugarTitle.setText("");
             }
 
         }
@@ -106,21 +111,36 @@ public class activity_entry_display extends AppCompatActivity {
 
             if((monthData == month) && (dayData == dayOfMonth) && (yearData == year))   {
                 stepcount = data.getInt(4);
-                stepGoal = data.getInt(5);
                 stepsView.setText(Integer.toString(stepcount));
             } else  {
                 Log.d("db", "päivämäärällä ei askelmerkintöjä");
                 stepsView.setText("0");
             }
-
         }
-
     }
 
     private void updateColor()  {       //säätää ympyröiden väriä tavoitteen mukaan
-        stepsView.setBackgroundColor(Color.RED);
-        stepsView.setBackgroundColor(Color.YELLOW);
-        stepsView.setBackgroundColor(Color.GREEN);
+        SharedPreferences sp =
+                getSharedPreferences("Kaakko", Context.MODE_PRIVATE);
+        stepGoal = sp.getInt("stepGoal", 0);
+        sugarMax = sp.getFloat("minSugar", 0);
+        sugarMin  = sp.getFloat("maxSugar", 0);
+        StateListDrawable stepsViewBackground = (StateListDrawable) stepsView.getBackground();
+        StateListDrawable sugarViewBackground = (StateListDrawable) bloodsugar.getBackground();
+
+        if(stepcount < (stepGoal/2))   {
+            stepsViewBackground.setColorFilter(Color.parseColor("#FF0000"), PorterDuff.Mode.SRC_ATOP);
+        } else if (stepcount < stepGoal) {
+            stepsViewBackground.setColorFilter(Color.parseColor("#FFFF00"), PorterDuff.Mode.SRC_ATOP);
+        } else  {
+            stepsViewBackground.setColorFilter(Color.parseColor("#008000"), PorterDuff.Mode.SRC_ATOP);
+        }
+
+        if((roundedDouble <= sugarMax) && (roundedDouble >= sugarMin))    {
+            sugarViewBackground.setColorFilter(Color.parseColor("#008000"), PorterDuff.Mode.SRC_ATOP);
+            } else  {
+            sugarViewBackground.setColorFilter(Color.parseColor("#FF0000"), PorterDuff.Mode.SRC_ATOP);
+        }
     }
 
 
@@ -131,7 +151,7 @@ public class activity_entry_display extends AppCompatActivity {
             sum = sum + list.get(i);
         }
         double avg = sum / list.size();
-        double roundedDouble = Math.round(avg * 100.0) / 100.0;
+        roundedDouble = Math.round(avg * 100.0) / 100.0;
         return roundedDouble;
     }
 

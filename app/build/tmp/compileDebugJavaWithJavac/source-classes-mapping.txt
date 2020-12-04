@@ -22,6 +22,8 @@ com/example/ryhmakaakkoapplication/activity_entry_display.java
  com.example.ryhmakaakkoapplication.activity_entry_display$1
 com/example/ryhmakaakkoapplication/activity_goal_entry.java
  com.example.ryhmakaakkoapplication.activity_goal_entry
+ com.example.ryhmakaakkoapplication.activity_goal_entry$1
+ com.example.ryhmakaakkoapplication.activity_goal_entry$2
 com/example/ryhmakaakkoapplication/MainActivity.java
  com.example.ryhmakaakkoapplication.MainActivity
  com.example.ryhmakaakkoapplication.MainActivity$1

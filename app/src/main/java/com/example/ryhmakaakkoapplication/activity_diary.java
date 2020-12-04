@@ -20,7 +20,6 @@ public class activity_diary extends AppCompatActivity {
         setContentView(R.layout.activity_diary);
         CalendarView calendar = findViewById(R.id.calendar);
 
-
         calendar.setOnDateChangeListener(
                 new CalendarView
                         .OnDateChangeListener() {
@@ -55,7 +54,6 @@ public class activity_diary extends AppCompatActivity {
         intent.putExtra("EXTRA_MONTH", month);
         intent.putExtra("EXTRA_YEAR", year);
         startActivity(intent);
-
     }
 
 }

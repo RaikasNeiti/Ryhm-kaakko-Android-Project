@@ -1,49 +1,67 @@
 package com.example.ryhmakaakkoapplication;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 
+import com.google.android.material.slider.LabelFormatter;
+import com.google.android.material.slider.RangeSlider;
+import com.google.android.material.slider.Slider;
 
-public class activity_goal_entry extends AppCompatActivity {       // tehty https://www.youtube.com/watch?v=aQAIMY-HzL8 ohjeen pohjalta
+import java.util.Collections;
+import java.util.List;
+import java.util.Locale;
 
-    private int dayOfMonth;
-    private int month;
-    private int year;
-    private Entry entry;
-    DatabaseHelper mDatabaseHelper;
-    private boolean insertData;
+
+public class activity_goal_entry extends AppCompatActivity {
+
+    private RangeSlider sugarslider;
+    private Slider stepslider;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_goal_entry);
-        mDatabaseHelper = new DatabaseHelper(this);
-    }
+        sugarslider = findViewById(R.id.sugarslider);
+        stepslider = findViewById(R.id.stepslider);
+        sugarslider.setLabelFormatter(value -> value + " mmol/L");
+        stepslider.setLabelFormatter(value -> value + " askelta");
 
-    public void addData(String newEntry)    {
-        insertData = mDatabaseHelper.addtoEntryDB(newEntry);
-        if (insertData) {
-            Log.d("db", "Datan syöttö onnistui");
-        }   else    {
-            Log.d("db", "Datan syöttö epäonnistui");
-        }
-    }
+        stepslider.addOnChangeListener(new Slider.OnChangeListener() {
+            @Override
+            public void onValueChange(@NonNull Slider slider, float value, boolean fromUser) {
+                SharedPreferences sp =
+                        getSharedPreferences("Kaakko", Context.MODE_PRIVATE);
+                SharedPreferences.Editor spe = sp.edit();
+                spe.putInt("stepGoal", Math.round(value));
+                spe.apply();
+            }
+        });
 
-    public void sendEntry(View view)    {
-        EditText editText = (EditText) findViewById(R.id.editText);
-        String input = editText.getText().toString();
-        addData(input);
-        if (editText.length() != 0) {
-            Log.d("db", "Datan syöttö onnistui");
-        } else  {
-            Log.d("db", "Datan syöttö eopäonnistui");
-        }
-        editText.setText("");
+        sugarslider.addOnChangeListener(new RangeSlider.OnChangeListener() {
+            @Override
+            public void onValueChange(@NonNull RangeSlider slider, float value, boolean fromUser) {
+                List<Float> values = slider.getValues();
+                float min = Collections.min(values);
+                float max = Collections.max(values);
+                SharedPreferences sp =
+                        getSharedPreferences("Kaakko", Context.MODE_PRIVATE);
+                SharedPreferences.Editor spe = sp.edit();
+                spe.putFloat("minSugar", min);
+                spe.putFloat("maxSugar", max);
+                spe.apply();
+            }
+        });
+
+
+
     }
 }

@@ -47,6 +47,8 @@ animator mtrl_fab_hide_motion_spec
 animator mtrl_fab_show_motion_spec
 animator mtrl_fab_transformation_sheet_collapse_spec
 animator mtrl_fab_transformation_sheet_expand_spec
+array initial_slider_values
+array initial_values
 attr actionBarDivider
 attr actionBarItemBackground
 attr actionBarPopupTheme
@@ -893,6 +895,9 @@ bool abc_action_bar_embed_tabs
 bool abc_allow_stacked_button_bar
 bool abc_config_actionMenuItemAllCaps
 bool mtrl_btn_textappearance_all_caps
+color GREEN
+color RED
+color YELLOW
 color abc_background_cache_hint_selector_material_dark
 color abc_background_cache_hint_selector_material_light
 color abc_btn_colored_borderless_text_material
@@ -1673,7 +1678,7 @@ id beginning
 id blocking
 id bloodsugar
 id bloodsugarDesc
-id bloodsugaravg
+id bloodsugarTitle
 id bottom
 id bounce
 id btn_save
@@ -1784,7 +1789,6 @@ id italic
 id item_touch_helper_previous_elevation
 id jumpToEnd
 id jumpToStart
-id keskiarvo
 id labeled
 id largeLabel
 id layout
@@ -1916,10 +1920,12 @@ id staticLayout
 id staticPostLayout
 id steps
 id stepsDesc
+id stepslider
 id stop
 id stretch
 id submenuarrow
 id submit_area
+id sugarslider
 id tabMode
 id tag_accessibility_actions
 id tag_accessibility_clickable_spans
@@ -1941,6 +1947,8 @@ id textSpacerNoTitle
 id textStart
 id textView
 id textView2
+id textView3
+id textView4
 id text_input_end_icon
 id text_input_start_icon
 id textinput_counter
@@ -1973,8 +1981,6 @@ id up
 id useLogo
 id view_offset_helper
 id visible
-id weight
-id weightDesc
 id withText
 id withinBounds
 id wrap

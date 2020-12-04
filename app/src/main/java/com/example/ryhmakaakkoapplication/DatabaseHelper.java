@@ -69,7 +69,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     public Cursor getData(String table) {
-        SQLiteDatabase db = this.getWritableDatabase();
+        SQLiteDatabase db = this.getReadableDatabase();
         Cursor data = db.rawQuery("SELECT * FROM " + table, null); //valitsee taulun nimen
         return data;
     }
@@ -77,7 +77,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 
     public int countRows()  {
-        SQLiteDatabase db = this.getWritableDatabase();
+        SQLiteDatabase db = this.getReadableDatabase();
         Cursor data = db.rawQuery("SELECT COUNT(*) FROM " + ENTRY_TABLE, null);
         if(data!=null &&  data.moveToFirst()) {
             int count = data.getInt(0);

@@ -12,36 +12,22 @@
         android:layout_height="397dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bloodsugaravg"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0" />
 
     <TextView
-        android:id="@+id/keskiarvo"
+        android:id="@+id/bloodsugarTitle"
         android:layout_width="157dp"
         android:layout_height="45dp"
-        android:layout_marginTop="230dp"
         android:gravity="center_vertical"
-        android:text="Verensokerin keskiarvo"
-        app:layout_constraintBottom_toTopOf="@+id/bloodsugaravg"
+        android:text="Verensokerimerkinnät"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.062"
+        app:layout_constraintHorizontal_bias="0.019"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/bloodsugaravg"
-        android:layout_width="158dp"
-        android:layout_height="41dp"
-        android:layout_marginBottom="18dp"
-        android:text="TextView"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@+id/entriesListView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.059"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/keskiarvo" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.381" />
 
     <TextView
         android:id="@+id/steps"
@@ -51,7 +37,7 @@
         android:gravity="center"
         android:shape="oval"
         android:text="0"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -68,28 +54,11 @@
         android:gravity="center"
         android:shape="oval"
         android:text="0"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.192"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.122" />
-
-    <TextView
-        android:id="@+id/weight"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:background="@drawable/round_textview"
-        android:gravity="center"
-        android:shape="oval"
-        android:text="0"
-        android:textColor="@color/black"
-        android:textSize="25sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.8"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.122" />
@@ -102,6 +71,7 @@
         android:layout_marginLeft="44dp"
         android:gravity="center_vertical"
         android:text="Askeleet"
+        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="@+id/steps"
         app:layout_constraintStart_toStartOf="@+id/steps"
         app:layout_constraintTop_toTopOf="@+id/steps"
@@ -125,27 +95,12 @@
         android:layout_marginRight="24dp"
         android:layout_marginBottom="71dp"
         android:text="Verensokeri"
-        android:textSize="10sp"
+        android:textColor="#FFFFFF"
+        android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="@+id/bloodsugar"
         app:layout_constraintEnd_toEndOf="@+id/bloodsugar"
         app:layout_constraintStart_toStartOf="@+id/bloodsugar"
         app:layout_constraintTop_toTopOf="@+id/bloodsugar" />
 
-    <TextView
-        android:id="@+id/weightDesc"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="27dp"
-        android:layout_marginLeft="27dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginBottom="71dp"
-        android:text="Paino"
-        android:textSize="10sp"
-        app:layout_constraintBottom_toBottomOf="@+id/weight"
-        app:layout_constraintEnd_toEndOf="@+id/weight"
-        app:layout_constraintStart_toStartOf="@+id/weight"
-        app:layout_constraintTop_toTopOf="@+id/weight" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
