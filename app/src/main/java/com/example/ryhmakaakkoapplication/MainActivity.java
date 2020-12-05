@@ -121,21 +121,28 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         float minSugar, maxSugar;
         TextView sugarView = findViewById(R.id.sugarView);
         TextView sugarDateView = findViewById(R.id.sugarDateView);
+        TextView sugarDesc = findViewById(R.id.sugarDesc);
+
         calculator = new Calculator();
         TextView stepPercentageView = findViewById(R.id.stepPercentageView);
         ArrayList<String> latest = databaseHelper.getLatest("ENTRY_TABLE");
-        sugarDateView.setText(latest.get(0));
-        sugarView.setText(latest.get(1));
 
         SharedPreferences sp =
                 getSharedPreferences("Kaakko", Context.MODE_PRIVATE);
         stepGoal = sp.getInt("stepGoal", 10000);
         minSugar = sp.getFloat("minSugar", 0);
         maxSugar = sp.getFloat("maxSugar", 0);
-        stepPercentageView.setText(calculator.percentageCalc(steps.value(),stepGoal));
 
-        calculator.colorCalc(stepGoal, steps.value(), minSugar, maxSugar, Double.parseDouble(latest.get(1)), stepPercentageView, sugarView);
+        if(!latest.isEmpty())   {
+            sugarDateView.setText(latest.get(0));
+            sugarView.setText(latest.get(1));
+            stepPercentageView.setText(calculator.percentageCalc(steps.value(),stepGoal));
+            calculator.colorCalc(stepGoal, steps.value(), minSugar, maxSugar, Double.parseDouble(latest.get(1)), stepPercentageView, sugarView);
+        } else  {
+            sugarDateView.setText("Ei merkintöjä");
+            sugarView.setText("0");
+        }
+
     }
-
 
 }

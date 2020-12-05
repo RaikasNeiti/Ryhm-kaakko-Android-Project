@@ -20,14 +20,13 @@
         android:id="@+id/bloodsugarTitle"
         android:layout_width="157dp"
         android:layout_height="45dp"
+        android:layout_marginEnd="236dp"
+        android:layout_marginRight="236dp"
         android:gravity="center_vertical"
         android:text="Verensokerimerkinnät"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.019"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.381" />
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toTopOf="@+id/entriesListView"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
         android:id="@+id/steps"
@@ -69,6 +68,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="48dp"
         android:layout_marginLeft="48dp"
+        android:background="@null"
         android:gravity="center_vertical"
         android:text="askelta"
         android:textColor="#FFFFFF"
@@ -86,7 +86,7 @@
         app:layout_constraintGuide_percent="0.5" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/sugarDesc2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="38dp"
@@ -95,6 +95,7 @@
         android:layout_marginEnd="34dp"
         android:layout_marginRight="34dp"
         android:layout_marginBottom="17dp"
+        android:background="@null"
         android:text="mmol/L"
         android:textColor="#FFFFFF"
         android:textSize="8sp"

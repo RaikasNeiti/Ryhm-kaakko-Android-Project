@@ -28,6 +28,7 @@ public class activity_entry_display extends AppCompatActivity {
     private ListView entriesListView;
     private TextView sugarView;
     private TextView stepsView;
+    private TextView sugarDesc;
     private TextView bloodsugarTitle;
     DatabaseHelper mDatabaseHelper;
     private int stepcount;
@@ -47,6 +48,7 @@ public class activity_entry_display extends AppCompatActivity {
         sugarView = findViewById(R.id.bloodsugar);
         stepsView = findViewById(R.id.steps);
         bloodsugarTitle = findViewById(R.id.bloodsugarTitle);
+        sugarDesc = findViewById(R.id.sugarDesc2);
 
         Intent intent = getIntent();
         Bundle extras = intent.getExtras();

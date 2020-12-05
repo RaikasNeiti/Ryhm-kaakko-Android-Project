@@ -37,12 +37,14 @@ public class activity_diary_entry extends AppCompatActivity {       // tehty htt
     public void sendEntry(View view)    {
         EditText editText = (EditText) findViewById(R.id.editText);
         String input = editText.getText().toString();
-        addData(input);
-        if (editText.length() != 0) {
+
+        if (input.length() > 0) {
+            addData(input);
             Log.d("db", "Datan syöttö onnistui");
+            Toast.makeText(getApplicationContext(),input + " mmol/L lisätty päiväkirjaan",Toast.LENGTH_SHORT).show();
         } else  {
             Log.d("db", "Datan syöttö eopäonnistui");
-            Toast.makeText(getApplicationContext(),"Datan syöttö epäonnistui",Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(),"Tallennus epäonnistui. Merkinnän on oltava numero",Toast.LENGTH_SHORT).show();
         }
         editText.setText("");
     }

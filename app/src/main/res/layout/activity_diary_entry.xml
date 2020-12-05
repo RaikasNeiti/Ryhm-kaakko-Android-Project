@@ -12,6 +12,9 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
+        android:shadowColor="#000000"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#FDFDFD"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.079"
@@ -41,6 +44,7 @@
         android:layout_marginTop="16dp"
         android:gravity="center_vertical"
         android:text="Syötä verensokeriarvo (mmol/L"
+        android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="@+id/editText"
         app:layout_constraintStart_toStartOf="@+id/editText"
         app:layout_constraintTop_toTopOf="parent" />

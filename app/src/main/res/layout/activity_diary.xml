@@ -12,25 +12,15 @@
         android:id="@+id/calendar"
         android:layout_width="408dp"
         android:layout_height="310dp"
+        android:theme="@style/Widget.CalendarView.Custom"
+        android:weekSeparatorLineColor="#FBFBFB"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.333"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.099"></CalendarView>
+        app:layout_constraintVertical_bias="0.418">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="339dp"
-        android:layout_height="26dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp"
-        android:text="Katso vanhoja merkintöjä"
-        android:textColor="#000000"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/calendar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+    </CalendarView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

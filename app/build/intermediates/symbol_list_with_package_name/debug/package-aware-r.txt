@@ -895,7 +895,9 @@ bool abc_action_bar_embed_tabs
 bool abc_allow_stacked_button_bar
 bool abc_config_actionMenuItemAllCaps
 bool mtrl_btn_textappearance_all_caps
+color DARKBLUE
 color GREEN
+color LIGHTBLUE
 color RED
 color YELLOW
 color abc_background_cache_hint_selector_material_dark
@@ -1588,6 +1590,8 @@ drawable notification_template_icon_low_bg
 drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
 drawable round_textview
+drawable runner
+drawable settings
 drawable test_custom_background
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
@@ -1780,6 +1784,7 @@ id ifRoom
 id ignore
 id ignoreRequest
 id image
+id imageView
 id info
 id invisible
 id italic
@@ -1925,6 +1930,8 @@ id stretch
 id submenuarrow
 id submit_area
 id sugarDateView
+id sugarDesc
+id sugarDesc2
 id sugarView
 id sugarslider
 id tabMode
@@ -1946,13 +1953,10 @@ id textEnd
 id textSpacerNoButtons
 id textSpacerNoTitle
 id textStart
-id textView
 id textView2
 id textView3
 id textView4
-id textView5
 id textView6
-id textView7
 id textView8
 id text_input_end_icon
 id text_input_start_icon
@@ -2797,6 +2801,7 @@ style Widget_AppCompat_TextView
 style Widget_AppCompat_TextView_SpinnerItem
 style Widget_AppCompat_Toolbar
 style Widget_AppCompat_Toolbar_Button_Navigation
+style Widget_CalendarView_Custom
 style Widget_Compat_NotificationActionContainer
 style Widget_Compat_NotificationActionText
 style Widget_Design_AppBarLayout

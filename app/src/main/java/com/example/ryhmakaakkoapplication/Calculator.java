@@ -44,6 +44,8 @@ public class Calculator {
     }
 
 
+
+
     public double avgCalc(ArrayList<Double> list)  {
         double roundedDouble;
         double sum = 0;

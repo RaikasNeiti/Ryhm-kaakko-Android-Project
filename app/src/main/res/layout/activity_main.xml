@@ -8,36 +8,47 @@
     android:gravity="center">
 
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="330dp"
+        android:layout_height="356dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginLeft="40dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.138"
+        app:srcCompat="@drawable/circle" />
+
     <TextView
         android:id="@+id/stepPercentageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="56dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginRight="20dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginLeft="12dp"
         android:background="@drawable/round_textview"
         android:gravity="center"
         android:shape="oval"
         android:text="0%"
         android:textColor="@color/white"
         android:textSize="30sp"
-        app:layout_constraintEnd_toStartOf="@+id/guideline2"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+        app:layout_constraintBottom_toTopOf="@+id/textView8"
+        app:layout_constraintStart_toStartOf="@+id/textView8" />
 
     <TextView
         android:id="@+id/sugarView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="55dp"
         android:background="@drawable/round_textview"
         android:gravity="center"
         android:shape="oval"
         android:text="0"
         android:textColor="@color/white"
         android:textSize="30sp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/stepPercentageView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.259"
-        app:layout_constraintStart_toEndOf="@+id/stepPercentageView" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <TextView
         android:id="@+id/tv_steps"
@@ -52,7 +63,7 @@
 
     <Button
         android:id="@+id/note"
-        android:layout_width="411dp"
+        android:layout_width="400dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="96dp"
         android:onClick="openNote"
@@ -63,7 +74,7 @@
 
     <Button
         android:id="@+id/diary"
-        android:layout_width="411dp"
+        android:layout_width="400dp"
         android:layout_height="wrap_content"
         android:onClick="openDiary"
         android:text="PÄIVÄKIRJA"
@@ -73,7 +84,7 @@
 
     <Button
         android:id="@+id/goalBtn"
-        android:layout_width="411dp"
+        android:layout_width="400dp"
         android:layout_height="wrap_content"
         android:onClick="openGoal"
         android:text="Muokkaa tavoitteita"
@@ -85,22 +96,27 @@
         android:id="@+id/stepcountView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="91dp"
+        android:layout_marginBottom="32dp"
+        android:background="@null"
         android:gravity="center"
         android:text="0"
-        android:textSize="36sp"
+        android:textColor="#FFFFFF"
+        android:textSize="46sp"
+        app:layout_constraintBottom_toTopOf="@+id/stepPercentageView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@null"
         android:gravity="center"
         android:text="askelta"
+        android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/stepcountView" />
 
@@ -108,11 +124,12 @@
         android:id="@+id/guideline2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@null"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.5" />
+        app:layout_constraintGuide_percent="0.50121653" />
 
     <TextView
-        android:id="@+id/textView7"
+        android:id="@+id/sugarDesc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
@@ -121,9 +138,11 @@
         android:layout_marginEnd="13dp"
         android:layout_marginRight="13dp"
         android:layout_marginBottom="8dp"
+        android:background="@null"
         android:gravity="center"
         android:text="mmol/L"
         android:textColor="#FFFFFF"
+        android:textColorHighlight="#FFFFFF"
         android:textSize="8sp"
         app:layout_constraintBottom_toBottomOf="@+id/sugarView"
         app:layout_constraintEnd_toEndOf="@+id/sugarView"
@@ -134,14 +153,16 @@
         android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="11dp"
-        android:layout_marginRight="11dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="43dp"
+        android:background="@null"
         android:gravity="center"
         android:text="päivän tavoitteesta"
-        android:textColor="#000000"
+        android:textColor="#FFFFFF"
         android:textSize="10sp"
-        app:layout_constraintEnd_toStartOf="@+id/guideline2"
-        app:layout_constraintTop_toBottomOf="@+id/stepPercentageView" />
+        app:layout_constraintBottom_toBottomOf="@+id/imageView"
+        app:layout_constraintStart_toStartOf="@+id/guideline2" />
 
     <TextView
         android:id="@+id/sugarDateView"
@@ -149,9 +170,10 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
+        android:background="@null"
         android:gravity="center"
         android:text="dd.mm.yy"
-        android:textColor="#000000"
+        android:textColor="#FFFFFF"
         android:textSize="10sp"
         app:layout_constraintEnd_toEndOf="@+id/sugarView"
         app:layout_constraintTop_toBottomOf="@+id/sugarView" />
