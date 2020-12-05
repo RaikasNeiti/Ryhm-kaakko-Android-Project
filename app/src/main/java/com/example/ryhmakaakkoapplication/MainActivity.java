@@ -1,5 +1,6 @@
 package com.example.ryhmakaakkoapplication;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import com.google.gson.Gson;
 
@@ -25,6 +26,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     private Sensor accel;
     private static final String TAG = "MainActivity";
     private static final int RESET = 0;
+
     DatabaseHelper databaseHelper = new DatabaseHelper(MainActivity.this);
     SharedPreferences sharedpreferences;
     Calculator calculator;
@@ -121,23 +123,22 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         float minSugar, maxSugar;
         TextView sugarView = findViewById(R.id.sugarView);
         TextView sugarDateView = findViewById(R.id.sugarDateView);
-        TextView sugarDesc = findViewById(R.id.sugarDesc);
-
+        TextView differenceView = findViewById(R.id.differenceView);
         calculator = new Calculator();
         TextView stepPercentageView = findViewById(R.id.stepPercentageView);
         ArrayList<String> latest = databaseHelper.getLatest("ENTRY_TABLE");
-
         SharedPreferences sp =
                 getSharedPreferences("Kaakko", Context.MODE_PRIVATE);
         stepGoal = sp.getInt("stepGoal", 10000);
         minSugar = sp.getFloat("minSugar", 0);
         maxSugar = sp.getFloat("maxSugar", 0);
-
+        stepPercentageView.setText(calculator.percentageCalc(steps.value(),stepGoal));
+        calculator.stepsColor(stepGoal, steps.value(), stepPercentageView);
         if(!latest.isEmpty())   {
             sugarDateView.setText(latest.get(0));
             sugarView.setText(latest.get(1));
-            stepPercentageView.setText(calculator.percentageCalc(steps.value(),stepGoal));
-            calculator.colorCalc(stepGoal, steps.value(), minSugar, maxSugar, Double.parseDouble(latest.get(1)), stepPercentageView, sugarView);
+            differenceView.setText("+/- " + Float.toString(Math.abs(Float.parseFloat(latest.get(1)) - Float.parseFloat(latest.get(2)))));
+            calculator.sugarColor(minSugar, maxSugar, Double.parseDouble(latest.get(1)), sugarView);
         } else  {
             sugarDateView.setText("Ei merkintöjä");
             sugarView.setText("0");

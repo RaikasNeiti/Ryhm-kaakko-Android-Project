@@ -57,12 +57,12 @@ public class activity_entry_display extends AppCompatActivity {
         year = extras.getInt("EXTRA_YEAR");
         mDatabaseHelper = new DatabaseHelper(this);
         this.calculator = new Calculator();
-        updateListView();
-        updateSteps();
-        updateColor();
+        UpdateListView();
+        UpdateSteps();
+        UpdateColor();
     }
 
-    private void updateListView() {
+    private void UpdateListView() {
         Cursor data = mDatabaseHelper.getData("ENTRY_TABLE");
         ArrayList<String> listData = new ArrayList<>();
         ArrayList<Double> doubleList = new ArrayList<>();
@@ -73,9 +73,9 @@ public class activity_entry_display extends AppCompatActivity {
             yearData = data.getInt(3);
             timeData = data.getString(5);
             doubleList.add(Double.parseDouble(data.getString(4)));
-            listData.add(dayData + "." + monthData + "." + yearData + " " + timeData + " " + data.getString(4) + " mmol/l");
-            if((monthData == month) && (dayData == dayOfMonth) && (yearData == year)) {       //jos tietokannan timestamp on sama kuin klikatun
-                entriesListView.setAdapter(new ArrayAdapter<>(          //päivämäärän
+            listData.add(dayData + "." + monthData + "." + yearData + " " + timeData + " " + data.getString(4) + " mmol/L");
+            if((monthData == month) && (dayData == dayOfMonth) && (yearData == year)) {       //jos tietokannan timestamp on sama kuin klikatun päivämäärän
+                entriesListView.setAdapter(new ArrayAdapter<>(
                         this,
                         R.layout.entry_item_layout,
                         listData
@@ -92,7 +92,7 @@ public class activity_entry_display extends AppCompatActivity {
         }
     }
 
-    private void updateSteps()  {
+    private void UpdateSteps()  {
         Cursor data = mDatabaseHelper.getData("STEPCOUNTER");
 
         while(data.moveToNext())    {                                                         //käydään läpi tietokanta keskiarvolaskuria ja oikean timestampin löytämistä varten
@@ -110,13 +110,14 @@ public class activity_entry_display extends AppCompatActivity {
         }
     }
 
-    private void updateColor()  {
+    private void UpdateColor()  {
         SharedPreferences sp =
                 getSharedPreferences("Kaakko", Context.MODE_PRIVATE);
         stepGoal = sp.getInt("stepGoal", 10000);
         minSugar = sp.getFloat("minSugar", 0);
         maxSugar  = sp.getFloat("maxSugar", 14);
-        calculator.colorCalc(stepGoal, stepcount, minSugar, maxSugar, roundedDouble, stepsView, sugarView);
+        calculator.sugarColor(minSugar, maxSugar, roundedDouble, sugarView);
+        calculator.stepsColor(stepGoal, stepcount, stepsView);
     }
 
 

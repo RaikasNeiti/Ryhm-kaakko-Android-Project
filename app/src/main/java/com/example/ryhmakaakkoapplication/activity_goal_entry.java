@@ -56,23 +56,4 @@ public class activity_goal_entry extends AppCompatActivity {
             }
         });
     }
-
-    public void sendSteps(float value)  {
-        SharedPreferences sp =
-                getSharedPreferences("Kaakko", Context.MODE_PRIVATE);
-        SharedPreferences.Editor spe = sp.edit();
-        spe.putInt("stepGoal", Math.round(value));
-        spe.apply();
-    }
-
-    public void sendSugar(float min, float max) {
-        SharedPreferences sp =
-                getSharedPreferences("Kaakko", Context.MODE_PRIVATE);
-        SharedPreferences.Editor spe = sp.edit();
-        spe.putFloat("minSugar", min);
-        spe.putFloat("maxSugar", max);
-        spe.apply();
-    }
-
-
 }

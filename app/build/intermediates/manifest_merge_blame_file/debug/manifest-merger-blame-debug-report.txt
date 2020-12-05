@@ -11,7 +11,7 @@
 9-->C:\Users\okolk\AndroidStudioProjects\Ryhm-kaakko-Android-Project\app\src\main\AndroidManifest.xml
 10
 11    <application
-11-->C:\Users\okolk\AndroidStudioProjects\Ryhm-kaakko-Android-Project\app\src\main\AndroidManifest.xml:5:5-23:19
+11-->C:\Users\okolk\AndroidStudioProjects\Ryhm-kaakko-Android-Project\app\src\main\AndroidManifest.xml:5:5-28:19
 12        android:allowBackup="true"
 12-->C:\Users\okolk\AndroidStudioProjects\Ryhm-kaakko-Android-Project\app\src\main\AndroidManifest.xml:6:9-35
 13        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
@@ -28,32 +28,47 @@
 19        android:testOnly="true"
 20        android:theme="@style/Theme.RyhmaKaakkoApplication" >
 20-->C:\Users\okolk\AndroidStudioProjects\Ryhm-kaakko-Android-Project\app\src\main\AndroidManifest.xml:11:9-60
-21        <activity android:name="com.example.ryhmakaakkoapplication.activity_goal_entry" />
-21-->C:\Users\okolk\AndroidStudioProjects\Ryhm-kaakko-Android-Project\app\src\main\AndroidManifest.xml:12:9-66
-21-->C:\Users\okolk\AndroidStudioProjects\Ryhm-kaakko-Android-Project\app\src\main\AndroidManifest.xml:12:19-54
-22        <activity android:name="com.example.ryhmakaakkoapplication.activity_diary" />
-22-->C:\Users\okolk\AndroidStudioProjects\Ryhm-kaakko-Android-Project\app\src\main\AndroidManifest.xml:13:9-52
-22-->C:\Users\okolk\AndroidStudioProjects\Ryhm-kaakko-Android-Project\app\src\main\AndroidManifest.xml:13:19-49
-23        <activity android:name="com.example.ryhmakaakkoapplication.activity_entry_display" />
-23-->C:\Users\okolk\AndroidStudioProjects\Ryhm-kaakko-Android-Project\app\src\main\AndroidManifest.xml:14:9-60
-23-->C:\Users\okolk\AndroidStudioProjects\Ryhm-kaakko-Android-Project\app\src\main\AndroidManifest.xml:14:19-57
-24        <activity android:name="com.example.ryhmakaakkoapplication.activity_diary_entry" />
-24-->C:\Users\okolk\AndroidStudioProjects\Ryhm-kaakko-Android-Project\app\src\main\AndroidManifest.xml:15:9-58
-24-->C:\Users\okolk\AndroidStudioProjects\Ryhm-kaakko-Android-Project\app\src\main\AndroidManifest.xml:15:19-55
-25        <activity android:name="com.example.ryhmakaakkoapplication.MainActivity" >
-25-->C:\Users\okolk\AndroidStudioProjects\Ryhm-kaakko-Android-Project\app\src\main\AndroidManifest.xml:16:9-22:20
-25-->C:\Users\okolk\AndroidStudioProjects\Ryhm-kaakko-Android-Project\app\src\main\AndroidManifest.xml:16:19-47
-26            <intent-filter>
-26-->C:\Users\okolk\AndroidStudioProjects\Ryhm-kaakko-Android-Project\app\src\main\AndroidManifest.xml:17:13-21:29
-27                <action android:name="android.intent.action.MAIN" />
-27-->C:\Users\okolk\AndroidStudioProjects\Ryhm-kaakko-Android-Project\app\src\main\AndroidManifest.xml:18:17-69
-27-->C:\Users\okolk\AndroidStudioProjects\Ryhm-kaakko-Android-Project\app\src\main\AndroidManifest.xml:18:25-66
-28
-29                <category android:name="android.intent.category.LAUNCHER" />
-29-->C:\Users\okolk\AndroidStudioProjects\Ryhm-kaakko-Android-Project\app\src\main\AndroidManifest.xml:20:17-77
-29-->C:\Users\okolk\AndroidStudioProjects\Ryhm-kaakko-Android-Project\app\src\main\AndroidManifest.xml:20:27-74
-30            </intent-filter>
-31        </activity>
-32    </application>
-33
-34</manifest>
+21        <activity
+21-->C:\Users\okolk\AndroidStudioProjects\Ryhm-kaakko-Android-Project\app\src\main\AndroidManifest.xml:12:9-13:41
+22            android:name="com.example.ryhmakaakkoapplication.activity_goal_entry"
+22-->C:\Users\okolk\AndroidStudioProjects\Ryhm-kaakko-Android-Project\app\src\main\AndroidManifest.xml:12:19-54
+23            android:label="Tavoitteet" />
+23-->C:\Users\okolk\AndroidStudioProjects\Ryhm-kaakko-Android-Project\app\src\main\AndroidManifest.xml:13:13-39
+24        <activity
+24-->C:\Users\okolk\AndroidStudioProjects\Ryhm-kaakko-Android-Project\app\src\main\AndroidManifest.xml:14:9-15:41
+25            android:name="com.example.ryhmakaakkoapplication.activity_diary"
+25-->C:\Users\okolk\AndroidStudioProjects\Ryhm-kaakko-Android-Project\app\src\main\AndroidManifest.xml:14:19-49
+26            android:label="Päiväkirja" />
+26-->C:\Users\okolk\AndroidStudioProjects\Ryhm-kaakko-Android-Project\app\src\main\AndroidManifest.xml:15:13-39
+27        <activity
+27-->C:\Users\okolk\AndroidStudioProjects\Ryhm-kaakko-Android-Project\app\src\main\AndroidManifest.xml:16:9-17:47
+28            android:name="com.example.ryhmakaakkoapplication.activity_entry_display"
+28-->C:\Users\okolk\AndroidStudioProjects\Ryhm-kaakko-Android-Project\app\src\main\AndroidManifest.xml:16:19-57
+29            android:label="Katso merkintöjä" />
+29-->C:\Users\okolk\AndroidStudioProjects\Ryhm-kaakko-Android-Project\app\src\main\AndroidManifest.xml:17:13-45
+30        <activity
+30-->C:\Users\okolk\AndroidStudioProjects\Ryhm-kaakko-Android-Project\app\src\main\AndroidManifest.xml:18:9-19:43
+31            android:name="com.example.ryhmakaakkoapplication.activity_diary_entry"
+31-->C:\Users\okolk\AndroidStudioProjects\Ryhm-kaakko-Android-Project\app\src\main\AndroidManifest.xml:18:19-55
+32            android:label="Tee merkintä" />
+32-->C:\Users\okolk\AndroidStudioProjects\Ryhm-kaakko-Android-Project\app\src\main\AndroidManifest.xml:19:13-41
+33        <activity
+33-->C:\Users\okolk\AndroidStudioProjects\Ryhm-kaakko-Android-Project\app\src\main\AndroidManifest.xml:20:9-27:20
+34            android:name="com.example.ryhmakaakkoapplication.MainActivity"
+34-->C:\Users\okolk\AndroidStudioProjects\Ryhm-kaakko-Android-Project\app\src\main\AndroidManifest.xml:20:19-47
+35            android:label="SugarSteps" >
+35-->C:\Users\okolk\AndroidStudioProjects\Ryhm-kaakko-Android-Project\app\src\main\AndroidManifest.xml:21:13-39
+36            <intent-filter>
+36-->C:\Users\okolk\AndroidStudioProjects\Ryhm-kaakko-Android-Project\app\src\main\AndroidManifest.xml:22:13-26:29
+37                <action android:name="android.intent.action.MAIN" />
+37-->C:\Users\okolk\AndroidStudioProjects\Ryhm-kaakko-Android-Project\app\src\main\AndroidManifest.xml:23:17-69
+37-->C:\Users\okolk\AndroidStudioProjects\Ryhm-kaakko-Android-Project\app\src\main\AndroidManifest.xml:23:25-66
+38
+39                <category android:name="android.intent.category.LAUNCHER" />
+39-->C:\Users\okolk\AndroidStudioProjects\Ryhm-kaakko-Android-Project\app\src\main\AndroidManifest.xml:25:17-77
+39-->C:\Users\okolk\AndroidStudioProjects\Ryhm-kaakko-Android-Project\app\src\main\AndroidManifest.xml:25:27-74
+40            </intent-filter>
+41        </activity>
+42    </application>
+43
+44</manifest>

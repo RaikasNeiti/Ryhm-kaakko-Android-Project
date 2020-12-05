@@ -104,5 +104,20 @@
         app:layout_constraintStart_toStartOf="@+id/bloodsugar"
         app:layout_constraintTop_toTopOf="@+id/bloodsugar" />
 
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        android:text="Keskiarvo"
+        android:textColor="@color/white"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/bloodsugar"
+        app:layout_constraintEnd_toEndOf="@+id/bloodsugar"
+        app:layout_constraintHorizontal_bias="0.531"
+        app:layout_constraintStart_toStartOf="@+id/bloodsugar"
+        app:layout_constraintTop_toTopOf="@+id/bloodsugar"
+        app:layout_constraintVertical_bias="0.178" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

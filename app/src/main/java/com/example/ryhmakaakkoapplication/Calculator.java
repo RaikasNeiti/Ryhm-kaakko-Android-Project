@@ -5,41 +5,42 @@ import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.StateListDrawable;
+import android.util.Log;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 
 public class Calculator {
 
-    private int stepGoal;
-    private float minSugar;
-    private float maxSugar;
-    private int stepcount;
 
-    public Calculator() {
-        this.stepGoal = stepGoal;
-        this.minSugar = minSugar;
-        this.maxSugar = maxSugar;
-        this.stepcount = stepcount;
-    }
-
-    public void colorCalc(int stepGoal, int stepcount, float minSugar, float maxSugar, double roundedDouble, TextView stepsView, TextView bloodsugar)  {       //säätää ympyröiden väriä tavoitteen mukaan
+    public void stepsColor (int stepGoal, int stepcount, TextView stepsView)  {       //säätää ympyröiden väriä tavoitteen mukaan
 
         StateListDrawable stepsViewBackground = (StateListDrawable) stepsView.getBackground();
-        StateListDrawable sugarViewBackground = (StateListDrawable) bloodsugar.getBackground();
 
         if(stepcount < (stepGoal/2))   {
-            stepsViewBackground.setColorFilter(Color.parseColor("#FF0000"), PorterDuff.Mode.SRC_ATOP);
+            stepsViewBackground.setColorFilter(Color.parseColor("#be1f1d"), PorterDuff.Mode.SRC_ATOP);
+            Log.d("test1", "1");
+            Log.d("test1", Integer.toString(stepcount));
+            Log.d("test1", Integer.toString(stepGoal));
+
         } else if (stepcount < stepGoal) {
-            stepsViewBackground.setColorFilter(Color.parseColor("#FFFF00"), PorterDuff.Mode.SRC_ATOP);
+            stepsViewBackground.setColorFilter(Color.parseColor("#ffb400"), PorterDuff.Mode.SRC_ATOP);
+            Log.d("test2", "2");
         } else  {
-            stepsViewBackground.setColorFilter(Color.parseColor("#008000"), PorterDuff.Mode.SRC_ATOP);
+            stepsViewBackground.setColorFilter(Color.parseColor("#005800"), PorterDuff.Mode.SRC_ATOP);
+            Log.d("test2", "3");
         }
 
+    }
+
+    public void sugarColor(float minSugar, float maxSugar, double roundedDouble, TextView bloodsugar)   {
+
+        StateListDrawable sugarViewBackground = (StateListDrawable) bloodsugar.getBackground();
+
         if((roundedDouble <= maxSugar) && (roundedDouble >= minSugar))    {
-            sugarViewBackground.setColorFilter(Color.parseColor("#008000"), PorterDuff.Mode.SRC_ATOP);
+            sugarViewBackground.setColorFilter(Color.parseColor("#005800"), PorterDuff.Mode.SRC_ATOP);
         } else  {
-            sugarViewBackground.setColorFilter(Color.parseColor("#FF0000"), PorterDuff.Mode.SRC_ATOP);
+            sugarViewBackground.setColorFilter(Color.parseColor("#be1f1d"), PorterDuff.Mode.SRC_ATOP);
         }
     }
 
@@ -60,6 +61,9 @@ public class Calculator {
     public String percentageCalc(int stepcount, int stepGoal)  {
         int percentage = (stepcount/stepGoal)*100;
         String strPercentage = percentage + "%";
+        Log.d("test2", strPercentage);
+        Log.d("test2", Integer.toString(stepGoal));
+        Log.d("dsad2", Integer.toString(stepcount));
         return strPercentage;
     }
 

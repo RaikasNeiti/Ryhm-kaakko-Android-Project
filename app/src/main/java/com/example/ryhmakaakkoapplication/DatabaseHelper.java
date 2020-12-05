@@ -97,11 +97,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
             latestRow.add(data.getString(1) + "." + data.getString(2)  + "." + data.getString(3));
             latestRow.add(data.getString(4));
+            data.moveToPrevious();
+            latestRow.add(data.getString(4));
             return latestRow;
         } else  {
             Log.d("db", "Error getting data");
             return latestRow;
         }
     }
+
+
 
 }
