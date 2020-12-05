@@ -19,6 +19,7 @@ public class Steps {
     }
     public void reset(){
         this.numSteps = 0;
-
     }
+
+
 }

@@ -6,8 +6,11 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
+
+import java.util.ArrayList;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String STEPCOUNTER = "STEPCOUNTER";
@@ -17,7 +20,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 
     public DatabaseHelper(@Nullable Context context) {
-        super(context, "stepcounter.db", null, 6);
+        super(context, "stepcounter.db", null, 7);
     }
 
     @Override
@@ -35,7 +38,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public boolean addToDB(int steps, int calories){
+    public boolean addToDB(int steps, int calories){        //pitää yhdistää addtodb ja addtoentrydb
         SQLiteDatabase db = getWritableDatabase();
         ContentValues cv = new ContentValues();
         cv.put("DAY", TimeStamp.date());
@@ -51,7 +54,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
-    public boolean addtoEntryDB(String item)    {
+    public boolean addtoEntryDB(String item, String tableName)    {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
         cv.put("DAY", TimeStamp.date());
@@ -60,7 +63,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         cv.put(COL1, item);
         cv.put("TIME", TimeStamp.hour() + ":" + TimeStamp.minute());
 
-        long insert = db.insert("ENTRY_TABLE", null, cv);
+        long insert = db.insert(tableName, null, cv);
 
         if(insert == -1){
             return false;
@@ -75,17 +78,29 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return data;
     }
 
-
-
-    public int countRows()  {
+    public int countRows(String tableName)  {
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor data = db.rawQuery("SELECT COUNT(*) FROM " + ENTRY_TABLE, null);
+        Cursor data = db.rawQuery("SELECT COUNT(*) FROM " + tableName, null);
         if(data!=null &&  data.moveToFirst()) {
             int count = data.getInt(0);
-            Log.d("db", Integer.toString(count));
             return count;
         } else  {
             return 0;
+        }
+    }
+
+    public ArrayList getLatest(String tableName)    {
+        SQLiteDatabase db = this.getReadableDatabase();
+        ArrayList<String> latestRow = new ArrayList<>();
+        Cursor data = db.rawQuery("SELECT * FROM " + tableName, null); //valitsee viimeisimmän arvon
+        if(data!=null &&  data.moveToLast()) {
+
+            latestRow.add(data.getString(1) + "." + data.getString(2)  + "." + data.getString(3));
+            latestRow.add(data.getString(4));
+            return latestRow;
+        } else  {
+            Log.d("db", "Error getting data");
+            return latestRow;
         }
     }
 

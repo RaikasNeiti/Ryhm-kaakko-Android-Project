@@ -21,30 +21,10 @@ public class activity_diary extends AppCompatActivity {
         CalendarView calendar = findViewById(R.id.calendar);
 
         calendar.setOnDateChangeListener(
-                new CalendarView
-                        .OnDateChangeListener() {
-                    @Override
+                (view, year, month, dayOfMonth) -> {
+                    month++;
+                    katsoMerkinta(view, dayOfMonth, month, year);
 
-                    // In this Listener have one method
-                    // and in this method we will
-                    // get the value of DAYS, MONTH, YEARS
-                    public void onSelectedDayChange(
-                            CalendarView view,
-                            int year,
-                            int month,
-                            int dayOfMonth)
-                    {
-
-                        // Store the value of date with
-                        // format in String type Variable
-                        // Add 1 in month because month
-                        // index is start with 0
-
-                        // set this date in TextView for Display
-                        month++;
-                        katsoMerkinta(view, dayOfMonth, month, year);
-
-                    }
                 });
     }
 

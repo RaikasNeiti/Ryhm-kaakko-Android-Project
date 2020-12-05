@@ -1677,13 +1677,9 @@ id beginOnFirstDraw
 id beginning
 id blocking
 id bloodsugar
-id bloodsugarDesc
 id bloodsugarTitle
 id bottom
 id bounce
-id btn_save
-id btn_start
-id btn_stop
 id button
 id buttonPanel
 id cache_measures
@@ -1773,6 +1769,7 @@ id group_divider
 id grouping
 id groups
 id guideline
+id guideline2
 id hideable
 id home
 id homeAsUp
@@ -1918,6 +1915,8 @@ id startHorizontal
 id startVertical
 id staticLayout
 id staticPostLayout
+id stepPercentageView
+id stepcountView
 id steps
 id stepsDesc
 id stepslider
@@ -1925,6 +1924,8 @@ id stop
 id stretch
 id submenuarrow
 id submit_area
+id sugarDateView
+id sugarView
 id sugarslider
 id tabMode
 id tag_accessibility_actions
@@ -1949,6 +1950,10 @@ id textView
 id textView2
 id textView3
 id textView4
+id textView5
+id textView6
+id textView7
+id textView8
 id text_input_end_icon
 id text_input_start_icon
 id textinput_counter

@@ -2,6 +2,8 @@ package com.example.ryhmakaakkoapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 import com.google.gson.Gson;
+
+import android.content.Context;
 import android.content.Intent;
 import android.hardware.Sensor;
 import android.content.SharedPreferences;
@@ -11,8 +13,9 @@ import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements SensorEventListener, StepListener {
     public static final String EXTRA_MESSAGE = "blaa";
@@ -21,10 +24,10 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     private SensorManager sensorManager;
     private Sensor accel;
     private static final String TAG = "MainActivity";
-    private static final String TEXT_NUM_STEPS = "Number of Steps: ";
     private static final int RESET = 0;
     DatabaseHelper databaseHelper = new DatabaseHelper(MainActivity.this);
     SharedPreferences sharedpreferences;
+    Calculator calculator;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,55 +42,17 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         accel = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
         simpleStepDetector = new StepDetector();
         simpleStepDetector.registerListener(this);
-
-        TextView Steps = findViewById(R.id.tv_steps);
-        Button BtnStart = findViewById(R.id.btn_start);
-        Button BtnStop = findViewById(R.id.btn_stop);
-        Button BtnSave = findViewById(R.id.btn_save);
+        TextView Steps = findViewById(R.id.stepcountView);
         sharedpreferences = getPreferences(MODE_PRIVATE);
         if(sharedpreferences.contains("steps")) {
             Gson gson = new Gson();
             String json = sharedpreferences.getString("steps", "");
             steps = gson.fromJson(json, Steps.class);
         }
-        Steps.setText(TEXT_NUM_STEPS + steps.value());
+        Steps.setText(Integer.toString(steps.value()));
+        updateUI();
 
         //startButton
-        BtnStart.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View arg0) {
-
-
-                sensorManager.registerListener(MainActivity.this, accel, SensorManager.SENSOR_DELAY_FASTEST);
-
-            }
-        });
-
-
-        BtnStop.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View arg0) {
-
-                steps.reset();
-                Steps.setText(TEXT_NUM_STEPS + steps.value());
-                sensorManager.unregisterListener(MainActivity.this);
-            }
-        });
-
-        BtnSave.setOnClickListener(new View.OnClickListener() {
-
-
-            @Override
-            public void onClick(View v) {
-                Steps.setText("Steps Saved");
-                steps.reset();
-                sensorManager.unregisterListener(MainActivity.this);
-            }
-        });
-
-
 
     }
     protected void onPause() {
@@ -103,19 +68,19 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 
     protected void onResume() {
         super.onResume();
+        updateUI();
         TextView Steps = findViewById(R.id.tv_steps);
         if(TimeStamp.date() != sharedpreferences.getInt("date", 0 ) || TimeStamp.month() != sharedpreferences.getInt("month", 0)){
             Log.d(TAG, "Date Gotten" + sharedpreferences.getInt("date", 0));
             databaseHelper.addToDB(steps.value(), 23);
             steps.reset();
-            Steps.setText(TEXT_NUM_STEPS + steps.value());
+            Steps.setText(Integer.toString(steps.value()));
             sensorManager.unregisterListener(MainActivity.this);
 
         } else{
             Log.d(TAG, "Date Same" + sharedpreferences.getInt("date", 0));
         }
     }
-
 
     @Override
     public void onAccuracyChanged(Sensor sensor, int accuracy) {
@@ -131,9 +96,9 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 
     @Override
     public void step(long timeNs) {
-        TextView Steps = findViewById(R.id.tv_steps);
         steps.add();
-        Steps.setText(TEXT_NUM_STEPS + steps.value());
+        TextView Steps = findViewById(R.id.stepcountView);
+        Steps.setText(Integer.toString(steps.value()));
     }
 
     public void openDiary(View view)    {
@@ -151,6 +116,26 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         startActivity(intent);
     }
 
+    public void updateUI()    {
+        int stepGoal;
+        float minSugar, maxSugar;
+        TextView sugarView = findViewById(R.id.sugarView);
+        TextView sugarDateView = findViewById(R.id.sugarDateView);
+        calculator = new Calculator();
+        TextView stepPercentageView = findViewById(R.id.stepPercentageView);
+        ArrayList<String> latest = databaseHelper.getLatest("ENTRY_TABLE");
+        sugarDateView.setText(latest.get(0));
+        sugarView.setText(latest.get(1));
+
+        SharedPreferences sp =
+                getSharedPreferences("Kaakko", Context.MODE_PRIVATE);
+        stepGoal = sp.getInt("stepGoal", 10000);
+        minSugar = sp.getFloat("minSugar", 0);
+        maxSugar = sp.getFloat("maxSugar", 0);
+        stepPercentageView.setText(calculator.percentageCalc(steps.value(),stepGoal));
+
+        calculator.colorCalc(stepGoal, steps.value(), minSugar, maxSugar, Double.parseDouble(latest.get(1)), stepPercentageView, sugarView);
+    }
 
 
 }
