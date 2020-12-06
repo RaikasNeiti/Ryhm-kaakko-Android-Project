@@ -1554,6 +1554,7 @@ drawable design_ic_visibility
 drawable design_ic_visibility_off
 drawable design_password_eye
 drawable design_snackbar_background
+drawable diaryicon
 drawable ic_launcher_background
 drawable ic_launcher_foreground
 drawable ic_mtrl_checked_circle
@@ -1577,6 +1578,7 @@ drawable mtrl_popupmenu_background
 drawable mtrl_popupmenu_background_dark
 drawable mtrl_tabs_default_indicator
 drawable navigation_empty_icon
+drawable note
 drawable notification_action_background
 drawable notification_bg
 drawable notification_bg_low
@@ -1590,6 +1592,8 @@ drawable notification_template_icon_low_bg
 drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
 drawable round_textview
+drawable rounded_rectangle_textview
+drawable roundedrectangle
 drawable runner
 drawable settings
 drawable test_custom_background
@@ -1707,7 +1711,6 @@ id clip_horizontal
 id clip_vertical
 id collapseActionView
 id confirm_button
-id constraintLayout
 id container
 id content
 id contentPanel
@@ -1787,6 +1790,7 @@ id ignore
 id ignoreRequest
 id image
 id imageView
+id imageView2
 id info
 id invisible
 id italic
@@ -1861,6 +1865,7 @@ id percent
 id pin
 id position
 id postLayout
+id progressBar
 id progress_circular
 id progress_horizontal
 id radio
@@ -1958,8 +1963,6 @@ id textView
 id textView2
 id textView3
 id textView4
-id textView6
-id textView8
 id text_input_end_icon
 id text_input_start_icon
 id textinput_counter

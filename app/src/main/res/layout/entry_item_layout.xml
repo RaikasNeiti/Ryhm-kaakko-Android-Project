@@ -5,6 +5,4 @@
     android:padding="12sp"
     android:textColor="@color/white"
     android:background="@color/LIGHTBLUE">
-
-
 </TextView>

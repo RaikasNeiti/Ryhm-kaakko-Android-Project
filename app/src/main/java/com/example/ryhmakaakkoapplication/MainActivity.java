@@ -14,6 +14,7 @@ import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -53,8 +54,6 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         }
         Steps.setText(Integer.toString(steps.value()));
         updateUI();
-
-        //startButton
 
     }
     protected void onPause() {
@@ -121,28 +120,33 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     public void updateUI()    {
         int stepGoal;
         float minSugar, maxSugar;
+        calculator = new Calculator();
         TextView sugarView = findViewById(R.id.sugarView);
         TextView sugarDateView = findViewById(R.id.sugarDateView);
         TextView differenceView = findViewById(R.id.differenceView);
-        calculator = new Calculator();
         TextView stepPercentageView = findViewById(R.id.stepPercentageView);
-        ArrayList<String> latest = databaseHelper.getLatest("ENTRY_TABLE");
-        SharedPreferences sp =
+        ProgressBar progressBar = findViewById(R.id.progressBar);
+
+        ArrayList<String> latest = databaseHelper.getLatest("ENTRY_TABLE");     //Datan haku tietokannasta
+        SharedPreferences sp =                                                             //Datan haku SharedPreferences
                 getSharedPreferences("Kaakko", Context.MODE_PRIVATE);
         stepGoal = sp.getInt("stepGoal", 10000);
         minSugar = sp.getFloat("minSugar", 0);
         maxSugar = sp.getFloat("maxSugar", 0);
-        stepPercentageView.setText(calculator.percentageCalc(steps.value(),stepGoal));
-        calculator.stepsColor(stepGoal, steps.value(), stepPercentageView);
+
         if(!latest.isEmpty())   {
             sugarDateView.setText(latest.get(0));
             sugarView.setText(latest.get(1));
-            differenceView.setText("+/- " + Float.toString(Math.abs(Float.parseFloat(latest.get(1)) - Float.parseFloat(latest.get(2)))));
+            differenceView.setText(calculator.diffCalc(latest));
             calculator.sugarColor(minSugar, maxSugar, Double.parseDouble(latest.get(1)), sugarView);
         } else  {
             sugarDateView.setText("Ei merkintöjä");
             sugarView.setText("0");
         }
+
+        stepPercentageView.setText(calculator.percentCalc(steps.value(), stepGoal) + "%");
+        progressBar.setProgress(Math.round(((float) steps.value()/stepGoal)*100));
+        calculator.progressColor(stepGoal, steps.value(), progressBar);
 
     }
 

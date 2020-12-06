@@ -2,49 +2,42 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/constraintLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
-    android:label="This is the Hello World Application">
-
+    tools:context=".MainActivity">
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="330dp"
-        android:layout_height="356dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginLeft="40dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="148dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.138"
-        app:srcCompat="@drawable/circle" />
+        app:layout_constraintTop_toTopOf="@+id/tv_steps"
+        app:srcCompat="@drawable/rounded_rectangle_textview" />
 
     <TextView
         android:id="@+id/stepPercentageView"
-        android:layout_width="75dp"
-        android:layout_height="75dp"
-        android:layout_marginTop="220dp"
-        android:layout_marginBottom="61dp"
-        android:background="@drawable/round_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="119dp"
+        android:layout_marginEnd="78dp"
+        android:layout_marginRight="78dp"
+        android:background="@null"
         android:gravity="center"
         android:shape="oval"
         android:text="0%"
         android:textColor="@color/white"
         android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView"
         app:layout_constraintEnd_toEndOf="@+id/imageView"
-        app:layout_constraintHorizontal_bias="0.65"
-        app:layout_constraintStart_toStartOf="@+id/imageView"
-        app:layout_constraintTop_toTopOf="@+id/imageView"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toTopOf="@+id/imageView" />
 
     <TextView
         android:id="@+id/sugarView"
         android:layout_width="85dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="424dp"
         android:height="85dp"
         android:background="@drawable/round_textview"
         android:gravity="center"
@@ -53,8 +46,9 @@
         android:textColor="@color/white"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tv_steps"
@@ -73,6 +67,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="96dp"
         android:onClick="openNote"
+        android:stateListAnimator="@null"
         android:text="UUSI MERKINTÄ"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -83,6 +78,7 @@
         android:layout_width="400dp"
         android:layout_height="wrap_content"
         android:onClick="openDiary"
+        android:stateListAnimator="@null"
         android:text="PÄIVÄKIRJA"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -93,6 +89,7 @@
         android:layout_width="400dp"
         android:layout_height="wrap_content"
         android:onClick="openGoal"
+        android:stateListAnimator="@null"
         android:text="Muokkaa tavoitteita"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -102,29 +99,19 @@
         android:id="@+id/stepcountView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="32dp"
+        android:layout_marginStart="88dp"
+        android:layout_marginLeft="88dp"
+        android:layout_marginTop="58dp"
+        android:layout_marginEnd="86dp"
+        android:layout_marginRight="86dp"
         android:background="@null"
         android:gravity="center"
         android:text="0"
         android:textColor="#FFFFFF"
         android:textSize="46sp"
-        app:layout_constraintBottom_toTopOf="@+id/stepPercentageView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.522"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@null"
-        android:gravity="center"
-        android:text="askelta"
-        android:textColor="#FFFFFF"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.53"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/stepcountView" />
+        app:layout_constraintEnd_toEndOf="@+id/imageView"
+        app:layout_constraintStart_toStartOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="@+id/imageView" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline2"
@@ -132,18 +119,13 @@
         android:layout_height="wrap_content"
         android:background="@null"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.50121653" />
+        app:layout_constraintGuide_percent="0.53" />
 
     <TextView
         android:id="@+id/sugarDesc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginLeft="12dp"
-        android:layout_marginTop="43dp"
-        android:layout_marginEnd="13dp"
-        android:layout_marginRight="13dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="13dp"
         android:background="@null"
         android:gravity="center"
         android:text="mmol/L"
@@ -152,22 +134,7 @@
         android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="@+id/sugarView"
         app:layout_constraintEnd_toEndOf="@+id/sugarView"
-        app:layout_constraintStart_toStartOf="@+id/sugarView"
-        app:layout_constraintTop_toTopOf="@+id/sugarView" />
-
-    <TextView
-        android:id="@+id/textView8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="74dp"
-        android:layout_marginRight="74dp"
-        android:background="@null"
-        android:gravity="center"
-        android:text="päivän tavoitteesta"
-        android:textColor="#FFFFFF"
-        android:textSize="12sp"
-        app:layout_constraintEnd_toEndOf="@+id/imageView"
-        app:layout_constraintTop_toBottomOf="@+id/stepPercentageView" />
+        app:layout_constraintStart_toStartOf="@+id/sugarView" />
 
     <TextView
         android:id="@+id/sugarDateView"
@@ -178,21 +145,51 @@
         android:text="dd.mm.yy"
         android:textColor="#FFFFFF"
         android:textSize="10sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/sugarView"
+        app:layout_constraintStart_toStartOf="@+id/sugarView"
         app:layout_constraintTop_toBottomOf="@+id/sugarView" />
 
     <TextView
         android:id="@+id/differenceView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="9dp"
+        android:layout_marginStart="14dp"
+        android:layout_marginLeft="14dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="14dp"
+        android:layout_marginRight="14dp"
+        android:layout_marginBottom="54dp"
         android:background="@null"
-        android:text="TextView"
+        android:gravity="center"
         android:textColor="@color/white"
-        app:layout_constraintEnd_toStartOf="@+id/guideline2"
-        app:layout_constraintStart_toStartOf="@+id/guideline2"
+        app:layout_constraintBottom_toBottomOf="@+id/sugarView"
+        app:layout_constraintEnd_toEndOf="@+id/sugarView"
+        app:layout_constraintStart_toStartOf="@+id/sugarView"
         app:layout_constraintTop_toTopOf="@+id/sugarView" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="173dp"
+        android:layout_height="10dp"
+        android:layout_marginTop="159dp"
+        android:layout_marginEnd="13dp"
+        android:layout_marginRight="13dp"
+        android:background="@null"
+        app:layout_constraintEnd_toEndOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="@+id/imageView" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="84dp"
+        android:layout_marginRight="84dp"
+        android:background="@null"
+        app:layout_constraintEnd_toEndOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="@+id/imageView"
+        app:srcCompat="@drawable/runner" />
 
     <!-- Add CalenderView to display the Calender -->
 

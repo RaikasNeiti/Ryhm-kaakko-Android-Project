@@ -20,7 +20,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 
     public DatabaseHelper(@Nullable Context context) {
-        super(context, "stepcounter.db", null, 8);
+        super(context, "stepcounter.db", null, 12);
     }
 
     @Override
@@ -95,11 +95,17 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         Cursor data = db.rawQuery("SELECT * FROM " + tableName, null); //valitsee viimeisimmän arvon
         if(data!=null &&  data.moveToLast()) {
 
-            latestRow.add(data.getString(1) + "." + data.getString(2)  + "." + data.getString(3));
+            latestRow.add(data.getString(1) + "." + data.getString(2)  + "." + data.getString(3) + " " + data.getString(5));
             latestRow.add(data.getString(4));
-            data.moveToPrevious();
-            latestRow.add(data.getString(4));
+
+            if(data!=null && data.moveToPrevious()) {
+                latestRow.add(data.getString(4));
+            } else  {
+                data.moveToNext();
+                latestRow.add(data.getString(4));
+            }
             return latestRow;
+
         } else  {
             Log.d("db", "Error getting data");
             return latestRow;

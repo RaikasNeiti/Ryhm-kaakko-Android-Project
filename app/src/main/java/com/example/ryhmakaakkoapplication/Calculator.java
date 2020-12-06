@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.StateListDrawable;
 import android.util.Log;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -19,18 +20,25 @@ public class Calculator {
 
         if(stepcount < (stepGoal/2))   {
             stepsViewBackground.setColorFilter(Color.parseColor("#be1f1d"), PorterDuff.Mode.SRC_ATOP);
-            Log.d("test1", "1");
-            Log.d("test1", Integer.toString(stepcount));
-            Log.d("test1", Integer.toString(stepGoal));
-
         } else if (stepcount < stepGoal) {
             stepsViewBackground.setColorFilter(Color.parseColor("#ffb400"), PorterDuff.Mode.SRC_ATOP);
-            Log.d("test2", "2");
         } else  {
             stepsViewBackground.setColorFilter(Color.parseColor("#005800"), PorterDuff.Mode.SRC_ATOP);
-            Log.d("test2", "3");
         }
 
+    }
+
+    public void progressColor(int stepGoal, int stepcount, ProgressBar progressBar) {
+        if(stepcount < (stepGoal/2))   {
+            progressBar.getProgressDrawable().setColorFilter(
+                    Color.parseColor("#be1f1d"), android.graphics.PorterDuff.Mode.SRC_IN);
+        } else if (stepcount < stepGoal) {
+            progressBar.getProgressDrawable().setColorFilter(
+                    Color.parseColor("#ffb400"), android.graphics.PorterDuff.Mode.SRC_IN);
+        } else  {
+            progressBar.getProgressDrawable().setColorFilter(
+                    Color.parseColor("#005800"), android.graphics.PorterDuff.Mode.SRC_IN);
+        }
     }
 
     public void sugarColor(float minSugar, float maxSugar, double roundedDouble, TextView bloodsugar)   {
@@ -45,8 +53,6 @@ public class Calculator {
     }
 
 
-
-
     public double avgCalc(ArrayList<Double> list)  {
         double roundedDouble;
         double sum = 0;
@@ -58,15 +64,13 @@ public class Calculator {
         return roundedDouble;
     }
 
-    public String percentageCalc(int stepcount, int stepGoal)  {
-        int percentage = (stepcount/stepGoal)*100;
-        String strPercentage = percentage + "%";
-        Log.d("test2", strPercentage);
-        Log.d("test2", Integer.toString(stepGoal));
-        Log.d("dsad2", Integer.toString(stepcount));
-        return strPercentage;
+    public int percentCalc(int stepcount, int stepGoal)  {
+        return Math.round(((float) stepcount/stepGoal)*100);
     }
 
+    public String diffCalc(ArrayList<String> latest)    {
+       return "+/- " + Math.abs(Float.parseFloat(latest.get(1)) - Float.parseFloat(latest.get(2)));
+    }
 
 
 }
