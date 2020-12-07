@@ -63,11 +63,11 @@ public class activity_entry_display extends AppCompatActivity {
     }
 
     private void UpdateListView() {
-        Cursor data = mDatabaseHelper.getData("ENTRY_TABLE");
+        Cursor data = mDatabaseHelper.getData("DIARY");
         ArrayList<String> listData = new ArrayList<>();
         ArrayList<Double> doubleList = new ArrayList<>();
         data.moveToLast();      //vaihdetaan tietokannan läpikäynti käänteiseksi, jotta listassa olisi aikajärjestys
-        for(int i = 0; i < mDatabaseHelper.countRows("ENTRY_TABLE"); i++)    {//käydään läpi tietokanta keskiarvolaskuria ja oikean timestampin löytämistä varten
+        for(int i = 0; i < mDatabaseHelper.countRows("DIARY"); i++)    {//käydään läpi tietokanta keskiarvolaskuria ja oikean timestampin löytämistä varten
             dayData = data.getInt(1);
             monthData = data.getInt(2);
             yearData = data.getInt(3);
