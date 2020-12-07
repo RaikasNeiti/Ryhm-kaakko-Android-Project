@@ -1,4 +1,7 @@
 package com.example.ryhmakaakkoapplication;
+/**
+ * http://www.gadgetsaint.com/android/create-pedometer-step-counter-android/#.X83sxGgza-Z
+ */
 
 public class StepDetector {
 
@@ -24,9 +27,10 @@ public class StepDetector {
     /**
      * Ei Ole meidän
      * tutorial löytyy
-     * http://www.gadgetsaint.com/android/create-pedometer-step-counter-android/#.X83sxGgza-Z
+     *http://www.gadgetsaint.com/android/create-pedometer-step-counter-android/#.X83sxGgza-Z
      *
      */
+
     public void registerListener(StepListener listener) {
         this.listener = listener;
     }

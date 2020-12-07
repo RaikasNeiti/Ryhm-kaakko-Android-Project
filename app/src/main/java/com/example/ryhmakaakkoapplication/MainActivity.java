@@ -54,6 +54,9 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         simpleStepDetector = new StepDetector();
         simpleStepDetector.registerListener(this);
         TextView Steps = findViewById(R.id.stepcountView);
+
+        sensorManager.registerListener(MainActivity.this, accel, SensorManager.SENSOR_DELAY_FASTEST);
+
         sharedpreferences = getPreferences(MODE_PRIVATE);
         if(sharedpreferences.contains("steps")) {
             Gson gson = new Gson();
@@ -85,19 +88,32 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     protected void onResume() {
         super.onResume();
         updateUI();
-        TextView Steps = findViewById(R.id.tv_steps);
+        TextView Steps = findViewById(R.id.stepcountView);
         if(TimeStamp.date() != sharedpreferences.getInt("date", 0 ) || TimeStamp.month() != sharedpreferences.getInt("month", 0)){
-            Log.d(TAG, "Date Gotten" + sharedpreferences.getInt("date", 0));
-            databaseHelper.addToStepCounter(steps.value());
+            databaseHelper.addToStepCounter(steps.value(), sharedpreferences.getInt("date", 0), sharedpreferences.getInt("month",0));
             steps.reset();
             Steps.setText(Integer.toString(steps.value()));
-            sensorManager.unregisterListener(MainActivity.this);
+
+
+            SharedPreferences sp =                                                             //Datan haku SharedPreferences
+                    getSharedPreferences("Kaakko", Context.MODE_PRIVATE);
+            int stepGoal = sp.getInt("stepGoal", 10000);
+            TextView stepPercentageView = findViewById(R.id.stepPercentageView);
+            stepPercentageView.setText(calculator.percentCalc(steps.value(), stepGoal) + "%");
+            ProgressBar progressBar = findViewById(R.id.progressBar);
+            progressBar.setProgress(Math.round(calculator.percentCalc(steps.value(), stepGoal)));
+            calculator.progressColor(stepGoal, steps.value(), progressBar);
 
         } else{
             Log.d(TAG, "Date Same" + sharedpreferences.getInt("date", 0));
         }
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        sensorManager.unregisterListener(MainActivity.this);
+    }
 
     @Override
     public void onAccuracyChanged(Sensor sensor, int accuracy) {
@@ -108,6 +124,17 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         if (event.sensor.getType() == Sensor.TYPE_ACCELEROMETER) {
             simpleStepDetector.updateAccel(
                     event.timestamp, event.values[0], event.values[1], event.values[2]);
+
+            SharedPreferences sp =                                                             //Datan haku SharedPreferences
+                    getSharedPreferences("Kaakko", Context.MODE_PRIVATE);
+            int stepGoal = sp.getInt("stepGoal", 10000);
+            TextView stepPercentageView = findViewById(R.id.stepPercentageView);
+            stepPercentageView.setText(calculator.percentCalc(steps.value(), stepGoal) + "%");
+            ProgressBar progressBar = findViewById(R.id.progressBar);
+            progressBar.setProgress(Math.round(calculator.percentCalc(steps.value(), stepGoal)));
+            calculator.progressColor(stepGoal, steps.value(), progressBar);
+
+
         }
     }
 
@@ -173,7 +200,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         }
 
         stepPercentageView.setText(calculator.percentCalc(steps.value(), stepGoal) + "%");
-        progressBar.setProgress(Math.round(((float) steps.value()/stepGoal)*100));
+        progressBar.setProgress(Math.round(calculator.percentCalc(steps.value(), stepGoal)));
         calculator.progressColor(stepGoal, steps.value(), progressBar);
     }
 

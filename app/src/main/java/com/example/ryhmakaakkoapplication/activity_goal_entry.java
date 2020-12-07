@@ -28,7 +28,7 @@ public class activity_goal_entry extends AppCompatActivity {
         stepslider.setLabelFormatter(value -> value + " askelta");
         SharedPreferences sp =
                 getSharedPreferences("Kaakko", Context.MODE_PRIVATE);
-        sugarslider.setValues(sp.getFloat("minSugar", 0), sp.getFloat("maxSugar", 12));
+        sugarslider.setValues(sp.getFloat("minSugar", 4), sp.getFloat("maxSugar", 10));
         stepslider.setValue(sp.getInt("stepGoal", 10000));
         stepslider.addOnChangeListener(new Slider.OnChangeListener() {
             @Override

@@ -72,20 +72,20 @@ public class activity_entry_display extends AppCompatActivity {
             monthData = data.getInt(2);
             yearData = data.getInt(3);
             timeData = data.getString(5);
-            doubleList.add(Double.parseDouble(data.getString(4)));
-            listData.add(dayData + "." + monthData + "." + yearData + " " + timeData + " " + data.getString(4) + " mmol/L");
+            Log.d("Testi", Integer.toString(dayData) + Integer.toString(dayOfMonth));
             if((monthData == month) && (dayData == dayOfMonth) && (yearData == year)) {       //jos tietokannan timestamp on sama kuin klikatun päivämäärän
+                doubleList.add(Double.parseDouble(data.getString(4)));
+                listData.add(dayData + "." + monthData + "." + yearData + " " + timeData + " " + data.getString(4) + " mmol/L");
+
                 entriesListView.setAdapter(new ArrayAdapter<>(
                         this,
                         R.layout.entry_item_layout,
                         listData
                 ));
-                sugarView.setText(Double.toString(calculator.avgCalc(doubleList)));
+                roundedDouble = calculator.avgCalc(doubleList);
+                sugarView.setText(Double.toString(roundedDouble));
+
                 Log.d("db", "ka asetettu");
-            } else  {
-                Log.d("db", "ka nollattu");
-                sugarView.setText("0");
-                bloodsugarTitle.setText("");
             }
             data.moveToPrevious();
 
@@ -98,10 +98,10 @@ public class activity_entry_display extends AppCompatActivity {
         while(data.moveToNext())    {                                                         //käydään läpi tietokanta keskiarvolaskuria ja oikean timestampin löytämistä varten
             dayData = data.getInt(1);
             monthData = data.getInt(2);
-            yearData = data.getInt(3);
 
-            if((monthData == month) && (dayData == dayOfMonth) && (yearData == year))   {
-                stepcount = data.getInt(4);
+
+            if((monthData == month) && (dayData == dayOfMonth))   {
+                stepcount = data.getInt(3);
                 stepsView.setText(Integer.toString(stepcount));
             } else  {
                 Log.d("db", "päivämäärällä ei askelmerkintöjä");
@@ -114,8 +114,8 @@ public class activity_entry_display extends AppCompatActivity {
         SharedPreferences sp =
                 getSharedPreferences("Kaakko", Context.MODE_PRIVATE);
         stepGoal = sp.getInt("stepGoal", 10000);
-        minSugar = sp.getFloat("minSugar", 0);
-        maxSugar  = sp.getFloat("maxSugar", 14);
+        minSugar = sp.getFloat("minSugar", 4);
+        maxSugar  = sp.getFloat("maxSugar", 10);
         calculator.sugarColor(minSugar, maxSugar, roundedDouble, sugarView);
         calculator.stepsColor(stepGoal, stepcount, stepsView);
     }

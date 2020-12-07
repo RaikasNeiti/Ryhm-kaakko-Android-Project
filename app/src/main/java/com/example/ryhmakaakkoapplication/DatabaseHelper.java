@@ -2,9 +2,11 @@ package com.example.ryhmakaakkoapplication;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -17,6 +19,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String STEPCOUNTER = "STEPCOUNTER";
     public static final String DIARY = "DIARY";
     private static final String COL1 = "glukoosi";
+
+    SharedPreferences sharedpreferences;
 
     /**
      * Luokan konstruktori
@@ -57,11 +61,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
      * @param steps int , askellaskurin askelmäärä
      * @return boolean tietokantaan syötön virhetarkistus (true onnistuessa, false epäonnistuessa)
      */
-    public boolean addToStepCounter(int steps) {
+    public boolean addToStepCounter(int steps, int day , int month) {
+
+
+
         SQLiteDatabase db = getWritableDatabase();
         ContentValues cv = new ContentValues();
-        cv.put("DAY", TimeStamp.date());
-        cv.put("MONTH", TimeStamp.month());
+        cv.put("DAY", day);
+        cv.put("MONTH", month);
         cv.put("STEPS", steps);
 
         long insert = db.insert("STEPCOUNTER", null, cv);
