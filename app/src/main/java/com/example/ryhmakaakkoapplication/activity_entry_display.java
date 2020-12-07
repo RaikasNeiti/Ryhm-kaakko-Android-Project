@@ -11,13 +11,15 @@ import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-
-
-
 import java.util.ArrayList;
 
+/**
+ * activity_diary_entry_display -luokassa näytetään tietoja valitun päivän merkinnöistä
+ * @author Olli Kolkki, Felix Uimonen, Joni Tahvanainen, Teemu Olkkonen
+ * @version 1.0 12/2020
+ */
+
 public class activity_entry_display extends AppCompatActivity {
-    static final String EXTRA_ENTRY_INDEX = "com.example.RyhmaKaakko_Application.EXTRA_PRESIDENT_INDEX";
 
     private int dayOfMonth;
     private int month;
@@ -39,7 +41,10 @@ public class activity_entry_display extends AppCompatActivity {
     private String timeData;
     private Calculator calculator;
 
-
+    /*
+     * Funktio, joka kutsutaan kun aktiviteetti luodaan.
+     * @param savedInstanceState = referenssi Bundle-objektiin, joka annetaan onCreate-funktiolle
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,6 +67,11 @@ public class activity_entry_display extends AppCompatActivity {
         UpdateColor();
     }
 
+    /**
+     * Funktio listanäkymän päivittämistä varten
+     * Aluksi haetaan tiedot tietokannasta, jos tietokannan timestamp
+     * on sama kuin käyttäjän valitseman päivän, lista päivitetään sen päivän tiedoilla
+     */
     private void UpdateListView() {
         Cursor data = mDatabaseHelper.getData("DIARY");
         ArrayList<String> listData = new ArrayList<>();
@@ -92,6 +102,9 @@ public class activity_entry_display extends AppCompatActivity {
         }
     }
 
+    /**
+     * Päivitetään näkymä päivän askelten määrällä, joka haetaan tietokannasta
+     */
     private void UpdateSteps()  {
         Cursor data = mDatabaseHelper.getData("STEPCOUNTER");
 
@@ -110,6 +123,9 @@ public class activity_entry_display extends AppCompatActivity {
         }
     }
 
+    /**
+     * Haetaan tiedot tiedot funktioille, jotka vaihtavat elementtien värejä.
+     */
     private void UpdateColor()  {
         SharedPreferences sp =
                 getSharedPreferences("Kaakko", Context.MODE_PRIVATE);

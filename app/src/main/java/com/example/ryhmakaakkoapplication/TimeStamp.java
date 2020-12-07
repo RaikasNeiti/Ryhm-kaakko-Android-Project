@@ -23,7 +23,7 @@ public class TimeStamp {
     public static int month(){
         /**
          *
-         * Otamme Päivämäärän ja formatoimme sen vain kuukausiksi
+         * Otamme päivämäärän ja formatoimme sen vain kuukausiksi
          * esimerkiksi nyt funktio palauttaisi formatted month = Dec
          * joka pitää muuttaa numeroiksi joka tapahtuu alhaalla  if lauseilla
          * katsomme mikä kuukausi se on ja muutamme sen vain numeroksi.
