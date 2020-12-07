@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     private Sensor accel;
     private static final String TAG = "MainActivity";
     private static final int RESET = 0;
+    //ssss
 
     DatabaseHelper databaseHelper = new DatabaseHelper(MainActivity.this);
     SharedPreferences sharedpreferences;
@@ -43,8 +44,13 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         accel = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
         simpleStepDetector = new StepDetector();
         simpleStepDetector.registerListener(this);
+
+        sensorManager.registerListener(MainActivity.this, accel, SensorManager.SENSOR_DELAY_FASTEST);
+
         TextView Steps = findViewById(R.id.stepcountView);
         sharedpreferences = getPreferences(MODE_PRIVATE);
+
+
         if(sharedpreferences.contains("steps")) {
             Gson gson = new Gson();
             String json = sharedpreferences.getString("steps", "");
@@ -90,6 +96,16 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         if (event.sensor.getType() == Sensor.TYPE_ACCELEROMETER) {
             simpleStepDetector.updateAccel(
                     event.timestamp, event.values[0], event.values[1], event.values[2]);
+
+            TextView stepPercentageView = findViewById(R.id.stepPercentageView);
+            ProgressBar progressBar = findViewById(R.id.progressBar);
+            SharedPreferences sp =                                                             //Datan haku SharedPreferences
+                    getSharedPreferences("Kaakko", Context.MODE_PRIVATE);
+
+            int stepGoal = sp.getInt("stepGoal", 10000);
+            stepPercentageView.setText(calculator.percentCalc(steps.value(), stepGoal) + "%");
+            progressBar.setProgress(calculator.percentCalc(steps.value(),stepGoal));
+            calculator.progressColor(stepGoal, steps.value(), progressBar);
         }
     }
 
@@ -143,7 +159,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         }
 
         stepPercentageView.setText(calculator.percentCalc(steps.value(), stepGoal) + "%");
-        progressBar.setProgress(Math.round(((float) steps.value()/stepGoal)*100));
+        progressBar.setProgress(calculator.percentCalc(steps.value(),stepGoal));
         calculator.progressColor(stepGoal, steps.value(), progressBar);
     }
 
