@@ -141,7 +141,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         TextView stepPercentageView = findViewById(R.id.stepPercentageView);
         ProgressBar progressBar = findViewById(R.id.progressBar);
 
-        ArrayList<String> latest = databaseHelper.getLatest("DIARY");     //Datan haku tietokannasta
+        ArrayList<String> latest = databaseHelper.getTwoLatest("DIARY");     //Datan haku tietokannasta
         SharedPreferences sp =                                                             //Datan haku SharedPreferences
                 getSharedPreferences("Kaakko", Context.MODE_PRIVATE);
         stepGoal = sp.getInt("stepGoal", 10000);

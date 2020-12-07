@@ -12,16 +12,24 @@ import androidx.annotation.Nullable;
 
 import java.util.ArrayList;
 
+
 public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String STEPCOUNTER = "STEPCOUNTER";
     public static final String DIARY = "DIARY";
     private static final String COL1 = "glukoosi";
 
-
+    /**
+     * Luokan konstruktori
+     * @param context https://docs.oracle.com/javase/7/docs/api/javax/naming/Context.html
+     */
     public DatabaseHelper(@Nullable Context context) {
         super(context, "SugarSteps.db", null, 1);
     }
 
+    /**
+     * Määrittellään databasen taulut ja niiden columnit sekä luodaan tarvittaessa luodaan database.
+     * @param db SQlite tietokannan luokka
+     */
     @Override
     public void onCreate(SQLiteDatabase db) {
         String createTable = "CREATE TABLE " + STEPCOUNTER + "(ID INTEGER PRIMARY KEY AUTOINCREMENT, DAY INTEGER, MONTH INTEGER, STEPS INTEGER)";
@@ -30,6 +38,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(createEntryTable);
     }
 
+    /**
+     * Tarkistaa onko databasen versio muuttuunut. tekee tarvittavat muutokset tietokantaan jos tietokannasta
+     * on uusi versio saatavilla
+     * @param db SQlite tietokannan luokka
+     * @param oldVersion Olemassa olevan tietokannan versioumero
+     * @param newVersion Tietokannan uusin versionumero
+     */
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS " + STEPCOUNTER);
@@ -37,6 +52,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
+    /**
+     * Lisää arvoja tauluun STEPCOUNTER.
+     * @param steps int , askellaskurin askelmäärä
+     * @return boolean tietokantaan syötön virhetarkistus (true onnistuessa, false epäonnistuessa)
+     */
     public boolean addToStepCounter(int steps) {
         SQLiteDatabase db = getWritableDatabase();
         ContentValues cv = new ContentValues();
@@ -52,6 +72,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
+    /**
+     * Lisää arvoja tauluun Diary
+     * @param item Verensokerin syötetty arvo
+     * @param tableName Taulun nimi
+     * @return boolean tietokantaan syötön virhetarkistus (true onnistuessa, false epäonnistuessa)
+     */
     public boolean addToDiary(String item, String tableName) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
@@ -70,12 +96,22 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
+    /**
+     * Palauttaa tietokannan taulun
+     * @param table Taulun nimi
+     * @return  palauttaa halutun taulun sisällön
+     */
     public Cursor getData(String table) {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor data = db.rawQuery("SELECT * FROM " + table, null); //valitsee taulun nimen
         return data;
     }
 
+    /**
+     * Laskee taulusa olevien rivien määrän
+     * @param tableName Taulun nimi
+     * @return int taulun rivien määrän
+     */
     public int countRows(String tableName) {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor data = db.rawQuery("SELECT COUNT(*) FROM " + tableName, null);
@@ -87,7 +123,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
-    public ArrayList getLatest(String tableName) {
+    /**
+     * hakee taulun kaksi viimeistä riviä
+     * @param tableName Taulun nimi
+     * @return ArrayList<String> taulun kaksi viimeistä arvoa
+     */
+    public ArrayList getTwoLatest(String tableName) {
         SQLiteDatabase db = this.getReadableDatabase();
         ArrayList<String> latestRow = new ArrayList<>();
         Cursor data = db.rawQuery("SELECT * FROM " + tableName, null); //valitsee viimeisimmän arvon
