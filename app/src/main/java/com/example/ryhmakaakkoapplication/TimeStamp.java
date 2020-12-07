@@ -9,6 +9,8 @@ import java.util.Date;
 import java.util.Locale;
 
 public class TimeStamp {
+
+
     public static int DATE;
     public static int MINUTE;
     public static int HOURS;
@@ -19,13 +21,23 @@ public class TimeStamp {
 
     }
     public static int month(){
+        /**
+         *
+         * Otamme Päivämäärän ja formatoimme sen vain kuukausiksi
+         * esimerkiksi nyt funktio palauttaisi formatted month = Dec
+         * joka pitää muuttaa numeroiksi joka tapahtuu alhaalla  if lauseilla
+         * katsomme mikä kuukausi se on ja muutamme sen vain numeroksi.
+         * ja palautemme kuukaudeksi
+         *
+         */
+
         //Date
         Date c = Calendar.getInstance().getTime();
 
         SimpleDateFormat month = new SimpleDateFormat("MMM", Locale.getDefault());
         String formattedMonth = month.format(c);
 
-        //Changing the month to a int number
+
         if (formattedMonth.equals("Jan")) {
             monthNumber = 1;
         } else if (formattedMonth.equals("Feb")) {
@@ -55,6 +67,14 @@ public class TimeStamp {
     }
 
     public static int date(){
+        /**
+         *
+         * Otamme Päivämäärän ja formatoimme sen vain Päiväksi
+         * joka tuo c muuttujalle esimerkiksi arvon 7. joka palautetaan main activityyn.
+         * ja palautemme päivän
+         *
+         */
+
         Date c = Calendar.getInstance().getTime();
 
         SimpleDateFormat date = new SimpleDateFormat("dd", Locale.getDefault());
@@ -63,7 +83,14 @@ public class TimeStamp {
         return DATE;
     }
 
+
     public static int year(){
+        /**
+         *
+         * Otamme Päivämäärän ja formatoimme sen vain vuodeksi
+         * ja palautemme vuoden
+         */
+
         Date c = Calendar.getInstance().getTime();
 
         SimpleDateFormat year = new SimpleDateFormat("yyyy", Locale.getDefault());
@@ -73,6 +100,12 @@ public class TimeStamp {
     }
 
     public static int minute(){
+        /**
+         *
+         * Otamme Päivämäärän ja formatoimme sen vain minuuteiksi
+         * ja palautemme minuutti
+         *
+         */
         Date c = Calendar.getInstance().getTime();
 
         SimpleDateFormat minutes = new SimpleDateFormat("mm", Locale.getDefault());
@@ -82,6 +115,13 @@ public class TimeStamp {
     }
 
     public static int hour(){
+        /**
+         *
+         * Otamme Päivämäärän ja formatoimme sen vain tunneiksi
+         * ja palautemme tunti
+         *
+         *
+         */
         Date c = Calendar.getInstance().getTime();
 
         SimpleDateFormat hour = new SimpleDateFormat("HH", Locale.getDefault());
