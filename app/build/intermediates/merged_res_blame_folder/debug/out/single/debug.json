@@ -4,10 +4,6 @@
         "source": "C:\\Users\\okolk\\AndroidStudioProjects\\Ryhm-kaakko-Android-Project\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v24\\ic_launcher_foreground.xml"
     },
     {
-        "merged": "C:\\Users\\okolk\\AndroidStudioProjects\\Ryhm-kaakko-Android-Project\\app\\build\\intermediates\\res\\merged\\debug\\drawable_diaryicon.png.flat",
-        "source": "C:\\Users\\okolk\\AndroidStudioProjects\\Ryhm-kaakko-Android-Project\\app\\src\\main\\res\\drawable\\diaryicon.png"
-    },
-    {
         "merged": "C:\\Users\\okolk\\AndroidStudioProjects\\Ryhm-kaakko-Android-Project\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
         "source": "C:\\Users\\okolk\\AndroidStudioProjects\\Ryhm-kaakko-Android-Project\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher_round.xml"
     },
@@ -42,10 +38,6 @@
     {
         "merged": "C:\\Users\\okolk\\AndroidStudioProjects\\Ryhm-kaakko-Android-Project\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_launcher_background.png.flat",
         "source": "C:\\Users\\okolk\\AndroidStudioProjects\\Ryhm-kaakko-Android-Project\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxhdpi\\ic_launcher_background.png"
-    },
-    {
-        "merged": "C:\\Users\\okolk\\AndroidStudioProjects\\Ryhm-kaakko-Android-Project\\app\\build\\intermediates\\res\\merged\\debug\\drawable_note.png.flat",
-        "source": "C:\\Users\\okolk\\AndroidStudioProjects\\Ryhm-kaakko-Android-Project\\app\\src\\main\\res\\drawable\\note.png"
     },
     {
         "merged": "C:\\Users\\okolk\\AndroidStudioProjects\\Ryhm-kaakko-Android-Project\\app\\build\\intermediates\\res\\merged\\debug\\drawable_circle.xml.flat",
@@ -112,16 +104,12 @@
         "source": "C:\\Users\\okolk\\AndroidStudioProjects\\Ryhm-kaakko-Android-Project\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher.png"
     },
     {
-        "merged": "C:\\Users\\okolk\\AndroidStudioProjects\\Ryhm-kaakko-Android-Project\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_entry_display.xml.flat",
-        "source": "C:\\Users\\okolk\\AndroidStudioProjects\\Ryhm-kaakko-Android-Project\\app\\src\\main\\res\\layout\\activity_entry_display.xml"
-    },
-    {
         "merged": "C:\\Users\\okolk\\AndroidStudioProjects\\Ryhm-kaakko-Android-Project\\app\\build\\intermediates\\res\\merged\\debug\\drawable_rounded_rectangle_textview.xml.flat",
         "source": "C:\\Users\\okolk\\AndroidStudioProjects\\Ryhm-kaakko-Android-Project\\app\\src\\main\\res\\drawable\\rounded_rectangle_textview.xml"
     },
     {
-        "merged": "C:\\Users\\okolk\\AndroidStudioProjects\\Ryhm-kaakko-Android-Project\\app\\build\\intermediates\\res\\merged\\debug\\drawable_settings.png.flat",
-        "source": "C:\\Users\\okolk\\AndroidStudioProjects\\Ryhm-kaakko-Android-Project\\app\\src\\main\\res\\drawable\\settings.png"
+        "merged": "C:\\Users\\okolk\\AndroidStudioProjects\\Ryhm-kaakko-Android-Project\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_entry_display.xml.flat",
+        "source": "C:\\Users\\okolk\\AndroidStudioProjects\\Ryhm-kaakko-Android-Project\\app\\src\\main\\res\\layout\\activity_entry_display.xml"
     },
     {
         "merged": "C:\\Users\\okolk\\AndroidStudioProjects\\Ryhm-kaakko-Android-Project\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher_round.png.flat",
