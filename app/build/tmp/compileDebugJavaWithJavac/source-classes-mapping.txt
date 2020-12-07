@@ -14,15 +14,15 @@ com/example/ryhmakaakkoapplication/activity_diary.java
  com.example.ryhmakaakkoapplication.activity_diary
 com/example/ryhmakaakkoapplication/activity_entry_display.java
  com.example.ryhmakaakkoapplication.activity_entry_display
-com/example/ryhmakaakkoapplication/StepListener.java
- com.example.ryhmakaakkoapplication.StepListener
-com/example/ryhmakaakkoapplication/Calculator.java
- com.example.ryhmakaakkoapplication.Calculator
-com/example/ryhmakaakkoapplication/TimeStamp.java
- com.example.ryhmakaakkoapplication.TimeStamp
 com/example/ryhmakaakkoapplication/activity_goal_entry.java
  com.example.ryhmakaakkoapplication.activity_goal_entry
  com.example.ryhmakaakkoapplication.activity_goal_entry$1
  com.example.ryhmakaakkoapplication.activity_goal_entry$2
+com/example/ryhmakaakkoapplication/Calculator.java
+ com.example.ryhmakaakkoapplication.Calculator
 com/example/ryhmakaakkoapplication/MainActivity.java
  com.example.ryhmakaakkoapplication.MainActivity
+com/example/ryhmakaakkoapplication/TimeStamp.java
+ com.example.ryhmakaakkoapplication.TimeStamp
+com/example/ryhmakaakkoapplication/StepListener.java
+ com.example.ryhmakaakkoapplication.StepListener

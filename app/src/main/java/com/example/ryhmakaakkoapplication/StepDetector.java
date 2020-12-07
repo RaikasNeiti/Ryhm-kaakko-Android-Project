@@ -21,6 +21,7 @@ public class StepDetector {
 
     private StepListener listener;
 
+    // Ei Ole meidän http://www.gadgetsaint.com/android/create-pedometer-step-counter-android/#.X83sxGgza-Z
     public void registerListener(StepListener listener) {
         this.listener = listener;
     }
