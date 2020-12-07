@@ -4,16 +4,22 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.CalendarView;
-import android.widget.TextView;
+
+/**
+ * activity_diary -luokka sisältää päiväkirjanäkymän päivittämiseen liittyvän koodin
+ * @author Olli Kolkki, Felix Uimonen, Joni Tahvanainen, Teemu Olkkonen
+ * @version 1.0 12/2020
+ */
 
 public class activity_diary extends AppCompatActivity {
 
-    public static final String EXTRA_MESSAGE = "blaa";
-
+    /*
+     * Funktio, joka kutsutaan kun aktiviteetti luodaan. Sisältää kuuntelijan kalenterille,
+     * jolla saadaan käyttäjän valitsema päivämäärä
+     * @param savedInstanceState = referenssi Bundle-objektiin, joka annetaan onCreate-funktiolle
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,35 +31,26 @@ public class activity_diary extends AppCompatActivity {
                 new CalendarView
                         .OnDateChangeListener() {
                     @Override
-
-                    // In this Listener have one method
-                    // and in this method we will
-                    // get the value of DAYS, MONTH, YEARS
                     public void onSelectedDayChange(
                             CalendarView view,
                             int year,
                             int month,
                             int dayOfMonth)
                     {
-
-                        // Store the value of date with
-                        // format in String type Variable
-                        // Add 1 in month because month
-                        // index is start with 0
-                        String Date
-                                = dayOfMonth + "-"
-                                + (month + 1) + "-" + year;
-
-                        // set this date in TextView for Display
-                        String test = Integer.toString(dayOfMonth);
-
-
+                        month++;
                         katsoMerkinta(view, dayOfMonth, month, year);
-
                     }
                 });
     }
 
+
+    /**
+     * Funktio, jolla lähetetään aikatietoja toiseen aktiviteettiin
+     * @param view view-elementti
+     * @param dayOfMonth ajankohta
+     * @param month ajankohta
+     * @param year ajankohta
+     */
     public void katsoMerkinta(View view, int dayOfMonth, int month, int year)  {      //Hakee klikatun päivämäärän ja lähettää sen EntryActivityyn
         Intent intent = new Intent(this, activity_entry_display.class);
         intent.putExtra("EXTRA_DAY", dayOfMonth);

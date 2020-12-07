@@ -1,9 +1,7 @@
 package com.example.ryhmakaakkoapplication;
 
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import com.google.gson.Gson;
-
 import android.content.Context;
 import android.content.Intent;
 import android.hardware.Sensor;
@@ -16,8 +14,13 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-
 import java.util.ArrayList;
+
+/**
+ * MainActivity-luokka sisältää UI-kenttien päivittämiseen liittyvän koodin
+ * @author Olli Kolkki, Felix Uimonen, Joni Tahvanainen, Teemu Olkkonen
+ * @version 1.0 3/2019
+ */
 
 public class MainActivity extends AppCompatActivity implements SensorEventListener, StepListener {
     /**
@@ -77,7 +80,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     }
 
     /**
-     * onResume eventti, jossa UI päivitetään
+     * Kun sovellukseen palataan pause/destroyed tilasta
      */
     protected void onResume() {
         super.onResume();
@@ -95,11 +98,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         }
     }
 
-    /**
-     * Sernsorin tarkkuus
-     * @param sensor
-     * @param accuracy
-     */
+
     @Override
     public void onAccuracyChanged(Sensor sensor, int accuracy) {
     }
@@ -113,7 +112,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     }
 
     /**
-     * Tehdään nakyviin askelten arvo
+     * Päivittää askel-kenttää mitatulla tuloksella
      * @param timeNs
      */
     @Override
@@ -127,7 +126,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 
 
 
-    public void openDiary(View view)    {
+    public void openDiary(View view)    {   //pitää tehdä anonymous listener
         Intent intent = new Intent(this, activity_diary.class);
         startActivity(intent);
     }
@@ -144,7 +143,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 
 
     /**
-     * updateUI on funktio aloitusnäytön UI-elementtien päivitystä varten. Se kutsutaan
+     * Päivittää askel-ja verensokerikenttien arvoja mitatulla tai päiväkirjaan merkityillä tuloksilla
      */
     public void updateUI()    {
         int stepGoal;

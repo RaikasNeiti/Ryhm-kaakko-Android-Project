@@ -23,7 +23,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
      * @param context https://docs.oracle.com/javase/7/docs/api/javax/naming/Context.html
      */
     public DatabaseHelper(@Nullable Context context) {
-        super(context, "SugarSteps.db", null, 1);
+        super(context, "SugarSteps.db", null, 2);
     }
 
     /**

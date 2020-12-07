@@ -1,5 +1,9 @@
+com/example/ryhmakaakkoapplication/Entry.java
+ com.example.ryhmakaakkoapplication.Entry
 com/example/ryhmakaakkoapplication/BuildConfig.java
  com.example.ryhmakaakkoapplication.BuildConfig
+com/example/ryhmakaakkoapplication/EntryData.java
+ com.example.ryhmakaakkoapplication.EntryData
 com/example/ryhmakaakkoapplication/Steps.java
  com.example.ryhmakaakkoapplication.Steps
 com/example/ryhmakaakkoapplication/DatabaseHelper.java
@@ -10,19 +14,22 @@ com/example/ryhmakaakkoapplication/StepDetector.java
  com.example.ryhmakaakkoapplication.StepDetector
 com/example/ryhmakaakkoapplication/SensorFilter.java
  com.example.ryhmakaakkoapplication.SensorFilter
-com/example/ryhmakaakkoapplication/activity_diary.java
- com.example.ryhmakaakkoapplication.activity_diary
-com/example/ryhmakaakkoapplication/activity_entry_display.java
- com.example.ryhmakaakkoapplication.activity_entry_display
 com/example/ryhmakaakkoapplication/StepListener.java
  com.example.ryhmakaakkoapplication.StepListener
-com/example/ryhmakaakkoapplication/Calculator.java
- com.example.ryhmakaakkoapplication.Calculator
-com/example/ryhmakaakkoapplication/TimeStamp.java
- com.example.ryhmakaakkoapplication.TimeStamp
+com/example/ryhmakaakkoapplication/activity_entry_display.java
+ com.example.ryhmakaakkoapplication.activity_entry_display
+com/example/ryhmakaakkoapplication/Calorie.java
+ com.example.ryhmakaakkoapplication.Calorie
 com/example/ryhmakaakkoapplication/activity_goal_entry.java
  com.example.ryhmakaakkoapplication.activity_goal_entry
  com.example.ryhmakaakkoapplication.activity_goal_entry$1
  com.example.ryhmakaakkoapplication.activity_goal_entry$2
+com/example/ryhmakaakkoapplication/Calculator.java
+ com.example.ryhmakaakkoapplication.Calculator
+com/example/ryhmakaakkoapplication/TimeStamp.java
+ com.example.ryhmakaakkoapplication.TimeStamp
+com/example/ryhmakaakkoapplication/activity_diary.java
+ com.example.ryhmakaakkoapplication.activity_diary
+ com.example.ryhmakaakkoapplication.activity_diary$1
 com/example/ryhmakaakkoapplication/MainActivity.java
  com.example.ryhmakaakkoapplication.MainActivity
