@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     private Sensor accel;
     private static final String TAG = "MainActivity";
     private static final int RESET = 0;
-    //ssss
+
 
     DatabaseHelper databaseHelper = new DatabaseHelper(MainActivity.this);
     SharedPreferences sharedpreferences;
@@ -77,7 +77,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         TextView Steps = findViewById(R.id.tv_steps);
         if(TimeStamp.date() != sharedpreferences.getInt("date", 0 ) || TimeStamp.month() != sharedpreferences.getInt("month", 0)){
             Log.d(TAG, "Date Gotten" + sharedpreferences.getInt("date", 0));
-            databaseHelper.addToDB(steps.value(), 23);
+            databaseHelper.addToStepCounter(steps.value());
             steps.reset();
             Steps.setText(Integer.toString(steps.value()));
             sensorManager.unregisterListener(MainActivity.this);
@@ -141,7 +141,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         TextView stepPercentageView = findViewById(R.id.stepPercentageView);
         ProgressBar progressBar = findViewById(R.id.progressBar);
 
-        ArrayList<String> latest = databaseHelper.getLatest("ENTRY_TABLE");     //Datan haku tietokannasta
+        ArrayList<String> latest = databaseHelper.getLatest("DIARY");     //Datan haku tietokannasta
         SharedPreferences sp =                                                             //Datan haku SharedPreferences
                 getSharedPreferences("Kaakko", Context.MODE_PRIVATE);
         stepGoal = sp.getInt("stepGoal", 10000);
