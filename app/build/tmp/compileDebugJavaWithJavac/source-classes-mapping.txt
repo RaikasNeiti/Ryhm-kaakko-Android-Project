@@ -1,9 +1,5 @@
-com/example/ryhmakaakkoapplication/Entry.java
- com.example.ryhmakaakkoapplication.Entry
 com/example/ryhmakaakkoapplication/BuildConfig.java
  com.example.ryhmakaakkoapplication.BuildConfig
-com/example/ryhmakaakkoapplication/EntryData.java
- com.example.ryhmakaakkoapplication.EntryData
 com/example/ryhmakaakkoapplication/Steps.java
  com.example.ryhmakaakkoapplication.Steps
 com/example/ryhmakaakkoapplication/DatabaseHelper.java

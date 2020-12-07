@@ -11,13 +11,21 @@ import java.util.Collections;
 import java.util.List;
 
 
+/**
+ * activity_goal_entry-luokassa säädetään askeltavoite ja verensokeriarvoalue slidereilla
+ * @author Olli Kolkki, Felix Uimonen, Joni Tahvanainen, Teemu Olkkonen
+ * @version 1.0 12/2020
+ */
 
 public class activity_goal_entry extends AppCompatActivity {
 
     private RangeSlider sugarslider;
     private Slider stepslider;
 
-
+    /*
+     * Funktio, joka kutsutaan kun aktiviteetti luodaan.
+     * @param savedInstanceState = referenssi Bundle-objektiin, joka annetaan onCreate-funktiolle
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,6 +50,12 @@ public class activity_goal_entry extends AppCompatActivity {
         });
 
         sugarslider.addOnChangeListener(new RangeSlider.OnChangeListener() {
+            /**
+             * Funktio, jolla lähetetään slidereiden tiedot SharedPreferences-tiedostoon
+             * @param slider Slider-elementti
+             * @param value Sliderin arvo
+             * @param fromUser Määritetään, tuleeko arvo käyttäjältä
+             */
             @Override
             public void onValueChange(@NonNull RangeSlider slider, float value, boolean fromUser) {
                 List<Float> values = slider.getValues();
