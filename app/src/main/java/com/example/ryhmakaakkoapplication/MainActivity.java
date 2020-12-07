@@ -20,6 +20,9 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements SensorEventListener, StepListener {
+    /**
+     * Luodaan askeltunnistin
+     */
     public static final String EXTRA_MESSAGE = "blaa";
     Steps steps = new Steps();
     private StepDetector simpleStepDetector;
@@ -33,6 +36,9 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     SharedPreferences sharedpreferences;
     Calculator calculator;
 
+    /**
+     * Luodaan onCreate eventti
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -44,13 +50,8 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         accel = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
         simpleStepDetector = new StepDetector();
         simpleStepDetector.registerListener(this);
-
-        sensorManager.registerListener(MainActivity.this, accel, SensorManager.SENSOR_DELAY_FASTEST);
-
         TextView Steps = findViewById(R.id.stepcountView);
         sharedpreferences = getPreferences(MODE_PRIVATE);
-
-
         if(sharedpreferences.contains("steps")) {
             Gson gson = new Gson();
             String json = sharedpreferences.getString("steps", "");
@@ -60,6 +61,10 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         updateUI();
 
     }
+
+    /**
+     * Hyödynnetään gson ja json
+     */
     protected void onPause() {
         super.onPause();
         SharedPreferences.Editor editor = sharedpreferences.edit();
@@ -71,6 +76,9 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         editor.commit();
     }
 
+    /**
+     * onResume eventti, jossa UI päivitetään
+     */
     protected void onResume() {
         super.onResume();
         updateUI();
@@ -87,6 +95,11 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         }
     }
 
+    /**
+     * Sernsorin tarkkuus
+     * @param sensor
+     * @param accuracy
+     */
     @Override
     public void onAccuracyChanged(Sensor sensor, int accuracy) {
     }
@@ -96,25 +109,23 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         if (event.sensor.getType() == Sensor.TYPE_ACCELEROMETER) {
             simpleStepDetector.updateAccel(
                     event.timestamp, event.values[0], event.values[1], event.values[2]);
-
-            TextView stepPercentageView = findViewById(R.id.stepPercentageView);
-            ProgressBar progressBar = findViewById(R.id.progressBar);
-            SharedPreferences sp =                                                             //Datan haku SharedPreferences
-                    getSharedPreferences("Kaakko", Context.MODE_PRIVATE);
-
-            int stepGoal = sp.getInt("stepGoal", 10000);
-            stepPercentageView.setText(calculator.percentCalc(steps.value(), stepGoal) + "%");
-            progressBar.setProgress(calculator.percentCalc(steps.value(),stepGoal));
-            calculator.progressColor(stepGoal, steps.value(), progressBar);
         }
     }
 
+    /**
+     * Tehdään nakyviin askelten arvo
+     * @param timeNs
+     */
     @Override
     public void step(long timeNs) {
         steps.add();
         TextView Steps = findViewById(R.id.stepcountView);
         Steps.setText(Integer.toString(steps.value()));
     }
+
+
+
+
 
     public void openDiary(View view)    {
         Intent intent = new Intent(this, activity_diary.class);
@@ -131,6 +142,10 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         startActivity(intent);
     }
 
+
+    /**
+     * updateUI on funktio aloitusnäytön UI-elementtien päivitystä varten. Se kutsutaan
+     */
     public void updateUI()    {
         int stepGoal;
         float minSugar, maxSugar;
@@ -159,7 +174,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         }
 
         stepPercentageView.setText(calculator.percentCalc(steps.value(), stepGoal) + "%");
-        progressBar.setProgress(calculator.percentCalc(steps.value(),stepGoal));
+        progressBar.setProgress(Math.round(((float) steps.value()/stepGoal)*100));
         calculator.progressColor(stepGoal, steps.value(), progressBar);
     }
 
