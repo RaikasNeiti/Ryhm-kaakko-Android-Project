@@ -12,13 +12,14 @@ public class Steps {
         this.numSteps++;
 
     }
-    public int steps(){
+    public int value(){
 
         return this.numSteps;
 
     }
     public void reset(){
         this.numSteps = 0;
-
     }
+
+
 }
