@@ -1,29 +1,26 @@
 package com.example.ryhmakaakkoapplication;
 
-import android.content.Context;
-import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.StateListDrawable;
-import android.util.Log;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 
-/**
- * Calculator-luokka on elementtien värien määrittelyä ja erilaisia matemaattisia operaatioita varten.
- * Sitä käytetään MainActivityssa ja activity_entry_display -luokissa käyttäjän merkintöjen visuaalisen
- * kuvaamisen apuna.
- */
+    /**
+     * Calculator-luokka on elementtien värien määrittelyä ja erilaisia matemaattisia operaatioita varten.
+     * Sitä käytetään MainActivityssa ja activity_entry_display -luokissa käyttäjän merkintöjen visuaalisen
+     * kuvaamisen apuna.
+     */
 
 public class Calculator {
 
-/**
- * Funktio, joka määrittää elementin värin toteutuneiden askelten mukaan. Funktio ottaa parametreiksi askeltavoitteen,
- * askelmäärän ja View-elementin, jonka väriä vaihdetaan. Funktio ei palauta mitään, vaan muuttaa
- *  suoraan elementtien väriä.
- */
+    /**
+     * Funktio, joka määrittää elementin värin toteutuneiden askelten mukaan. Funktio ottaa parametreiksi askeltavoitteen,
+     * askelmäärän ja View-elementin, jonka väriä vaihdetaan. Funktio ei palauta mitään, vaan muuttaa
+     *  suoraan elementtien väriä.
+     */
     public void stepsColor (int stepGoal, int stepcount, TextView stepsView)  {       //säätää ympyröiden väriä tavoitteen mukaan
 
         StateListDrawable stepsViewBackground = (StateListDrawable) stepsView.getBackground();
@@ -39,11 +36,11 @@ public class Calculator {
     }
 
 
-/**
- * Funktio, joka määrittää ProgressBar -elementin värin toteutuneiden askelten mukaan. Funktio ottaa parametreiksi
- * askelmäärän, askeltavoitteen ja View-elementin, jonka väriä vaihdetaan. Funktio ei palauta mitään, vaan muuttaa
- * suoraan elementtien väriä.
- */
+    /**
+     * Funktio, joka määrittää ProgressBar -elementin värin toteutuneiden askelten mukaan. Funktio ottaa parametreiksi
+     * askelmäärän, askeltavoitteen ja View-elementin, jonka väriä vaihdetaan. Funktio ei palauta mitään, vaan muuttaa
+     * suoraan elementtien väriä.
+     */
     public void progressColor(int stepGoal, int stepcount, ProgressBar progressBar) {
         if(stepcount < (stepGoal/2))   {
             progressBar.getProgressDrawable().setColorFilter(
