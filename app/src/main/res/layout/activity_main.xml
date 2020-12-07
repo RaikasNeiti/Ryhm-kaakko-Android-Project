@@ -179,18 +179,6 @@
         app:layout_constraintEnd_toEndOf="@+id/imageView"
         app:layout_constraintTop_toTopOf="@+id/imageView" />
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="28dp"
-        android:layout_marginEnd="84dp"
-        android:layout_marginRight="84dp"
-        android:background="@null"
-        app:layout_constraintEnd_toEndOf="@+id/imageView"
-        app:layout_constraintTop_toTopOf="@+id/imageView"
-        app:srcCompat="@drawable/runner" />
-
     <!-- Add CalenderView to display the Calender -->
 
 

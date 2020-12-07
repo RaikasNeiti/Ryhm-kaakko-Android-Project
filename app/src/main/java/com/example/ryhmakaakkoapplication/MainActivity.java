@@ -145,7 +145,6 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         stepPercentageView.setText(calculator.percentCalc(steps.value(), stepGoal) + "%");
         progressBar.setProgress(Math.round(((float) steps.value()/stepGoal)*100));
         calculator.progressColor(stepGoal, steps.value(), progressBar);
-
     }
 
 }
