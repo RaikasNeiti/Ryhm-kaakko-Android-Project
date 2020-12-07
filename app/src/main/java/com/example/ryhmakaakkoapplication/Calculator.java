@@ -9,17 +9,19 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
     /**
-     * Calculator-luokka on elementtien värien määrittelyä ja erilaisia matemaattisia operaatioita varten.
-     * Sitä käytetään MainActivityssa ja activity_entry_display -luokissa käyttäjän merkintöjen visuaalisen
-     * kuvaamisen apuna.
+     * Calculator-luokka on elementtien värien määrittelyä ja laskentaa varten.
+     * @author Olli Kolkki
+     * @version 2.0 12/2020
      */
 
 public class Calculator {
 
     /**
-     * Funktio, joka määrittää elementin värin toteutuneiden askelten mukaan. Funktio ottaa parametreiksi askeltavoitteen,
-     * askelmäärän ja View-elementin, jonka väriä vaihdetaan. Funktio ei palauta mitään, vaan muuttaa
-     *  suoraan elementtien väriä.
+     * Vaihtaa annettujen TextView-elementin väriä sen mukaan, kuinka lähellä toteutunut arvo on
+     * tavoitearvoa
+     * @param stepGoal = asetettu askeltavoite
+     * @param stepcount = toteutuneet askeleet
+     * @param stepsView = elementti, jonka väriä muutetaan
      */
     public void stepsColor (int stepGoal, int stepcount, TextView stepsView)  {       //säätää ympyröiden väriä tavoitteen mukaan
 
@@ -37,9 +39,11 @@ public class Calculator {
 
 
     /**
-     * Funktio, joka määrittää ProgressBar -elementin värin toteutuneiden askelten mukaan. Funktio ottaa parametreiksi
-     * askelmäärän, askeltavoitteen ja View-elementin, jonka väriä vaihdetaan. Funktio ei palauta mitään, vaan muuttaa
-     * suoraan elementtien väriä.
+     * Vaihtaa annettujen ProgressBar-elementin väriä sen mukaan, kuinka lähellä toteutunut arvo on
+     * tavoitearvoa
+     * @param stepGoal tavoitearvo
+     * @param stepcount toteutunut arvo
+     * @param progressBar elementti, jonka väriä muutetaan
      */
     public void progressColor(int stepGoal, int stepcount, ProgressBar progressBar) {
         if(stepcount < (stepGoal/2))   {
@@ -55,11 +59,13 @@ public class Calculator {
     }
 
 
-    /**
-     * Funktio, joka määrittää  verensokeri-elementin värin toteutuneiden mittausten mukaan. Funktio ottaa
-     * parametreiksi verensokeriarvoalueen ja mitatun verensokeriarvon. Jos arvo on arvoalueen ulkupuolella,
-     * elementti värjätään punaiseksi, muuten vihreäksi.
-     */
+        /**
+         * Vaihtaa annetun TextView-elementin väriä sen mukaan, onko mitattu arvo alueen sisällä vai ei
+         * @param minSugar minimiarvo
+         * @param maxSugar maksimiarvo
+         * @param roundedDouble mitattu arvo
+         * @param bloodsugar View-elementti
+         */
     public void sugarColor(float minSugar, float maxSugar, double roundedDouble, TextView bloodsugar)   {
 
         StateListDrawable sugarViewBackground = (StateListDrawable) bloodsugar.getBackground();
@@ -71,10 +77,11 @@ public class Calculator {
         }
     }
 
-    /**
-     * Keskiarvon laskenta. Funktio ottaa parametriksi kaikki halutun päivän verensokerimerkinnät ja palauttaa niiden
-     * keskiarvon. Funktiota käytetään sen määrittelyyn, onko päivän verensokerikeskiarvo verensokeriarvoalueen sisällä.
-     */
+        /**
+         * Laskee listan lukujen keskiarvon
+         * @param list lista, josta keskiarvo lasketaan
+         * @return keskiarvo
+         */
     public double avgCalc(ArrayList<Double> list)  {
         double roundedDouble;
         double sum = 0;
@@ -86,18 +93,21 @@ public class Calculator {
         return roundedDouble;
     }
 
-
-    /**
-     * Prosentin laskenta. Funktio ottaa parametreiksi askelmäärän ja askeltavoitteen. Sitä käytetään sen laskemiseksi,
-     * lähellä käyttäjä on askeltavoiteensa täyttymistä.
-     */
+        /**
+         *Laskee montako prosenttia luku on toisesta
+         * @param stepcount askelten määrä
+         * @param stepGoal askeltavoite
+         * @return montako prosenttia askeleet on askeltavoitteesta
+         */
     public int percentCalc(int stepcount, int stepGoal)  {
         return Math.round(((float) stepcount/stepGoal)*100);
     }
-    /**
-     * Erotuksen laskenta. Funktio ottaa parametriksi tietokannasta listan, jossa on haetut kaksi
-     * viimeisintä verensokerimerkintää ja palauttaa niiden erotuksen.
-     */
+
+        /**
+         * Laskee kahden arvon erotuksen
+         * @param latest lista, joka sisältää kaksi arvoa
+         * @return arvojen erotus
+         */
     public String diffCalc(ArrayList<String> latest)    {
        return "+/- " + Math.abs(Float.parseFloat(latest.get(1)) - Float.parseFloat(latest.get(2)));
     }
