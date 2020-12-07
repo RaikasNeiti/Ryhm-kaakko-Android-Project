@@ -195,17 +195,5 @@
 
     <!-- Add CalenderView to display the Calender -->
 
-    <Button
-        android:id="@+id/btn_sugar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Blood Sugar" />
-
-    <Button
-        android:id="@+id/btn_diary"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Calorie and Excercise Diary" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

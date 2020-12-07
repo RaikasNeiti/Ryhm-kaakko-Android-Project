@@ -4,6 +4,7 @@ public class Calorie {
     private int numCalorie;
 
     public Calorie() {
+
         this.numCalorie = 0;
     }
     public void addCalorie(int amount) {

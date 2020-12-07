@@ -18,21 +18,7 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/Theme.RyhmaKaakkoApplication" >
-        <activity
-            android:name="com.example.ryhmakaakkoapplication.activity_goal_entry"
-            android:label="Tavoitteet" />
-        <activity
-            android:name="com.example.ryhmakaakkoapplication.activity_diary"
-            android:label="Päiväkirja" />
-        <activity
-            android:name="com.example.ryhmakaakkoapplication.activity_entry_display"
-            android:label="Katso merkintöjä" />
-        <activity
-            android:name="com.example.ryhmakaakkoapplication.activity_diary_entry"
-            android:label="Tee merkintä" />
-        <activity
-            android:name="com.example.ryhmakaakkoapplication.MainActivity"
-            android:label="SugarSteps" >
+        <activity android:name="com.example.ryhmakaakkoapplication.MainActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

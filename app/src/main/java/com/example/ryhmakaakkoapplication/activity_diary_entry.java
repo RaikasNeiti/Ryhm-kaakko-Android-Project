@@ -25,7 +25,7 @@ public class activity_diary_entry extends AppCompatActivity {       // tehty htt
     }
 
     public void addData(String newEntry)    {
-        insertData = mDatabaseHelper.addToDiary(newEntry, "DIARY");
+        insertData = mDatabaseHelper.addtoEntryDB(newEntry, "ENTRY_TABLE");
         if (insertData) {
             Log.d("db", "Datan syöttö onnistui");
         }   else    {

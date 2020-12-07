@@ -14,18 +14,19 @@ import java.util.ArrayList;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String STEPCOUNTER = "STEPCOUNTER";
-    public static final String DIARY = "DIARY";
+    public static final String ENTRY_TABLE = "ENTRY_TABLE";
+    private static final String COL0 = "ID";
     private static final String COL1 = "glukoosi";
 
 
     public DatabaseHelper(@Nullable Context context) {
-        super(context, "SugarSteps.db", null, 1);
+        super(context, "stepcounter.db", null, 12);
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String createTable = "CREATE TABLE " + STEPCOUNTER + "(ID INTEGER PRIMARY KEY AUTOINCREMENT, DAY INTEGER, MONTH INTEGER, STEPS INTEGER)";
-        String createEntryTable = "CREATE TABLE " + DIARY + "(ID INTEGER PRIMARY KEY AUTOINCREMENT, DAY INTEGER, MONTH INTEGER, YEAR INTEGER, " + COL1 + " TEXT, TIME STRING)";
+        String createTable = "CREATE TABLE " + STEPCOUNTER + "(ID INTEGER PRIMARY KEY AUTOINCREMENT, DAY INTEGER, MONTH INTEGER, STEPS INTEGER, CALORIES INTEGER)";
+        String createEntryTable = "CREATE TABLE " + ENTRY_TABLE + "(ID INTEGER PRIMARY KEY AUTOINCREMENT, DAY INTEGER, MONTH INTEGER, YEAR INTEGER, " + COL1 + " TEXT, TIME STRING)";
         db.execSQL(createTable);
         db.execSQL(createEntryTable);
     }
@@ -33,16 +34,17 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS " + STEPCOUNTER);
-        db.execSQL("DROP TABLE IF EXISTS " + DIARY);
+        db.execSQL("DROP TABLE IF EXISTS " + ENTRY_TABLE);
         onCreate(db);
     }
 
-    public boolean addToStepCounter(int steps) {
+    public boolean addToDB(int steps, int calories) {        //pitää yhdistää addtodb ja addtoentrydb
         SQLiteDatabase db = getWritableDatabase();
         ContentValues cv = new ContentValues();
         cv.put("DAY", TimeStamp.date());
         cv.put("MONTH", TimeStamp.month());
         cv.put("STEPS", steps);
+        cv.put("CALORIES", calories);
 
         long insert = db.insert("STEPCOUNTER", null, cv);
         if (insert == -1) {
@@ -52,7 +54,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
-    public boolean addToDiary(String item, String tableName) {
+    public boolean addtoEntryDB(String item, String tableName) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
         cv.put("DAY", TimeStamp.date());
