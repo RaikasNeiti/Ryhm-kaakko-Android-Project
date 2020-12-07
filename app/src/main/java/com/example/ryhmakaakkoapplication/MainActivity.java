@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     private Sensor accel;
     private static final String TAG = "MainActivity";
     private static final int RESET = 0;
+    //ssss
 
     DatabaseHelper databaseHelper = new DatabaseHelper(MainActivity.this);
     SharedPreferences sharedpreferences;
