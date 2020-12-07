@@ -27,6 +27,8 @@ anim design_bottom_sheet_slide_in
 anim design_bottom_sheet_slide_out
 anim design_snackbar_in
 anim design_snackbar_out
+anim fadein
+anim fadeout
 anim mtrl_bottom_sheet_slide_in
 anim mtrl_bottom_sheet_slide_out
 anim mtrl_card_lowers_interpolator
@@ -45,6 +47,8 @@ animator mtrl_fab_hide_motion_spec
 animator mtrl_fab_show_motion_spec
 animator mtrl_fab_transformation_sheet_collapse_spec
 animator mtrl_fab_transformation_sheet_expand_spec
+array initial_slider_values
+array initial_values
 attr actionBarDivider
 attr actionBarItemBackground
 attr actionBarPopupTheme
@@ -805,6 +809,7 @@ attr textInputLayoutFocusedRectEnabled
 attr textInputStyle
 attr textLocale
 attr textStartPadding
+attr texts
 attr theme
 attr themeLineHeight
 attr thickness
@@ -820,6 +825,7 @@ attr tickColorInactive
 attr tickMark
 attr tickMarkTint
 attr tickMarkTintMode
+attr timeout
 attr tint
 attr tintMode
 attr title
@@ -889,6 +895,11 @@ bool abc_action_bar_embed_tabs
 bool abc_allow_stacked_button_bar
 bool abc_config_actionMenuItemAllCaps
 bool mtrl_btn_textappearance_all_caps
+color DARKBLUE
+color GREEN
+color LIGHTBLUE
+color RED
+color YELLOW
 color abc_background_cache_hint_selector_material_dark
 color abc_background_cache_hint_selector_material_light
 color abc_btn_colored_borderless_text_material
@@ -1536,12 +1547,14 @@ drawable btn_radio_off_mtrl
 drawable btn_radio_off_to_on_mtrl_animation
 drawable btn_radio_on_mtrl
 drawable btn_radio_on_to_off_mtrl_animation
+drawable circle
 drawable design_bottom_navigation_item_background
 drawable design_fab_background
 drawable design_ic_visibility
 drawable design_ic_visibility_off
 drawable design_password_eye
 drawable design_snackbar_background
+drawable diaryicon
 drawable ic_launcher_background
 drawable ic_launcher_foreground
 drawable ic_mtrl_checked_circle
@@ -1565,6 +1578,7 @@ drawable mtrl_popupmenu_background
 drawable mtrl_popupmenu_background_dark
 drawable mtrl_tabs_default_indicator
 drawable navigation_empty_icon
+drawable note
 drawable notification_action_background
 drawable notification_bg
 drawable notification_bg_low
@@ -1577,6 +1591,11 @@ drawable notification_template_icon_bg
 drawable notification_template_icon_low_bg
 drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
+drawable round_textview
+drawable rounded_rectangle_textview
+drawable roundedrectangle
+drawable runner
+drawable settings
 drawable test_custom_background
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
@@ -1665,11 +1684,10 @@ id baseline
 id beginOnFirstDraw
 id beginning
 id blocking
+id bloodsugar
+id bloodsugarTitle
 id bottom
 id bounce
-id btn_save
-id btn_start
-id btn_stop
 id button
 id buttonPanel
 id cache_measures
@@ -1715,6 +1733,7 @@ id design_menu_item_text
 id design_navigation_view
 id dialog_button
 id diary
+id differenceView
 id dimensions
 id direct
 id disableHome
@@ -1735,7 +1754,7 @@ id edit_query
 id end
 id enterAlways
 id enterAlwaysCollapsed
-id entryText
+id entriesListView
 id exitUntilCollapsed
 id expand_activities_button
 id expanded_menu
@@ -1751,12 +1770,15 @@ id floating
 id forever
 id ghost_view
 id ghost_view_holder
+id goalBtn
 id gone
 id graph
 id graph_wrap
 id group_divider
 id grouping
 id groups
+id guideline
+id guideline2
 id hideable
 id home
 id homeAsUp
@@ -1767,6 +1789,8 @@ id ifRoom
 id ignore
 id ignoreRequest
 id image
+id imageView
+id imageView2
 id info
 id invisible
 id italic
@@ -1841,6 +1865,7 @@ id percent
 id pin
 id position
 id postLayout
+id progressBar
 id progress_circular
 id progress_horizontal
 id radio
@@ -1901,10 +1926,20 @@ id startHorizontal
 id startVertical
 id staticLayout
 id staticPostLayout
+id stepPercentageView
+id stepcountView
+id steps
+id stepsDesc
+id stepslider
 id stop
 id stretch
 id submenuarrow
 id submit_area
+id sugarDateView
+id sugarDesc
+id sugarDesc2
+id sugarView
+id sugarslider
 id tabMode
 id tag_accessibility_actions
 id tag_accessibility_clickable_spans
@@ -1925,6 +1960,9 @@ id textSpacerNoButtons
 id textSpacerNoTitle
 id textStart
 id textView
+id textView2
+id textView3
+id textView4
 id text_input_end_icon
 id text_input_start_icon
 id textinput_counter
@@ -2025,6 +2063,7 @@ layout abc_tooltip
 layout activity_diary
 layout activity_diary_entry
 layout activity_entry_display
+layout activity_goal_entry
 layout activity_main
 layout custom_dialog
 layout design_bottom_navigation_item
@@ -2042,6 +2081,7 @@ layout design_navigation_menu
 layout design_navigation_menu_item
 layout design_text_input_end_icon
 layout design_text_input_start_icon
+layout entry_item_layout
 layout mtrl_alert_dialog
 layout mtrl_alert_dialog_actions
 layout mtrl_alert_dialog_title
@@ -2766,6 +2806,7 @@ style Widget_AppCompat_TextView
 style Widget_AppCompat_TextView_SpinnerItem
 style Widget_AppCompat_Toolbar
 style Widget_AppCompat_Toolbar_Button_Navigation
+style Widget_CalendarView_Custom
 style Widget_Compat_NotificationActionContainer
 style Widget_Compat_NotificationActionText
 style Widget_Design_AppBarLayout
@@ -2916,6 +2957,7 @@ styleable CustomAttribute attributeName customBoolean customColorDrawableValue c
 styleable DrawerArrowToggle arrowHeadLength arrowShaftLength barLength color drawableSize gapBetweenBars spinBars thickness
 styleable ExtendedFloatingActionButton elevation extendMotionSpec hideMotionSpec showMotionSpec shrinkMotionSpec
 styleable ExtendedFloatingActionButton_Behavior_Layout behavior_autoHide behavior_autoShrink
+styleable FadingTextView texts timeout
 styleable FloatingActionButton android_enabled backgroundTint backgroundTintMode borderWidth elevation ensureMinTouchTargetSize fabCustomSize fabSize hideMotionSpec hoveredFocusedTranslationZ maxImageSize pressedTranslationZ rippleColor shapeAppearance shapeAppearanceOverlay showMotionSpec useCompatPadding
 styleable FloatingActionButton_Behavior_Layout behavior_autoHide
 styleable FlowLayout itemSpacing lineSpacing
