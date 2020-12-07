@@ -116,6 +116,10 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         Steps.setText(Integer.toString(steps.value()));
     }
 
+
+
+
+
     public void openDiary(View view)    {
         Intent intent = new Intent(this, activity_diary.class);
         startActivity(intent);
@@ -131,6 +135,10 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         startActivity(intent);
     }
 
+
+    /**
+     * updateUI on funktio aloitusnäytön UI-elementtien päivitystä varten. Se kutsutaan
+     */
     public void updateUI()    {
         int stepGoal;
         float minSugar, maxSugar;
