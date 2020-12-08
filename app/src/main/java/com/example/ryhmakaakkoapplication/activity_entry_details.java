@@ -7,7 +7,14 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
+
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.sql.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * activity_entry_details -Luokassa näytetään tarkempia tietoja käyttäjän valitsemasta listamerkinnästä
@@ -19,7 +26,6 @@ public class activity_entry_details extends AppCompatActivity {
 
     private Calculator calculator;
     private int id;
-    DatabaseHelper databaseHelper = new DatabaseHelper(activity_entry_details.this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,31 +36,43 @@ public class activity_entry_details extends AppCompatActivity {
 
 
     public void updateUI()    {
+        String doubleListjson;
+        String listDatajson;
+
+        ArrayList<Double> doubleList = new ArrayList<>();
+        ArrayList<String> listData = new ArrayList<>();
         float minSugar, maxSugar;
         Intent intent = getIntent();
         Bundle extras = intent.getExtras();
         id = extras.getInt("EXTRA_ID");
+        doubleListjson = extras.getString("EXTRA_DOUBLELIST");
+        listDatajson = extras.getString("EXTRA_LISTDATA");
+
+        Gson gson = new Gson();
+        Type listType = new TypeToken< ArrayList<Double> >(){}.getType();
+        doubleList = gson.fromJson(doubleListjson, listType);
+
+        listType = new TypeToken< ArrayList<String> >(){}.getType();
+        listData = gson.fromJson(listDatajson, listType);
+
+
         calculator = new Calculator();
         TextView sugarView = findViewById(R.id.sugarView2);
         TextView sugarDateView = findViewById(R.id.sugarDateView2);
         TextView differenceView = findViewById(R.id.differenceView2);
-        id++;
-        ArrayList<String> latest = databaseHelper.getPrevious("DIARY", id);
+
         SharedPreferences sp =
                 getSharedPreferences("Kaakko", Context.MODE_PRIVATE);
         minSugar = sp.getFloat("minSugar", 0);
         maxSugar = sp.getFloat("maxSugar", 0);
 
-        if(!latest.isEmpty())   {
-            sugarDateView.setText(latest.get(0));
-            sugarView.setText(latest.get(1));
-
-            Log.d("asdasd1", latest.get(1));
-            Log.d("asdasd2", latest.get(2));
+        if(!doubleList.isEmpty())   {
+            sugarDateView.setText(listData.get(id));
+            sugarView.setText(Double.toString(doubleList.get(id)));
 
 
-            differenceView.setText("+/- " + Math.abs(Float.parseFloat(latest.get(2)) - Float.parseFloat(latest.get(1))));
-            calculator.sugarColor(minSugar, maxSugar, Double.parseDouble(latest.get(1)), sugarView);
+            differenceView.setText("+/- " + Math.abs(doubleList.get(id) - doubleList.get(id+1)));
+            calculator.sugarColor(minSugar, maxSugar, doubleList.get(id), sugarView);
         } else  {
             sugarDateView.setText("Ei merkintöjä");
             sugarView.setText("0");

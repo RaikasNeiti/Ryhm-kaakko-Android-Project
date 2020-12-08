@@ -38,11 +38,10 @@ public class activity_diary_entry extends AppCompatActivity {       // tehty htt
      */
     public void addData(String newEntry)    {
         insertData = mDatabaseHelper.addToDiary(newEntry, "DIARY");
-        if (insertData) {
-
-        }   else    {
-
+        if (!insertData) {
             Toast.makeText(getApplicationContext(),"Datan syöttö epäonnistui",Toast.LENGTH_SHORT).show();
+        }   else    {
+            Toast.makeText(getApplicationContext(),"Datan syöttö onnistui",Toast.LENGTH_SHORT).show();
         }
     }
 

@@ -13,6 +13,10 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+
 import java.util.ArrayList;
 
 /**
@@ -98,7 +102,13 @@ public class activity_entry_display extends AppCompatActivity {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                         Intent intent = new Intent(activity_entry_display.this, activity_entry_details.class);
-                        intent.putExtra("EXTRA_ID", calculator.oppositeNumber(position, 0, entriesListView.getChildCount()));
+
+                        String doubleListjson = new Gson().toJson(doubleList);
+                        String listDatajson = new Gson().toJson(listData);
+
+                        intent.putExtra("EXTRA_DOUBLELIST", doubleListjson);
+                        intent.putExtra("EXTRA_LISTDATA", listDatajson);
+                        intent.putExtra("EXTRA_ID", position);
                         startActivity(intent);
                     }
                 });
