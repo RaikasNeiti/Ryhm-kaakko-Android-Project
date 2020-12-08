@@ -18,7 +18,7 @@ import java.util.ArrayList;
 /**
  * MainActivity-luokka sisältää UI-kenttien päivittämiseen liittyvän koodin
  * @author Olli Kolkki, Felix Uimonen, Joni Tahvanainen, Teemu Olkkonen
- * @version 4.20 3/2019
+ * @version 2.0 3/2019
  */
 
 public class MainActivity extends AppCompatActivity implements SensorEventListener, StepListener {
@@ -36,8 +36,9 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     SharedPreferences sharedpreferences;
     Calculator calculator;
 
-    /**
-     * Luodaan onCreate eventti
+    /*
+     * Funktio, joka kutsutaan kun aktiviteetti luodaan.
+     * @param savedInstanceState = referenssi Bundle-objektiin, joka annetaan onCreate-funktiolle
      */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +46,6 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // Get an instance of the SensorManager
         sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
         accel = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
         simpleStepDetector = new StepDetector();
@@ -53,8 +53,8 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         TextView Steps = findViewById(R.id.stepcountView);
 
         sensorManager.registerListener(MainActivity.this, accel, SensorManager.SENSOR_DELAY_FASTEST);
-
         sharedpreferences = getPreferences(MODE_PRIVATE);
+
         if(sharedpreferences.contains("steps")) {
             Gson gson = new Gson();
             String json = sharedpreferences.getString("steps", "");
@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     }
 
     /**
-     * Hyödynnetään gson ja json tiedontallennus
+     * Funktio tallentaa askeltietoja sovelluksen siirryttyä pause-tilaan
      */
     protected void onPause() {
         super.onPause();
@@ -80,7 +80,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     }
 
     /**
-     * Kun sovellukseen palataan pause/destroyed tilasta, se palauttaa arvot jotka on tallennettu databasiin tai sharedpreferences.
+     * Kun sovellukseen palataan pause/destroyed tilasta, tämä funktio palauttaa tallennetut arvot.
      */
     protected void onResume() {
         super.onResume();
@@ -105,7 +105,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     }
 
     /**
-     * Kun sovellus sammutetaan tämä methodi varmistaa että askelmittaukseen tarvittavat sensorit sammutetaan.
+     * Kun sovellus sammutetaan tämä metodi varmistaa että askelmittaukseen tarvittavat sensorit sammutetaan.
      */
 
     @Override
@@ -119,7 +119,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     }
 
     /**
-     * kun sensori tunnistaa liikettä tämä methodi aktivoidaan.
+     * Kun sensori tunnistaa liikettä tämä methodi aktivoidaan.
      * @param event muuttuja sensorin muutokselle.
      */
 
@@ -143,8 +143,8 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     }
 
     /**
-     * Päivittää askel-kenttää lisäämällä yhden askeleen.
      *
+     * @param timeNs Mikä tämä on?
      */
     @Override
     public void step(long timeNs) {
@@ -163,12 +163,12 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     }
 
     public void openNote(View view)    {
-        Intent intent = new Intent(this, activity_diary_entry.class);
+        Intent intent = new Intent(this, activity_diary_new.class);
         startActivity(intent);
     }
 
     public void openGoal(View view) {
-        Intent intent = new Intent(this, activity_goal_entry.class);
+        Intent intent = new Intent(this, activity_settings.class);
         startActivity(intent);
     }
 

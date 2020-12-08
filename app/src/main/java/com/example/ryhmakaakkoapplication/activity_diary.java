@@ -52,12 +52,11 @@ public class activity_diary extends AppCompatActivity {
      * @param year ajankohta
      */
     public void katsoMerkinta(View view, int dayOfMonth, int month, int year)  {      //Hakee klikatun päivämäärän ja lähettää sen EntryActivityyn
-        Intent intent = new Intent(this, activity_entry_display.class);
+        Intent intent = new Intent(this, activity_diary_day.class);
         intent.putExtra("EXTRA_DAY", dayOfMonth);
         intent.putExtra("EXTRA_MONTH", month);
         intent.putExtra("EXTRA_YEAR", year);
         startActivity(intent);
-
     }
 
 }

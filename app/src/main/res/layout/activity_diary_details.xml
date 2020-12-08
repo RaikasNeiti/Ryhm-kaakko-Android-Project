@@ -20,32 +20,9 @@
         android:textSize="70sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline3"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
-        app:layout_constraintHorizontal_bias="0.505"
         app:layout_constraintStart_toStartOf="@+id/guideline2"
         app:layout_constraintTop_toTopOf="@+id/guideline3"
-        app:layout_constraintVertical_bias="0.505" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline2"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:background="@null"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.5" />
-
-    <TextView
-        android:id="@+id/sugarDateView2"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:background="@null"
-        android:gravity="center"
-        android:text="dd.mm.yy"
-        android:textColor="#FFFFFF"
-        android:textSize="25sp"
-        app:layout_constraintEnd_toEndOf="@+id/sugarView2"
-        app:layout_constraintStart_toStartOf="@+id/sugarView2"
-        app:layout_constraintTop_toBottomOf="@+id/sugarView2" />
+        app:layout_constraintVertical_bias="0.515" />
 
     <TextView
         android:id="@+id/differenceView2"
@@ -65,20 +42,35 @@
         app:layout_constraintEnd_toEndOf="@+id/sugarView2"
         app:layout_constraintStart_toStartOf="@+id/sugarView2"
         app:layout_constraintTop_toTopOf="@+id/sugarView2"
-        app:layout_constraintVertical_bias="0.226" />
+        app:layout_constraintVertical_bias="0.17" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline3"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.5" />
+        app:layout_constraintGuide_percent="0.3" />
+
+    <TextView
+        android:id="@+id/sugarDateView2"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:background="@null"
+        android:gravity="center"
+        android:text="dd.mm.yy"
+        android:textColor="#FFFFFF"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="@+id/sugarView2"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/sugarView2"
+        app:layout_constraintTop_toBottomOf="@+id/sugarView2" />
 
     <TextView
         android:id="@+id/sugarDesc3"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="32dp"
+        android:layout_marginBottom="44dp"
         android:background="@null"
         android:gravity="center"
         android:text="mmol/L"
@@ -89,6 +81,37 @@
         app:layout_constraintEnd_toEndOf="@+id/sugarView2"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/sugarView2" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <TextView
+        android:id="@+id/detailsView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="10sp"
+        android:text="TextViewTextViewTextViewTextViewTextViewTextViewTextViewTextViewTextViewTextViewTextViewTextViewTextView"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline9"
+        app:layout_constraintEnd_toStartOf="@+id/guideline2"
+        app:layout_constraintStart_toStartOf="@+id/guideline2"
+        app:layout_constraintTop_toTopOf="@+id/guideline9"
+        app:layout_constraintVertical_bias="0.515"
+        android:background="@drawable/rounded_rectangle_textview" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="468dp" />
 
     <!-- Add CalenderView to display the Calender -->
 

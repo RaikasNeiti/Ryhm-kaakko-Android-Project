@@ -21,13 +21,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String STEPCOUNTER = "STEPCOUNTER";
     public static final String DIARY = "DIARY";
     private static final String COL1 = "glukoosi";
+    private static final String COL2 = "note";
 
     /**
      * Luokan konstruktori
      * @param context https://docs.oracle.com/javase/7/docs/api/javax/naming/Context.html
      */
     public DatabaseHelper(@Nullable Context context) {
-        super(context, "SugarSteps.db", null, 3);
+        super(context, "SugarSteps.db", null, 4);
     }
 
     /**
@@ -37,7 +38,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         String createTable = "CREATE TABLE " + STEPCOUNTER + "(ID INTEGER PRIMARY KEY AUTOINCREMENT, DAY INTEGER, MONTH INTEGER, STEPS INTEGER)";
-        String createEntryTable = "CREATE TABLE " + DIARY + "(ID INTEGER PRIMARY KEY AUTOINCREMENT, DAY INTEGER, MONTH INTEGER, YEAR INTEGER, " + COL1 + " TEXT, TIME STRING)";
+        String createEntryTable = "CREATE TABLE " + DIARY + "(ID INTEGER PRIMARY KEY AUTOINCREMENT, DAY INTEGER, MONTH INTEGER, YEAR INTEGER, " + COL1 + " TEXT, TIME STRING, "+ COL2 + " TEXT)";
         db.execSQL(createTable);
         db.execSQL(createEntryTable);
     }
@@ -81,18 +82,19 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     /**
      * Lisää arvoja tauluun Diary
-     * @param item Verensokerin syötetty arvo
+     * @param sugar Verensokerin syötetty arvo
      * @param tableName Taulun nimi
      * @return boolean tietokantaan syötön virhetarkistus (true onnistuessa, false epäonnistuessa)
      */
-    public boolean addToDiary(String item, String tableName) {
+    public boolean addToDiary(String sugar, String note, String tableName) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
         cv.put("DAY", TimeStamp.date());
         cv.put("MONTH", TimeStamp.month());
         cv.put("YEAR", TimeStamp.year());
-        cv.put(COL1, item);
+        cv.put(COL1, sugar);
         cv.put("TIME", TimeStamp.hour() + ":" + TimeStamp.minute());
+        cv.put(COL2, note);
 
         long insert = db.insert(tableName, null, cv);
 
@@ -157,35 +159,5 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
-
-    /**
-     * Hakee ID:n perusteella yhden rivin ja siitä edellisen rivin
-     * @param tableName taulun nimi
-     * @param id id, johon haku perustuu
-     * @return lista, jossa on timestamp ja kaksi verensokerimerkintää
-     */
-    public ArrayList getPrevious(String tableName, int id) {
-
-        SQLiteDatabase db = this.getReadableDatabase();
-        ArrayList<String> latestRow = new ArrayList<>();
-        int id2 = id + 1;
-        Cursor data = db.rawQuery("SELECT * FROM " + tableName + " WHERE ID IN(" + id + ", " + id2 +") ORDER BY ID", null); //valitsee viimeisimmän arvon
-        if (data != null && data.moveToLast()) {
-
-            latestRow.add(data.getString(1) + "." + data.getString(2) + "." + data.getString(3) + " " + data.getString(5));
-            latestRow.add(data.getString(4));
-
-            if (data != null && data.moveToPrevious()) {
-                latestRow.add(data.getString(4));
-            } else {
-                data.moveToNext();
-                latestRow.add(data.getString(4));
-            }
-            return latestRow;
-
-        } else {
-            return latestRow;
-        }
-    }
 
 }

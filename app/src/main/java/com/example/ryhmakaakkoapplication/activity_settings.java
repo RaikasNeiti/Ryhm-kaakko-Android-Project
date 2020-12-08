@@ -17,7 +17,7 @@ import java.util.List;
  * @version 1.0 12/2020
  */
 
-public class activity_goal_entry extends AppCompatActivity {
+public class activity_settings extends AppCompatActivity {
 
     private RangeSlider sugarslider;
     private Slider stepslider;
@@ -29,7 +29,7 @@ public class activity_goal_entry extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_goal_entry);
+        setContentView(R.layout.activity_settings);
         sugarslider = findViewById(R.id.sugarslider);
         stepslider = findViewById(R.id.stepslider);
         sugarslider.setLabelFormatter(value -> value + " mmol/L");

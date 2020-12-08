@@ -1,6 +1,6 @@
 package com.example.ryhmakaakkoapplication;
 /**
- * Steps luokka on vastuussa askelmittauksien kirjaamisesta ja antaa askeleiden mäåärän kutsuttua steps.value().
+ * Steps-luokka on vastuussa askelmittauksien kirjaamisesta ja antaa askeleiden määrän funktiolla steps.value().
  * @author Joni Tahvanainen (RaikasNeiti)
  * @version 6.9 12/2020
  */
@@ -12,7 +12,7 @@ public class Steps {
 
 
     /**
-     * Määrätään alussa, että mikä on askeleiden määrä, tässä tapauksessa se on aina alussa 0.
+     * Määrätään alussa askelten määrä, tässä tapauksessa se on aina alussa 0.
      * @param numSteps on askelmäärät.
      */
 
@@ -23,7 +23,7 @@ public class Steps {
     }
 
     /**
-     * Tällä methodilla voimme korottaa kokonais askelmäärää yhdellä.
+     * Korottaa kokonaisaskelmäärää yhdellä.
      */
 
     public void add(){
@@ -48,7 +48,7 @@ public class Steps {
     }
 
     /**
-     * Tällä methodilla kokonaisaskelmäärä nollataan.
+     * Tällä metodilla kokonaisaskelmäärä nollataan.
      */
     public void reset(){
 

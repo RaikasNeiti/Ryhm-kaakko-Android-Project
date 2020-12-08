@@ -20,7 +20,7 @@ import java.util.ArrayList;
  * @version 1.0 12/2020
  */
 
-public class activity_entry_details extends AppCompatActivity {
+public class activity_diary_details extends AppCompatActivity {
 
     private Calculator calculator;
     private int id;
@@ -33,7 +33,7 @@ public class activity_entry_details extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_entry_details);
+        setContentView(R.layout.activity_diary_details);
         updateUI();
     }
     /**
@@ -44,15 +44,19 @@ public class activity_entry_details extends AppCompatActivity {
     public void updateUI()    {
         String doubleListjson;
         String listDatajson;
+        String noteListjson;
 
         ArrayList<Double> doubleList = new ArrayList<>();
         ArrayList<String> listData = new ArrayList<>();
+        ArrayList<String> noteList = new ArrayList<>();
+
         float minSugar, maxSugar;
         Intent intent = getIntent();
         Bundle extras = intent.getExtras();
         id = extras.getInt("EXTRA_ID");
         doubleListjson = extras.getString("EXTRA_DOUBLELIST");
         listDatajson = extras.getString("EXTRA_LISTDATA");
+        noteListjson = extras.getString("EXTRA_NOTELIST");
 
         Gson gson = new Gson();
         Type listType = new TypeToken< ArrayList<Double> >(){}.getType();
@@ -61,11 +65,14 @@ public class activity_entry_details extends AppCompatActivity {
         listType = new TypeToken< ArrayList<String> >(){}.getType();
         listData = gson.fromJson(listDatajson, listType);
 
+        listType = new TypeToken< ArrayList<String> >(){}.getType();
+        noteList = gson.fromJson(noteListjson, listType);
 
         calculator = new Calculator();
         TextView sugarView = findViewById(R.id.sugarView2);
         TextView sugarDateView = findViewById(R.id.sugarDateView2);
         TextView differenceView = findViewById(R.id.differenceView2);
+        TextView detailsView = findViewById(R.id.detailsView);
 
         SharedPreferences sp =
                 getSharedPreferences("Kaakko", Context.MODE_PRIVATE);
@@ -75,6 +82,7 @@ public class activity_entry_details extends AppCompatActivity {
         if(!doubleList.isEmpty())   {
             sugarDateView.setText(listData.get(id));
             sugarView.setText(Double.toString(doubleList.get(id)));
+            detailsView.setText(noteList.get(id));
 
             if (doubleList.size() != id+1) {
                 differenceView.setText("+/- " + Math.abs(doubleList.get(id) - doubleList.get(id + 1)));
@@ -85,6 +93,7 @@ public class activity_entry_details extends AppCompatActivity {
         } else  {
             sugarDateView.setText("Ei merkintöjä");
             sugarView.setText("0");
+            detailsView.setText("");
         }
 
     }

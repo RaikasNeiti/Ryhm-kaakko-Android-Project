@@ -18,18 +18,18 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/Theme.RyhmaKaakkoApplication" >
-        <activity android:name="com.example.ryhmakaakkoapplication.activity_entry_details" />
+        <activity android:name="com.example.ryhmakaakkoapplication.activity_diary_details" />
         <activity
-            android:name="com.example.ryhmakaakkoapplication.activity_goal_entry"
+            android:name="com.example.ryhmakaakkoapplication.activity_settings"
             android:label="Tavoitteet" />
         <activity
             android:name="com.example.ryhmakaakkoapplication.activity_diary"
             android:label="Päiväkirja" />
         <activity
-            android:name="com.example.ryhmakaakkoapplication.activity_entry_display"
+            android:name="com.example.ryhmakaakkoapplication.activity_diary_day"
             android:label="Katso merkintöjä" />
         <activity
-            android:name="com.example.ryhmakaakkoapplication.activity_diary_entry"
+            android:name="com.example.ryhmakaakkoapplication.activity_diary_new"
             android:label="Tee merkintä" />
         <activity
             android:name="com.example.ryhmakaakkoapplication.MainActivity"

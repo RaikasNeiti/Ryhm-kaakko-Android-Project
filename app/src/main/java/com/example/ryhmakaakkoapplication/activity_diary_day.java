@@ -23,7 +23,7 @@ import java.util.ArrayList;
  * @version 1.0 12/2020
  */
 
-public class activity_entry_display extends AppCompatActivity {
+public class activity_diary_day extends AppCompatActivity {
 
     private int dayOfMonth;
     private int month;
@@ -45,7 +45,7 @@ public class activity_entry_display extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_entry_display);
+        setContentView(R.layout.activity_diary_day);
         entriesListView = findViewById(R.id.entriesListView);
         sugarView = findViewById(R.id.bloodsugar);
         stepsView = findViewById(R.id.steps);
@@ -71,6 +71,7 @@ public class activity_entry_display extends AppCompatActivity {
         Cursor data = mDatabaseHelper.getData("DIARY");
         ArrayList<String> listData = new ArrayList<>();
         ArrayList<Double> doubleList = new ArrayList<>();
+        ArrayList<String> noteList = new ArrayList<>();
         data.moveToLast();      //vaihdetaan tietokannan läpikäynti käänteiseksi, jotta listassa olisi aikajärjestys
 
         for(int i = 0; i < mDatabaseHelper.countRows("DIARY"); i++)    {//käydään läpi tietokanta keskiarvolaskuria ja oikean timestampin löytämistä varten
@@ -82,6 +83,7 @@ public class activity_entry_display extends AppCompatActivity {
             if((monthData == month) && (dayData == dayOfMonth) && (yearData == year)) {       //jos tietokannan timestamp on sama kuin klikatun päivämäärän
                 doubleList.add(Double.parseDouble(data.getString(4)));
                 listData.add(dayData + "." + monthData + "." + yearData + " " + timeData + " " + data.getString(4) + " mmol/L");
+                noteList.add(data.getString(6));
 
                 entriesListView.setAdapter(new ArrayAdapter<>(
                         this,
@@ -99,13 +101,15 @@ public class activity_entry_display extends AppCompatActivity {
                      */
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                        Intent intent = new Intent(activity_entry_display.this, activity_entry_details.class);
+                        Intent intent = new Intent(activity_diary_day.this, activity_diary_details.class);
 
                         String doubleListjson = new Gson().toJson(doubleList);
                         String listDatajson = new Gson().toJson(listData);
+                        String noteListjson = new Gson().toJson(noteList);
 
                         intent.putExtra("EXTRA_DOUBLELIST", doubleListjson);
                         intent.putExtra("EXTRA_LISTDATA", listDatajson);
+                        intent.putExtra("EXTRA_NOTELIST", noteListjson);
                         intent.putExtra("EXTRA_ID", position);
                         startActivity(intent);
                     }
