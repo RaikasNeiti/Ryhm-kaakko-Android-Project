@@ -5,16 +5,14 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.TextView;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
-import java.sql.Array;
 import java.util.ArrayList;
-import java.util.Arrays;
+
 
 /**
  * activity_entry_details -Luokassa näytetään tarkempia tietoja käyttäjän valitsemasta listamerkinnästä
@@ -27,13 +25,21 @@ public class activity_entry_details extends AppCompatActivity {
     private Calculator calculator;
     private int id;
 
+    /*
+     * Funktio, joka kutsutaan kun aktiviteetti luodaan.
+     * @param savedInstanceState = referenssi Bundle-objektiin, joka annetaan onCreate-funktiolle
+     */
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_entry_details);
         updateUI();
     }
-
+    /**
+     * Haetaan klikatun merkinnän tiedot ja muutetaan ne takaisin ArrayListiksi.
+     * Päivitetään tiedoilla kentät.
+     */
 
     public void updateUI()    {
         String doubleListjson;
@@ -70,8 +76,11 @@ public class activity_entry_details extends AppCompatActivity {
             sugarDateView.setText(listData.get(id));
             sugarView.setText(Double.toString(doubleList.get(id)));
 
-
-            differenceView.setText("+/- " + Math.abs(doubleList.get(id) - doubleList.get(id+1)));
+            if (doubleList.size() != id+1) {
+                differenceView.setText("+/- " + Math.abs(doubleList.get(id) - doubleList.get(id + 1)));
+            } else{
+                differenceView.setText("");
+            }
             calculator.sugarColor(minSugar, maxSugar, doubleList.get(id), sugarView);
         } else  {
             sugarDateView.setText("Ei merkintöjä");

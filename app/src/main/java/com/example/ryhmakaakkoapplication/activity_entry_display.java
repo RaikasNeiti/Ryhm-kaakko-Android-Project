@@ -7,7 +7,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -15,7 +14,6 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.google.gson.Gson;
-import com.google.gson.JsonArray;
 
 import java.util.ArrayList;
 
@@ -115,8 +113,6 @@ public class activity_entry_display extends AppCompatActivity {
 
                 roundedDouble = calculator.avgCalc(doubleList);
                 sugarView.setText(Double.toString(roundedDouble));
-
-                Log.d("db", "ka asetettu");
             }
             data.moveToPrevious();
 
@@ -138,7 +134,6 @@ public class activity_entry_display extends AppCompatActivity {
                 stepcount = data.getInt(3);
                 stepsView.setText(Integer.toString(stepcount));
             } else  {
-                Log.d("db", "päivämäärällä ei askelmerkintöjä");
                 stepsView.setText("0");
             }
         }
