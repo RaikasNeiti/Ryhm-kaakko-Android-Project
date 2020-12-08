@@ -1,0 +1,208 @@
+package com.example.ryhmakaakkoapplication;
+
+import androidx.appcompat.app.AppCompatActivity;
+import com.google.gson.Gson;
+import android.content.Context;
+import android.content.Intent;
+import android.hardware.Sensor;
+import android.content.SharedPreferences;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.ProgressBar;
+import android.widget.TextView;
+import java.util.ArrayList;
+
+/**
+ * MainActivity-luokka sisältää UI-kenttien päivittämiseen liittyvän koodin
+ * @author Olli Kolkki, Felix Uimonen, Joni Tahvanainen, Teemu Olkkonen
+ * @version 2.0 3/2019
+ */
+
+public class activity_main extends AppCompatActivity implements SensorEventListener, StepListener {
+    /**
+     * Luodaan askeltunnistin
+     */
+    Steps steps = new Steps();
+    private StepDetector simpleStepDetector;
+    private SensorManager sensorManager;
+    private Sensor accel;
+    private static final String TAG = "MainActivity";
+
+
+    DatabaseHelper databaseHelper = new DatabaseHelper(activity_main.this);
+    SharedPreferences sharedpreferences;
+    Calculator calculator;
+
+    /*
+     * Funktio, joka kutsutaan kun aktiviteetti luodaan.
+     * @param savedInstanceState = referenssi Bundle-objektiin, joka annetaan onCreate-funktiolle
+     */
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
+        accel = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+        simpleStepDetector = new StepDetector();
+        simpleStepDetector.registerListener(this);
+        TextView Steps = findViewById(R.id.stepcountView);
+
+        sensorManager.registerListener(activity_main.this, accel, SensorManager.SENSOR_DELAY_FASTEST);
+        sharedpreferences = getPreferences(MODE_PRIVATE);
+
+        if(sharedpreferences.contains("steps")) {
+            Gson gson = new Gson();
+            String json = sharedpreferences.getString("steps", "");
+            steps = gson.fromJson(json, Steps.class);
+        }
+        Steps.setText(Integer.toString(steps.value()));
+        updateUI();
+
+    }
+
+    /**
+     * Funktio tallentaa askeltietoja sovelluksen siirryttyä pause-tilaan
+     */
+    protected void onPause() {
+        super.onPause();
+        SharedPreferences.Editor editor = sharedpreferences.edit();
+        Gson gson = new Gson();
+        String json = gson.toJson(steps);
+        editor.putString("steps", json);
+        editor.putInt("date", TimeStamp.date());
+        editor.putInt("month", TimeStamp.month());
+        editor.commit();
+    }
+
+    /**
+     * Kun sovellukseen palataan pause/destroyed tilasta, tämä funktio palauttaa tallennetut arvot.
+     */
+    protected void onResume() {
+        super.onResume();
+        updateUI();
+        TextView Steps = findViewById(R.id.stepcountView);
+        if(TimeStamp.date() != sharedpreferences.getInt("date", 0 ) || TimeStamp.month() != sharedpreferences.getInt("month", 0)){
+            databaseHelper.addToStepCounter(steps.value(), sharedpreferences.getInt("date", 0), sharedpreferences.getInt("month",0));
+            steps.reset();
+            Steps.setText(Integer.toString(steps.value()));
+
+
+            SharedPreferences sp =                                                             //Datan haku SharedPreferences
+                    getSharedPreferences("Kaakko", Context.MODE_PRIVATE);
+            int stepGoal = sp.getInt("stepGoal", 10000);
+            TextView stepPercentageView = findViewById(R.id.stepPercentageView);
+            stepPercentageView.setText(calculator.percentCalc(steps.value(), stepGoal) + "%");
+            ProgressBar progressBar = findViewById(R.id.progressBar);
+            progressBar.setProgress(Math.round(calculator.percentCalc(steps.value(), stepGoal)));
+            calculator.progressColor(stepGoal, steps.value(), progressBar);
+
+        }
+    }
+
+    /**
+     * Kun sovellus sammutetaan tämä metodi varmistaa että askelmittaukseen tarvittavat sensorit sammutetaan.
+     */
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        sensorManager.unregisterListener(activity_main.this);
+    }
+
+    @Override
+    public void onAccuracyChanged(Sensor sensor, int accuracy) {
+    }
+
+    /**
+     * Kun sensori tunnistaa liikettä tämä methodi aktivoidaan.
+     * @param event muuttuja sensorin muutokselle.
+     */
+
+    @Override
+    public void onSensorChanged(SensorEvent event) {
+        if (event.sensor.getType() == Sensor.TYPE_ACCELEROMETER) {
+            simpleStepDetector.updateAccel(
+                    event.timestamp, event.values[0], event.values[1], event.values[2]);
+
+            SharedPreferences sp =                                                             //Datan haku SharedPreferences
+                    getSharedPreferences("Kaakko", Context.MODE_PRIVATE);
+            int stepGoal = sp.getInt("stepGoal", 10000);
+            TextView stepPercentageView = findViewById(R.id.stepPercentageView);
+            stepPercentageView.setText(calculator.percentCalc(steps.value(), stepGoal) + "%");
+            ProgressBar progressBar = findViewById(R.id.progressBar);
+            progressBar.setProgress(Math.round(calculator.percentCalc(steps.value(), stepGoal)));
+            calculator.progressColor(stepGoal, steps.value(), progressBar);
+
+
+        }
+    }
+
+    /**
+     * Päivittää askelkenttää lisäämällä yhden askeleen.
+     */
+    @Override
+    public void step(long timeNs) {
+        steps.add();
+        TextView Steps = findViewById(R.id.stepcountView);
+        Steps.setText(Integer.toString(steps.value()));
+    }
+
+
+
+    public void openDiary(View view)    {   //pitää tehdä anonymous listener
+        Intent intent = new Intent(this, activity_diary.class);
+        startActivity(intent);
+    }
+
+    public void openNote(View view)    {
+        Intent intent = new Intent(this, activity_diary_new.class);
+        startActivity(intent);
+    }
+
+    public void openGoal(View view) {
+        Intent intent = new Intent(this, activity_settings.class);
+        startActivity(intent);
+    }
+
+
+    /**
+     * Päivittää askel-ja verensokerikenttien arvoja mitatulla tai päiväkirjaan merkityillä tuloksilla
+     */
+    public void updateUI()    {
+        int stepGoal;
+        float minSugar, maxSugar;
+        calculator = new Calculator();
+        TextView sugarView = findViewById(R.id.sugarView);
+        TextView sugarDateView = findViewById(R.id.sugarDateView);
+        TextView differenceView = findViewById(R.id.differenceView);
+        TextView stepPercentageView = findViewById(R.id.stepPercentageView);
+        ProgressBar progressBar = findViewById(R.id.progressBar);
+
+        ArrayList<String> latest = databaseHelper.getTwoLatest("DIARY");     //Datan haku tietokannasta
+        SharedPreferences sp =                                                             //Datan haku SharedPreferences
+                getSharedPreferences("Kaakko", Context.MODE_PRIVATE);
+        stepGoal = sp.getInt("stepGoal", 10000);
+        minSugar = sp.getFloat("minSugar", 0);
+        maxSugar = sp.getFloat("maxSugar", 0);
+
+        if(!latest.isEmpty())   {
+            sugarDateView.setText(latest.get(0));
+            sugarView.setText(latest.get(1));
+            differenceView.setText(calculator.diffCalc(latest));
+            calculator.sugarColor(minSugar, maxSugar, Double.parseDouble(latest.get(1)), sugarView);
+        } else  {
+            sugarDateView.setText("Ei merkintöjä");
+            sugarView.setText("0");
+        }
+
+        stepPercentageView.setText(calculator.percentCalc(steps.value(), stepGoal) + "%");
+        progressBar.setProgress(Math.round(calculator.percentCalc(steps.value(), stepGoal)));
+        calculator.progressColor(stepGoal, steps.value(), progressBar);
+    }
+
+}

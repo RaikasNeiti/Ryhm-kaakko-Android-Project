@@ -94,10 +94,10 @@ public class activity_diary_day extends AppCompatActivity {
                 entriesListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     /**
                      * Funktio kutsutaan kun käyttäjä klikkaa list itemia
-                     * @param parent
-                     * @param view
-                     * @param position
-                     * @param id
+                     * @param parent viittaus adapterview-adapteriin jossa klikkaus tapahtui
+                     * @param view viittaus view-kenttään adapterview:n sisällä, jota klikattiin
+                     * @param position view:n kohta adapterissa
+                     * @param id rivin id, jota klikattiin
                      */
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {

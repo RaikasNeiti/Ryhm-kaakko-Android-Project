@@ -29,7 +29,7 @@ com/example/ryhmakaakkoapplication/activity_diary.java
  com.example.ryhmakaakkoapplication.activity_diary$1
 com/example/ryhmakaakkoapplication/Steps.java
  com.example.ryhmakaakkoapplication.Steps
-com/example/ryhmakaakkoapplication/MainActivity.java
- com.example.ryhmakaakkoapplication.MainActivity
 com/example/ryhmakaakkoapplication/TimeStamp.java
  com.example.ryhmakaakkoapplication.TimeStamp
+com/example/ryhmakaakkoapplication/MainActivity.java
+ com.example.ryhmakaakkoapplication.MainActivity

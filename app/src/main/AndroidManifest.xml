@@ -23,7 +23,7 @@
             android:name=".activity_diary_new"
             android:label="Tee merkintä" />
         <activity
-            android:name=".MainActivity"
+            android:name=".activity_main"
             android:label="SugarSteps">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
