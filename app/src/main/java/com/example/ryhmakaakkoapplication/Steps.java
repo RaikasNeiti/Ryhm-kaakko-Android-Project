@@ -13,6 +13,7 @@ public class Steps {
 
     /**
      * Määrätään alussa, että mikä on askeleiden määrä, tässä tapauksessa se on aina alussa 0.
+     * @param numSteps on askelmäärät.
      */
 
     public Steps (){

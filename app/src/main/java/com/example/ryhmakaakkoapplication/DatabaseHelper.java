@@ -2,25 +2,25 @@ package com.example.ryhmakaakkoapplication;
 
 import android.content.ContentValues;
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.preference.PreferenceManager;
-import android.util.Log;
-import android.widget.Toast;
+
 
 import androidx.annotation.Nullable;
 
 import java.util.ArrayList;
 
+/**
+ * Tietokannan käsitelyssä käytettävä luokka
+ * @author felix uimonen
+ * @version 1035.0 8.12.2020
+ */
 
 public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String STEPCOUNTER = "STEPCOUNTER";
     public static final String DIARY = "DIARY";
     private static final String COL1 = "glukoosi";
-
-    SharedPreferences sharedpreferences;
 
     /**
      * Luokan konstruktori
@@ -153,7 +153,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             return latestRow;
 
         } else {
-            Log.d("db", "Error getting data");
             return latestRow;
         }
     }

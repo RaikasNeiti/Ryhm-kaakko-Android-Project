@@ -7,7 +7,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -82,7 +81,6 @@ public class activity_entry_display extends AppCompatActivity {
             monthData = data.getInt(2);
             yearData = data.getInt(3);
             timeData = data.getString(5);
-            Log.d("Testi", Integer.toString(dayData) + Integer.toString(dayOfMonth));
             if((monthData == month) && (dayData == dayOfMonth) && (yearData == year)) {       //jos tietokannan timestamp on sama kuin klikatun päivämäärän
                 doubleList.add(Double.parseDouble(data.getString(4)));
                 listData.add(dayData + "." + monthData + "." + yearData + " " + timeData + " " + data.getString(4) + " mmol/L");
@@ -95,7 +93,7 @@ public class activity_entry_display extends AppCompatActivity {
                 roundedDouble = calculator.avgCalc(doubleList);
                 sugarView.setText(Double.toString(roundedDouble));
 
-                Log.d("db", "ka asetettu");
+
             }
             data.moveToPrevious();
 
@@ -117,7 +115,6 @@ public class activity_entry_display extends AppCompatActivity {
                 stepcount = data.getInt(3);
                 stepsView.setText(Integer.toString(stepcount));
             } else  {
-                Log.d("db", "päivämäärällä ei askelmerkintöjä");
                 stepsView.setText("0");
             }
         }

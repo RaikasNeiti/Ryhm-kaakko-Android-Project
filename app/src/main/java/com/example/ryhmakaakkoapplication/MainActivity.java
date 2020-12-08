@@ -10,7 +10,6 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -19,20 +18,18 @@ import java.util.ArrayList;
 /**
  * MainActivity-luokka sisältää UI-kenttien päivittämiseen liittyvän koodin
  * @author Olli Kolkki, Felix Uimonen, Joni Tahvanainen, Teemu Olkkonen
- * @version 1.0 3/2019
+ * @version 4.20 3/2019
  */
 
 public class MainActivity extends AppCompatActivity implements SensorEventListener, StepListener {
     /**
      * Luodaan askeltunnistin
      */
-    public static final String EXTRA_MESSAGE = "blaa";
     Steps steps = new Steps();
     private StepDetector simpleStepDetector;
     private SensorManager sensorManager;
     private Sensor accel;
     private static final String TAG = "MainActivity";
-    private static final int RESET = 0;
 
 
     DatabaseHelper databaseHelper = new DatabaseHelper(MainActivity.this);
@@ -69,7 +66,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     }
 
     /**
-     * Hyödynnetään gson ja json
+     * Hyödynnetään gson ja json tiedontallennus
      */
     protected void onPause() {
         super.onPause();
@@ -83,7 +80,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     }
 
     /**
-     * Kun sovellukseen palataan pause/destroyed tilasta
+     * Kun sovellukseen palataan pause/destroyed tilasta, se palauttaa arvot jotka on tallennettu databasiin tai sharedpreferences.
      */
     protected void onResume() {
         super.onResume();
@@ -104,10 +101,12 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             progressBar.setProgress(Math.round(calculator.percentCalc(steps.value(), stepGoal)));
             calculator.progressColor(stepGoal, steps.value(), progressBar);
 
-        } else{
-            Log.d(TAG, "Date Same" + sharedpreferences.getInt("date", 0));
         }
     }
+
+    /**
+     * Kun sovellus sammutetaan tämä methodi varmistaa että askelmittaukseen tarvittavat sensorit sammutetaan.
+     */
 
     @Override
     protected void onDestroy() {
@@ -118,6 +117,11 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     @Override
     public void onAccuracyChanged(Sensor sensor, int accuracy) {
     }
+
+    /**
+     * kun sensori tunnistaa liikettä tämä methodi aktivoidaan.
+     * @param event muuttuja sensorin muutokselle.
+     */
 
     @Override
     public void onSensorChanged(SensorEvent event) {
@@ -139,8 +143,8 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     }
 
     /**
-     * Päivittää askel-kenttää mitatulla tuloksella
-     * @param timeNs
+     * Päivittää askel-kenttää lisäämällä yhden askeleen.
+     *
      */
     @Override
     public void step(long timeNs) {

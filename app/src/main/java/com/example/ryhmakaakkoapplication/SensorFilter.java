@@ -4,7 +4,7 @@ package com.example.ryhmakaakkoapplication;
  */
 public class SensorFilter {
     /**
-     * Ei Ole meidän
+     * Ei ole meidän
      * tutorial löytyy
      * http://www.gadgetsaint.com/android/create-pedometer-step-counter-android/#.X83sxGgza-Z
      *
