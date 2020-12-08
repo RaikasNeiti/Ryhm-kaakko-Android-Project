@@ -40,12 +40,12 @@
         "source": "C:\\Users\\okolk\\AndroidStudioProjects\\Ryhm-kaakko-Android-Project\\app\\src\\main\\res\\drawable\\circle.xml"
     },
     {
-        "merged": "C:\\Users\\okolk\\AndroidStudioProjects\\Ryhm-kaakko-Android-Project\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher.png.flat",
-        "source": "C:\\Users\\okolk\\AndroidStudioProjects\\Ryhm-kaakko-Android-Project\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher.png"
-    },
-    {
         "merged": "C:\\Users\\okolk\\AndroidStudioProjects\\Ryhm-kaakko-Android-Project\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_settings.xml.flat",
         "source": "C:\\Users\\okolk\\AndroidStudioProjects\\Ryhm-kaakko-Android-Project\\app\\src\\main\\res\\layout\\activity_settings.xml"
+    },
+    {
+        "merged": "C:\\Users\\okolk\\AndroidStudioProjects\\Ryhm-kaakko-Android-Project\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\okolk\\AndroidStudioProjects\\Ryhm-kaakko-Android-Project\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher.png"
     },
     {
         "merged": "C:\\Users\\okolk\\AndroidStudioProjects\\Ryhm-kaakko-Android-Project\\app\\build\\intermediates\\res\\merged\\debug\\drawable_roundedrectangle.xml.flat",

@@ -14,6 +14,7 @@ import android.widget.CalendarView;
  */
 
 public class activity_diary extends AppCompatActivity {
+    private CalendarView calendar;
 
     /*
      * Funktio, joka kutsutaan kun aktiviteetti luodaan. Sisältää kuuntelijan kalenterille,
@@ -24,22 +25,13 @@ public class activity_diary extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_diary);
-        CalendarView calendar = findViewById(R.id.calendar);
+        calendar = findViewById(R.id.calendar);
 
 
         calendar.setOnDateChangeListener(
-                new CalendarView
-                        .OnDateChangeListener() {
-                    @Override
-                    public void onSelectedDayChange(
-                            CalendarView view,
-                            int year,
-                            int month,
-                            int dayOfMonth)
-                    {
-                        month++;
-                        katsoMerkinta(view, dayOfMonth, month, year);
-                    }
+                (view, year, month, dayOfMonth) -> {
+                    month++;
+                    katsoMerkinta(view, dayOfMonth, month, year);
                 });
     }
 

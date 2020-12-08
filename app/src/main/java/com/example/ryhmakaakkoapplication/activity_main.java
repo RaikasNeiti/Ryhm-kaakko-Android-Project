@@ -30,11 +30,18 @@ public class activity_main extends AppCompatActivity implements SensorEventListe
     private SensorManager sensorManager;
     private Sensor accel;
     private static final String TAG = "MainActivity";
+    private TextView sugarView;
+    private TextView sugarDateView;
+    private TextView differenceView;
+    private TextView stepPercentageView;
+    private ProgressBar progressBar;
+    private TextView Steps;
+    private Calculator calculator;
+
 
 
     DatabaseHelper databaseHelper = new DatabaseHelper(activity_main.this);
     SharedPreferences sharedpreferences;
-    Calculator calculator;
 
     /*
      * Funktio, joka kutsutaan kun aktiviteetti luodaan.
@@ -50,7 +57,15 @@ public class activity_main extends AppCompatActivity implements SensorEventListe
         accel = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
         simpleStepDetector = new StepDetector();
         simpleStepDetector.registerListener(this);
-        TextView Steps = findViewById(R.id.stepcountView);
+
+        calculator = new Calculator();
+        sugarView = findViewById(R.id.sugarView);
+        sugarDateView = findViewById(R.id.sugarDateView);
+        differenceView = findViewById(R.id.differenceView);
+        stepPercentageView = findViewById(R.id.stepPercentageView);
+        progressBar = findViewById(R.id.progressBar);
+        stepPercentageView = findViewById(R.id.stepPercentageView);
+        Steps = findViewById(R.id.stepcountView);
 
         sensorManager.registerListener(activity_main.this, accel, SensorManager.SENSOR_DELAY_FASTEST);
         sharedpreferences = getPreferences(MODE_PRIVATE);
@@ -85,7 +100,6 @@ public class activity_main extends AppCompatActivity implements SensorEventListe
     protected void onResume() {
         super.onResume();
         updateUI();
-        TextView Steps = findViewById(R.id.stepcountView);
         if(TimeStamp.date() != sharedpreferences.getInt("date", 0 ) || TimeStamp.month() != sharedpreferences.getInt("month", 0)){
             databaseHelper.addToStepCounter(steps.value(), sharedpreferences.getInt("date", 0), sharedpreferences.getInt("month",0));
             steps.reset();
@@ -95,9 +109,7 @@ public class activity_main extends AppCompatActivity implements SensorEventListe
             SharedPreferences sp =                                                             //Datan haku SharedPreferences
                     getSharedPreferences("Kaakko", Context.MODE_PRIVATE);
             int stepGoal = sp.getInt("stepGoal", 10000);
-            TextView stepPercentageView = findViewById(R.id.stepPercentageView);
             stepPercentageView.setText(calculator.percentCalc(steps.value(), stepGoal) + "%");
-            ProgressBar progressBar = findViewById(R.id.progressBar);
             progressBar.setProgress(Math.round(calculator.percentCalc(steps.value(), stepGoal)));
             calculator.progressColor(stepGoal, steps.value(), progressBar);
 
@@ -132,9 +144,7 @@ public class activity_main extends AppCompatActivity implements SensorEventListe
             SharedPreferences sp =                                                             //Datan haku SharedPreferences
                     getSharedPreferences("Kaakko", Context.MODE_PRIVATE);
             int stepGoal = sp.getInt("stepGoal", 10000);
-            TextView stepPercentageView = findViewById(R.id.stepPercentageView);
             stepPercentageView.setText(calculator.percentCalc(steps.value(), stepGoal) + "%");
-            ProgressBar progressBar = findViewById(R.id.progressBar);
             progressBar.setProgress(Math.round(calculator.percentCalc(steps.value(), stepGoal)));
             calculator.progressColor(stepGoal, steps.value(), progressBar);
 
@@ -148,7 +158,6 @@ public class activity_main extends AppCompatActivity implements SensorEventListe
     @Override
     public void step(long timeNs) {
         steps.add();
-        TextView Steps = findViewById(R.id.stepcountView);
         Steps.setText(Integer.toString(steps.value()));
     }
 
@@ -176,12 +185,6 @@ public class activity_main extends AppCompatActivity implements SensorEventListe
     public void updateUI()    {
         int stepGoal;
         float minSugar, maxSugar;
-        calculator = new Calculator();
-        TextView sugarView = findViewById(R.id.sugarView);
-        TextView sugarDateView = findViewById(R.id.sugarDateView);
-        TextView differenceView = findViewById(R.id.differenceView);
-        TextView stepPercentageView = findViewById(R.id.stepPercentageView);
-        ProgressBar progressBar = findViewById(R.id.progressBar);
 
         ArrayList<String> latest = databaseHelper.getTwoLatest("DIARY");     //Datan haku tietokannasta
         SharedPreferences sp =                                                             //Datan haku SharedPreferences

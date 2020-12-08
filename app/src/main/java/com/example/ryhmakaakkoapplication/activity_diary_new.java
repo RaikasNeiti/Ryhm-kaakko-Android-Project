@@ -21,6 +21,8 @@ public class activity_diary_new extends AppCompatActivity {       // tehty https
 
     DatabaseHelper mDatabaseHelper;
     private boolean insertData;
+    private EditText editText;
+    private EditText editText2;
 
     /*
      * Funktio, joka kutsutaan kun aktiviteetti luodaan.
@@ -31,10 +33,13 @@ public class activity_diary_new extends AppCompatActivity {       // tehty https
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_diary_new);
         mDatabaseHelper = new DatabaseHelper(this);
+        editText = findViewById(R.id.editText);
+        editText2 = findViewById(R.id.editText2);
+
     }
 
     /**
-     * kutsutaan lähetetään tiedot tietokantaan
+     * kutsutaan kun halutaa lähettää tiedot tietokantaan
      * @param sugarEntry saadut tiedot
      */
     public void addData(String sugarEntry, String noteEntry)    {
@@ -50,9 +55,7 @@ public class activity_diary_new extends AppCompatActivity {       // tehty https
      * kutsutaan, kun käyttäjä painaa "tallenna" nappia
      * @param view napin view-elementti
      */
-    public void sendEntry(View view)    {
-        EditText editText = (EditText) findViewById(R.id.editText);
-        EditText editText2 = (EditText) findViewById(R.id.editText2);
+    public void buttonPressed(View view)    {
 
         String input = editText.getText().toString();
         String input2 = editText2.getText().toString();
@@ -60,13 +63,10 @@ public class activity_diary_new extends AppCompatActivity {       // tehty https
         if (input.length() > 0 && input2.length() <= 50 && input2.length() > 0) {
             addData(input, input2);
             Toast.makeText(getApplicationContext(),input + " mmol/L lisätty päiväkirjaan",Toast.LENGTH_SHORT).show();
-            Log.d("save", "save success");
         } else if (input.length() > 0 && input2.length() <= 0)  {
             addData(input, "Ei lisätietoja");
-            Log.d("save", "no info");
             Toast.makeText(getApplicationContext(),input + " mmol/L lisätty päiväkirjaan",Toast.LENGTH_SHORT).show();
         } else  {
-            Log.d("save", "save failed");
             Toast.makeText(getApplicationContext(),"Tallennus epäonnistui. Kenttien arvot ovat puutteeliset",Toast.LENGTH_SHORT).show();
         }
 

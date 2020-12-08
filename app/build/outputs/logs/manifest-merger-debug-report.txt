@@ -106,12 +106,12 @@ ADDED from C:\Users\okolk\AndroidStudioProjects\Ryhm-kaakko-Android-Project\app\
 		ADDED from C:\Users\okolk\AndroidStudioProjects\Ryhm-kaakko-Android-Project\app\src\main\AndroidManifest.xml:24:13-41
 	android:name
 		ADDED from C:\Users\okolk\AndroidStudioProjects\Ryhm-kaakko-Android-Project\app\src\main\AndroidManifest.xml:23:13-47
-activity#com.example.ryhmakaakkoapplication.MainActivity
+activity#com.example.ryhmakaakkoapplication.activity_main
 ADDED from C:\Users\okolk\AndroidStudioProjects\Ryhm-kaakko-Android-Project\app\src\main\AndroidManifest.xml:25:9-33:20
 	android:label
 		ADDED from C:\Users\okolk\AndroidStudioProjects\Ryhm-kaakko-Android-Project\app\src\main\AndroidManifest.xml:27:13-39
 	android:name
-		ADDED from C:\Users\okolk\AndroidStudioProjects\Ryhm-kaakko-Android-Project\app\src\main\AndroidManifest.xml:26:13-41
+		ADDED from C:\Users\okolk\AndroidStudioProjects\Ryhm-kaakko-Android-Project\app\src\main\AndroidManifest.xml:26:13-42
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
 ADDED from C:\Users\okolk\AndroidStudioProjects\Ryhm-kaakko-Android-Project\app\src\main\AndroidManifest.xml:28:13-32:29
 action#android.intent.action.MAIN

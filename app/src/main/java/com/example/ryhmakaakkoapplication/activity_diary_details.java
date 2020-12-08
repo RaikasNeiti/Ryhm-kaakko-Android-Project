@@ -24,6 +24,10 @@ public class activity_diary_details extends AppCompatActivity {
 
     private Calculator calculator;
     private int id;
+    private TextView sugarView;
+    private TextView sugarDateView;
+    private TextView differenceView;
+    private TextView detailsView;
 
     /*
      * Funktio, joka kutsutaan kun aktiviteetti luodaan.
@@ -34,6 +38,10 @@ public class activity_diary_details extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_diary_details);
+        sugarView = findViewById(R.id.sugarView2);
+        sugarDateView = findViewById(R.id.sugarDateView2);
+        differenceView = findViewById(R.id.differenceView2);
+        detailsView = findViewById(R.id.detailsView);
         updateUI();
     }
     /**
@@ -45,12 +53,12 @@ public class activity_diary_details extends AppCompatActivity {
         String doubleListjson;
         String listDatajson;
         String noteListjson;
+        float minSugar, maxSugar;
 
         ArrayList<Double> doubleList = new ArrayList<>();
         ArrayList<String> listData = new ArrayList<>();
         ArrayList<String> noteList = new ArrayList<>();
 
-        float minSugar, maxSugar;
         Intent intent = getIntent();
         Bundle extras = intent.getExtras();
         id = extras.getInt("EXTRA_ID");
@@ -69,10 +77,6 @@ public class activity_diary_details extends AppCompatActivity {
         noteList = gson.fromJson(noteListjson, listType);
 
         calculator = new Calculator();
-        TextView sugarView = findViewById(R.id.sugarView2);
-        TextView sugarDateView = findViewById(R.id.sugarDateView2);
-        TextView differenceView = findViewById(R.id.differenceView2);
-        TextView detailsView = findViewById(R.id.detailsView);
 
         SharedPreferences sp =
                 getSharedPreferences("Kaakko", Context.MODE_PRIVATE);

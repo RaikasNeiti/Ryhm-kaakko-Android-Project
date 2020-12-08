@@ -5,7 +5,6 @@ import android.graphics.PorterDuff;
 import android.graphics.drawable.StateListDrawable;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-
 import java.util.ArrayList;
 
     /**

@@ -32,7 +32,7 @@
             android:name="com.example.ryhmakaakkoapplication.activity_diary_new"
             android:label="Tee merkintä" />
         <activity
-            android:name="com.example.ryhmakaakkoapplication.MainActivity"
+            android:name="com.example.ryhmakaakkoapplication.activity_main"
             android:label="SugarSteps" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
