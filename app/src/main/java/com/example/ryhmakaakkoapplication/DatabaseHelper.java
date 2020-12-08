@@ -27,7 +27,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
      * @param context https://docs.oracle.com/javase/7/docs/api/javax/naming/Context.html
      */
     public DatabaseHelper(@Nullable Context context) {
-        super(context, "SugarSteps.db", null, 2);
+        super(context, "SugarSteps.db", null, 3);
     }
 
     /**
@@ -133,7 +133,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     /**
      * hakee taulun kaksi viimeistä riviä
      * @param tableName Taulun nimi
-     * @return ArrayList<String> taulun kaksi viimeistä arvoa
+     * @return ArrayList<String> taulun kaksi viimeistä arvoa ja timestamp
      */
     public ArrayList getTwoLatest(String tableName) {
         SQLiteDatabase db = this.getReadableDatabase();
@@ -156,4 +156,36 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             return latestRow;
         }
     }
+
+
+    /**
+     * Hakee ID:n perusteella yhden rivin ja siitä edellisen rivin
+     * @param tableName taulun nimi
+     * @param id id, johon haku perustuu
+     * @return lista, jossa on timestamp ja kaksi verensokerimerkintää
+     */
+    public ArrayList getPrevious(String tableName, int id) {
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        ArrayList<String> latestRow = new ArrayList<>();
+        int id2 = id + 1;
+        Cursor data = db.rawQuery("SELECT * FROM " + tableName + " WHERE ID IN(" + id + ", " + id2 +") ORDER BY ID", null); //valitsee viimeisimmän arvon
+        if (data != null && data.moveToLast()) {
+
+            latestRow.add(data.getString(1) + "." + data.getString(2) + "." + data.getString(3) + " " + data.getString(5));
+            latestRow.add(data.getString(4));
+
+            if (data != null && data.moveToPrevious()) {
+                latestRow.add(data.getString(4));
+            } else {
+                data.moveToNext();
+                latestRow.add(data.getString(4));
+            }
+            return latestRow;
+
+        } else {
+            return latestRow;
+        }
+    }
+
 }

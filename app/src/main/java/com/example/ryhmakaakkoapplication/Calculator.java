@@ -112,5 +112,9 @@ public class Calculator {
        return "+/- " + Math.abs(Float.parseFloat(latest.get(1)) - Float.parseFloat(latest.get(2)));
     }
 
+    public int oppositeNumber(int num, int min, int max) {
+        return (max + min) - num;
+    }
+
 
 }

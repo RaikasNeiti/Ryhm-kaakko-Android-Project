@@ -7,6 +7,9 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -25,19 +28,12 @@ public class activity_entry_display extends AppCompatActivity {
     private int year;
     private int monthData;
     private int dayData;
-    private int yearData;
     private ListView entriesListView;
     private TextView sugarView;
     private TextView stepsView;
-    private TextView sugarDesc;
-    private TextView bloodsugarTitle;
     DatabaseHelper mDatabaseHelper;
     private int stepcount;
-    private int stepGoal;
-    private float minSugar;
-    private float maxSugar;
     private double roundedDouble = 0;
-    private String timeData;
     private Calculator calculator;
 
     /*
@@ -51,8 +47,6 @@ public class activity_entry_display extends AppCompatActivity {
         entriesListView = findViewById(R.id.entriesListView);
         sugarView = findViewById(R.id.bloodsugar);
         stepsView = findViewById(R.id.steps);
-        bloodsugarTitle = findViewById(R.id.bloodsugarTitle);
-        sugarDesc = findViewById(R.id.sugarDesc2);
 
         Intent intent = getIntent();
         Bundle extras = intent.getExtras();
@@ -76,11 +70,13 @@ public class activity_entry_display extends AppCompatActivity {
         ArrayList<String> listData = new ArrayList<>();
         ArrayList<Double> doubleList = new ArrayList<>();
         data.moveToLast();      //vaihdetaan tietokannan läpikäynti käänteiseksi, jotta listassa olisi aikajärjestys
+
         for(int i = 0; i < mDatabaseHelper.countRows("DIARY"); i++)    {//käydään läpi tietokanta keskiarvolaskuria ja oikean timestampin löytämistä varten
             dayData = data.getInt(1);
             monthData = data.getInt(2);
-            yearData = data.getInt(3);
-            timeData = data.getString(5);
+            int yearData = data.getInt(3);
+            String timeData = data.getString(5);
+
             if((monthData == month) && (dayData == dayOfMonth) && (yearData == year)) {       //jos tietokannan timestamp on sama kuin klikatun päivämäärän
                 doubleList.add(Double.parseDouble(data.getString(4)));
                 listData.add(dayData + "." + monthData + "." + yearData + " " + timeData + " " + data.getString(4) + " mmol/L");
@@ -90,14 +86,32 @@ public class activity_entry_display extends AppCompatActivity {
                         R.layout.entry_item_layout,
                         listData
                 ));
+
+                entriesListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    /**
+                     * Funktio kutsutaan kun käyttäjä klikkaa list itemia
+                     * @param parent
+                     * @param view
+                     * @param position
+                     * @param id
+                     */
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                        Intent intent = new Intent(activity_entry_display.this, activity_entry_details.class);
+                        intent.putExtra("EXTRA_ID", calculator.oppositeNumber(position, 0, entriesListView.getChildCount()));
+                        startActivity(intent);
+                    }
+                });
+
                 roundedDouble = calculator.avgCalc(doubleList);
                 sugarView.setText(Double.toString(roundedDouble));
 
-
+                Log.d("db", "ka asetettu");
             }
             data.moveToPrevious();
 
         }
+
     }
 
     /**
@@ -110,11 +124,11 @@ public class activity_entry_display extends AppCompatActivity {
             dayData = data.getInt(1);
             monthData = data.getInt(2);
 
-
             if((monthData == month) && (dayData == dayOfMonth))   {
                 stepcount = data.getInt(3);
                 stepsView.setText(Integer.toString(stepcount));
             } else  {
+                Log.d("db", "päivämäärällä ei askelmerkintöjä");
                 stepsView.setText("0");
             }
         }
@@ -126,9 +140,9 @@ public class activity_entry_display extends AppCompatActivity {
     private void UpdateColor()  {
         SharedPreferences sp =
                 getSharedPreferences("Kaakko", Context.MODE_PRIVATE);
-        stepGoal = sp.getInt("stepGoal", 10000);
-        minSugar = sp.getFloat("minSugar", 4);
-        maxSugar  = sp.getFloat("maxSugar", 10);
+        int stepGoal = sp.getInt("stepGoal", 10000);
+        float minSugar = sp.getFloat("minSugar", 4);
+        float maxSugar = sp.getFloat("maxSugar", 10);
         calculator.sugarColor(minSugar, maxSugar, roundedDouble, sugarView);
         calculator.stepsColor(stepGoal, stepcount, stepsView);
     }

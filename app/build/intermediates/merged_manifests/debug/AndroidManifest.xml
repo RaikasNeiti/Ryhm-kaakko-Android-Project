@@ -18,6 +18,7 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/Theme.RyhmaKaakkoApplication" >
+        <activity android:name="com.example.ryhmakaakkoapplication.activity_entry_details" />
         <activity
             android:name="com.example.ryhmakaakkoapplication.activity_goal_entry"
             android:label="Tavoitteet" />
