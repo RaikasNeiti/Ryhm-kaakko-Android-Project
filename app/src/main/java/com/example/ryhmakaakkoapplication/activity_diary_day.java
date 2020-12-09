@@ -37,8 +37,7 @@ public class activity_diary_day extends AppCompatActivity {
     private int stepcount;
     private double roundedDouble = 0;
     private Calculator calculator;
-
-    /*
+       /*
      * Funktio, joka kutsutaan kun aktiviteetti luodaan.
      * @param savedInstanceState = referenssi Bundle-objektiin, joka annetaan onCreate-funktiolle
      */
@@ -57,6 +56,7 @@ public class activity_diary_day extends AppCompatActivity {
         year = extras.getInt("EXTRA_YEAR");
         mDatabaseHelper = new DatabaseHelper(this);
         this.calculator = new Calculator();
+        System.out.println("vitun paska");
         UpdateListView();
         UpdateSteps();
         UpdateColor();
@@ -130,23 +130,34 @@ public class activity_diary_day extends AppCompatActivity {
     /**
      * Päivitetään näkymä päivän askelten määrällä, joka haetaan tietokannasta
      */
-    private void UpdateSteps()  {
+    private void UpdateSteps() {
         Cursor data = mDatabaseHelper.getData("STEPCOUNTER");
 
-        while(data.moveToNext())    {                                                         //käydään läpi tietokanta keskiarvolaskuria ja oikean timestampin löytämistä varten
-            dayData = data.getInt(1);
-            monthData = data.getInt(2);
+        if (TimeStamp.month() == month && TimeStamp.date() == dayOfMonth) {
+            SharedPreferences step =                                                             //Datan haku SharedPreferences
+                    getSharedPreferences("Kaakko", Context.MODE_PRIVATE);
+            if (step.contains("steps")) {
+                Gson gson = new Gson();
+                String json = step.getString("steps", "");
+                Steps steps = gson.fromJson(json, Steps.class);
+                stepsView.setText(Integer.toString(steps.value()));
+            }
+        } else {
+            while (data.moveToNext()) {                                                         //käydään läpi tietokanta keskiarvolaskuria ja oikean timestampin löytämistä varten
+                dayData = data.getInt(1);
+                monthData = data.getInt(2);
 
-            if((monthData == month) && (dayData == dayOfMonth))   {
-                stepcount = data.getInt(3);
-                stepsView.setText(Integer.toString(stepcount));
-                break;
-            } else  {
-                stepsView.setText("0");
+                if ((monthData == month) && (dayData == dayOfMonth)) {
+
+                    stepcount = data.getInt(3);
+                    stepsView.setText(Integer.toString(stepcount));
+                    break;
+                } else {
+                    stepsView.setText("0");
+                }
             }
         }
     }
-
     /**
      * Haetaan tiedot tiedot funktioille, jotka vaihtavat elementtien värejä.
      */

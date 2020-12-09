@@ -10,6 +10,7 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -41,8 +42,7 @@ public class activity_main extends AppCompatActivity implements SensorEventListe
 
 
     DatabaseHelper databaseHelper = new DatabaseHelper(activity_main.this);
-    SharedPreferences sharedpreferences;
-
+    SharedPreferences step = getSharedPreferences("Kaakko", MODE_PRIVATE);
     /*
      * Funktio, joka kutsutaan kun aktiviteetti luodaan.
      * @param savedInstanceState = referenssi Bundle-objektiin, joka annetaan onCreate-funktiolle
@@ -68,11 +68,11 @@ public class activity_main extends AppCompatActivity implements SensorEventListe
         Steps = findViewById(R.id.stepcountView);
 
         sensorManager.registerListener(activity_main.this, accel, SensorManager.SENSOR_DELAY_FASTEST);
-        sharedpreferences = getPreferences(MODE_PRIVATE);
 
-        if(sharedpreferences.contains("steps")) {
+
+        if(step.contains("steps")) {
             Gson gson = new Gson();
-            String json = sharedpreferences.getString("steps", "");
+            String json = step.getString("steps", "");
             steps = gson.fromJson(json, Steps.class);
         }
         Steps.setText(Integer.toString(steps.value()));
@@ -85,7 +85,8 @@ public class activity_main extends AppCompatActivity implements SensorEventListe
      */
     protected void onPause() {
         super.onPause();
-        SharedPreferences.Editor editor = sharedpreferences.edit();
+        step = getSharedPreferences("Kaakko", MODE_PRIVATE);
+        SharedPreferences.Editor editor = step.edit();
         Gson gson = new Gson();
         String json = gson.toJson(steps);
         editor.putString("steps", json);
@@ -100,8 +101,8 @@ public class activity_main extends AppCompatActivity implements SensorEventListe
     protected void onResume() {
         super.onResume();
         updateUI();
-        if(TimeStamp.date() != sharedpreferences.getInt("date", 0 ) || TimeStamp.month() != sharedpreferences.getInt("month", 0)){
-            databaseHelper.addToStepCounter(steps.value(), sharedpreferences.getInt("date", 0), sharedpreferences.getInt("month",0));
+        if(TimeStamp.date() != step.getInt("date", 0 ) || TimeStamp.month() != step.getInt("month", 0)){
+            databaseHelper.addToStepCounter(steps.value(), step.getInt("date", 0), step.getInt("month",0));
             steps.reset();
             Steps.setText(Integer.toString(steps.value()));
 
