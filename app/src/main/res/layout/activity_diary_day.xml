@@ -92,7 +92,7 @@
         android:background="@null"
         android:text="mmol/L"
         android:textColor="#FFFFFF"
-        android:textSize="8sp"
+        android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="@+id/bloodsugar"
         app:layout_constraintEnd_toEndOf="@+id/bloodsugar"
         app:layout_constraintStart_toStartOf="@+id/bloodsugar"

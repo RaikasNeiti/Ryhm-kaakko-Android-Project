@@ -94,17 +94,16 @@
         android:id="@+id/detailsView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@drawable/rounded_rectangle_textview"
         android:gravity="center"
         android:padding="10sp"
-        android:text="TextViewTextViewTextViewTextViewTextViewTextViewTextViewTextViewTextViewTextViewTextViewTextViewTextView"
         android:textColor="@color/white"
         android:textSize="14sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline9"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
         app:layout_constraintStart_toStartOf="@+id/guideline2"
         app:layout_constraintTop_toTopOf="@+id/guideline9"
-        app:layout_constraintVertical_bias="0.515"
-        android:background="@drawable/rounded_rectangle_textview" />
+        app:layout_constraintVertical_bias="0.515" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline9"
