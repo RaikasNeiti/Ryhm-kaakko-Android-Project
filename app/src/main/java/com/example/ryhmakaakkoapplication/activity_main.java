@@ -161,22 +161,24 @@ public class activity_main extends AppCompatActivity implements SensorEventListe
         Steps.setText(Integer.toString(steps.value()));
     }
 
-
-
-    public void openDiary(View view)    {   //pitää tehdä anonymous listener
-        Intent intent = new Intent(this, activity_diary.class);
-        startActivity(intent);
+    /**
+     * Funktio joka kutsutaan kun nappuloita painetaan
+     * @param view painettu view elementti
+     */
+    public void onButtonPressed(View view) {
+        if (view == findViewById(R.id.diary)) {
+            Intent intent = new Intent(this, activity_diary.class);
+            startActivity(intent);
+        } else if (view == findViewById(R.id.note)) {
+            Intent intent = new Intent(this, activity_diary_new.class);
+            startActivity(intent);
+        } else if (view == findViewById(R.id.goalBtn)) {
+            Intent intent = new Intent(this, activity_settings.class);
+            startActivity(intent);
+        }
     }
 
-    public void openNote(View view)    {
-        Intent intent = new Intent(this, activity_diary_new.class);
-        startActivity(intent);
-    }
 
-    public void openGoal(View view) {
-        Intent intent = new Intent(this, activity_settings.class);
-        startActivity(intent);
-    }
 
 
     /**
