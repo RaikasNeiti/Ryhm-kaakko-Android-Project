@@ -134,7 +134,7 @@
         android:gravity="center"
         android:text="dd.mm.yy"
         android:textColor="#FFFFFF"
-        android:textSize="10sp"
+        android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="@+id/sugarView"
         app:layout_constraintStart_toStartOf="@+id/sugarView"
         app:layout_constraintTop_toBottomOf="@+id/sugarView" />
