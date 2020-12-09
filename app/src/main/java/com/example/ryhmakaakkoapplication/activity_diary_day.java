@@ -132,7 +132,7 @@ public class activity_diary_day extends AppCompatActivity {
      */
     private void UpdateSteps() {
         Cursor data = mDatabaseHelper.getData("STEPCOUNTER");
-
+        //moro
         if (TimeStamp.month() == month && TimeStamp.date() == dayOfMonth) {
             SharedPreferences step =                                                             //Datan haku SharedPreferences
                     getSharedPreferences("Kaakko", Context.MODE_PRIVATE);
