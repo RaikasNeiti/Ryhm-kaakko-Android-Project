@@ -108,7 +108,7 @@ public class Calculator {
          * @return arvojen erotus
          */
     public String diffCalc(ArrayList<String> latest)    {
-       return "+/- " + Math.abs(Float.parseFloat(latest.get(1)) - Float.parseFloat(latest.get(2)));
+       return "+/- " + Math.round(Math.abs(Float.parseFloat(latest.get(1)) - Float.parseFloat(latest.get(2))));
     }
 
 

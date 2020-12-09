@@ -54,7 +54,7 @@ public class activity_diary_details extends AppCompatActivity {
         String listDatajson;
         String noteListjson;
         float minSugar, maxSugar;
-
+        String dateData;
         ArrayList<Double> doubleList = new ArrayList<>();
         ArrayList<String> listData = new ArrayList<>();
         ArrayList<String> noteList = new ArrayList<>();
@@ -76,6 +76,8 @@ public class activity_diary_details extends AppCompatActivity {
         listType = new TypeToken< ArrayList<String> >(){}.getType();
         noteList = gson.fromJson(noteListjson, listType);
 
+        dateData = extras.getString("EXTRA_DATE");
+
         calculator = new Calculator();
 
         SharedPreferences sp =
@@ -84,12 +86,12 @@ public class activity_diary_details extends AppCompatActivity {
         maxSugar = sp.getFloat("maxSugar", 0);
 
         if(!doubleList.isEmpty())   {
-            sugarDateView.setText(listData.get(id));
+            sugarDateView.setText(dateData);
             sugarView.setText(Double.toString(doubleList.get(id)));
             detailsView.setText(noteList.get(id));
 
             if (doubleList.size() != id+1) {
-                differenceView.setText("+/- " + Math.abs(doubleList.get(id) - doubleList.get(id + 1)));
+                differenceView.setText("+/- " + Math.round(  100.0 *   (Math.abs(doubleList.get(id) - doubleList.get(id + 1))))   /100.0  );
             } else{
                 differenceView.setText("");
             }

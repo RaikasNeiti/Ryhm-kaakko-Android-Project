@@ -72,6 +72,7 @@ public class activity_diary_day extends AppCompatActivity {
         ArrayList<String> listData = new ArrayList<>();
         ArrayList<Double> doubleList = new ArrayList<>();
         ArrayList<String> noteList = new ArrayList<>();
+        ArrayList<String> dateData = new ArrayList<>();
         data.moveToLast();      //vaihdetaan tietokannan läpikäynti käänteiseksi, jotta listassa olisi aikajärjestys
 
         for(int i = 0; i < mDatabaseHelper.countRows("DIARY"); i++)    {//käydään läpi tietokanta keskiarvolaskuria ja oikean timestampin löytämistä varten
@@ -83,6 +84,7 @@ public class activity_diary_day extends AppCompatActivity {
             if((monthData == month) && (dayData == dayOfMonth) && (yearData == year)) {       //jos tietokannan timestamp on sama kuin klikatun päivämäärän
                 doubleList.add(Double.parseDouble(data.getString(4)));
                 listData.add(dayData + "." + monthData + "." + yearData + " " + timeData + " " + data.getString(4) + " mmol/L");
+                dateData.add(dayData + "." + monthData + "." + yearData + " " + timeData);
                 noteList.add(data.getString(6));
 
                 entriesListView.setAdapter(new ArrayAdapter<>(
@@ -109,6 +111,7 @@ public class activity_diary_day extends AppCompatActivity {
 
                         intent.putExtra("EXTRA_DOUBLELIST", doubleListjson);
                         intent.putExtra("EXTRA_LISTDATA", listDatajson);
+                        intent.putExtra("EXTRA_DATE", dateData.get(position));
                         intent.putExtra("EXTRA_NOTELIST", noteListjson);
                         intent.putExtra("EXTRA_ID", position);
                         startActivity(intent);
@@ -137,6 +140,7 @@ public class activity_diary_day extends AppCompatActivity {
             if((monthData == month) && (dayData == dayOfMonth))   {
                 stepcount = data.getInt(3);
                 stepsView.setText(Integer.toString(stepcount));
+                break;
             } else  {
                 stepsView.setText("0");
             }
