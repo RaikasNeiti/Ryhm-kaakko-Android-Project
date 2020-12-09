@@ -41,7 +41,10 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="be17552f-c4da-4665-b557-cf37c075aad0" name="Default Changelist" comment="Luotu mainactivityn nappulat samat funktion alle" />
+    <list default="true" id="be17552f-c4da-4665-b557-cf37c075aad0" name="Default Changelist" comment="Viimeistely bugit">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -278,7 +281,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607428805547</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Viimeistely bugit">
+      <created>1607525618629</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1607525618629</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -318,7 +328,8 @@
     <MESSAGE value="All bug fixed (Hopefully)" />
     <MESSAGE value="calories poistettu ja viimeiset lisäykset." />
     <MESSAGE value="Bug fixed crashed on last &quot;merkintä&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="Bug fixed crashed on last &quot;merkintä&quot;" />
+    <MESSAGE value="Viimeistely bugit" />
+    <option name="LAST_COMMIT_MESSAGE" value="Viimeistely bugit" />
   </component>
   <component name="WindowStateProjectService">
     <state x="705" y="342" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1607253466651">
@@ -330,10 +341,10 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="792" y="249" key="#com.intellij.ide.util.MemberChooser/-1920.0.1920.1080/1920.0.1920.1080/0.0.1920.1080@0.0.1920.1080" timestamp="1606817223146" />
-    <state x="-729" y="351" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1607519509866">
+    <state x="-729" y="351" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1607525767084">
       <screen x="-1858" y="0" width="1858" height="1200" />
     </state>
-    <state x="-729" y="351" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.3440.1440/-1858.0.1858.1200@-1858.0.1858.1200" timestamp="1607519509866" />
+    <state x="-729" y="351" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.3440.1440/-1858.0.1858.1200@-1858.0.1858.1200" timestamp="1607525767084" />
     <state x="2090" y="421" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.3440.1440/-1858.0.1858.1200@0.0.3440.1440" timestamp="1607416663922" />
     <state x="447" y="474" key="AndroidCreateResourceFileDialog" timestamp="1606822572428">
       <screen x="0" y="0" width="3440" height="1440" />
@@ -345,13 +356,13 @@
     <state x="321" y="143" width="1333" height="800" key="DiffContextDialog/-1920.0.1920.1080/1920.0.1920.1080/0.0.1920.1080@0.0.1920.1080" timestamp="1606817135554" />
     <state x="199" y="130" width="1652" height="800" key="DiffContextDialog/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1607251779693" />
     <state x="-1804" y="154" width="1599" height="889" key="DiffContextDialog/0.0.3440.1440/-1858.0.1858.1200@-1858.0.1858.1200" timestamp="1607336913334" />
-    <state x="-1116" y="331" key="FileChooserDialogImpl" timestamp="1607519731075">
+    <state x="-1116" y="331" key="FileChooserDialogImpl" timestamp="1607525765075">
       <screen x="-1858" y="0" width="1858" height="1200" />
     </state>
     <state x="767" y="298" key="FileChooserDialogImpl/-1920.0.1920.1080/1920.0.1920.1080/0.0.1920.1080@0.0.1920.1080" timestamp="1606990056548" />
     <state x="767" y="298" key="FileChooserDialogImpl/0.0.1920.1080/-1920.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1606478131691" />
     <state x="767" y="298" key="FileChooserDialogImpl/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1607254802589" />
-    <state x="-1116" y="331" key="FileChooserDialogImpl/0.0.3440.1440/-1858.0.1858.1200@-1858.0.1858.1200" timestamp="1607519731075" />
+    <state x="-1116" y="331" key="FileChooserDialogImpl/0.0.3440.1440/-1858.0.1858.1200@-1858.0.1858.1200" timestamp="1607525765075" />
     <state x="1374" y="397" key="FileChooserDialogImpl/0.0.3440.1440/-1858.0.1858.1200@0.0.3440.1440" timestamp="1607416658074" />
     <state width="1788" height="145" key="GridCell.Tab.0.bottom" timestamp="1607520394973">
       <screen x="-1858" y="0" width="1858" height="1200" />
@@ -404,14 +415,14 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="390" y="134" width="1413" height="800" key="ShowDiffWithBranchDialog/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1607330291950" />
-    <state x="-1298" y="432" key="Vcs.Push.Dialog.v2" timestamp="1607428808692">
+    <state x="-1298" y="432" key="Vcs.Push.Dialog.v2" timestamp="1607525666987">
       <screen x="-1858" y="0" width="1858" height="1200" />
     </state>
     <state x="579" y="389" key="Vcs.Push.Dialog.v2/-1920.0.1920.1080/1920.0.1920.1080/0.0.1920.1080@0.0.1920.1080" timestamp="1606990187105" />
     <state x="579" y="389" key="Vcs.Push.Dialog.v2/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1607336465996" />
     <state x="-1341" y="389" key="Vcs.Push.Dialog.v2/0.0.2560.1440/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1607346628906" />
     <state x="771" y="518" key="Vcs.Push.Dialog.v2/0.0.2560.1440/-1920.0.1920.1080@0.0.2560.1440" timestamp="1606824677343" />
-    <state x="-1298" y="432" key="Vcs.Push.Dialog.v2/0.0.3440.1440/-1858.0.1858.1200@-1858.0.1858.1200" timestamp="1607428808692" />
+    <state x="-1298" y="432" key="Vcs.Push.Dialog.v2/0.0.3440.1440/-1858.0.1858.1200@-1858.0.1858.1200" timestamp="1607525666987" />
     <state x="-1088" y="508" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1607517048848">
       <screen x="-1858" y="0" width="1858" height="1200" />
     </state>

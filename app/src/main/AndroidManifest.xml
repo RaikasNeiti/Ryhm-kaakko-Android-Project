@@ -9,13 +9,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.RyhmaKaakkoApplication">
-        <activity android:name=".activity_diary_details"></activity>
+        <activity
+            android:name=".activity_diary_details"
+            android:label="Lisätiedot"
+            />
         <activity
             android:name=".activity_settings"
             android:label="Tavoitteet" />
         <activity
             android:name=".activity_diary"
             android:label="Päiväkirja" />
+
         <activity
             android:name=".activity_diary_day"
             android:label="Katso merkintöjä" />
