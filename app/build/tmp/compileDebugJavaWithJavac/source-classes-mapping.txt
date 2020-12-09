@@ -1,34 +1,34 @@
-com/example/ryhmakaakkoapplication/TimeStamp.java
- com.example.ryhmakaakkoapplication.TimeStamp
+com/example/ryhmakaakkoapplication/activity_diary_day.java
+ com.example.ryhmakaakkoapplication.activity_diary_day
+ com.example.ryhmakaakkoapplication.activity_diary_day$1
 com/example/ryhmakaakkoapplication/BuildConfig.java
  com.example.ryhmakaakkoapplication.BuildConfig
-com/example/ryhmakaakkoapplication/DatabaseHelper.java
- com.example.ryhmakaakkoapplication.DatabaseHelper
-com/example/ryhmakaakkoapplication/Steps.java
- com.example.ryhmakaakkoapplication.Steps
+com/example/ryhmakaakkoapplication/activity_diary_new.java
+ com.example.ryhmakaakkoapplication.activity_diary_new
+com/example/ryhmakaakkoapplication/activity_diary_details.java
+ com.example.ryhmakaakkoapplication.activity_diary_details
+ com.example.ryhmakaakkoapplication.activity_diary_details$1
+ com.example.ryhmakaakkoapplication.activity_diary_details$2
+ com.example.ryhmakaakkoapplication.activity_diary_details$3
 com/example/ryhmakaakkoapplication/activity_settings.java
  com.example.ryhmakaakkoapplication.activity_settings
  com.example.ryhmakaakkoapplication.activity_settings$1
  com.example.ryhmakaakkoapplication.activity_settings$2
+com/example/ryhmakaakkoapplication/Calculator.java
+ com.example.ryhmakaakkoapplication.Calculator
 com/example/ryhmakaakkoapplication/StepListener.java
  com.example.ryhmakaakkoapplication.StepListener
 com/example/ryhmakaakkoapplication/StepDetector.java
  com.example.ryhmakaakkoapplication.StepDetector
 com/example/ryhmakaakkoapplication/SensorFilter.java
  com.example.ryhmakaakkoapplication.SensorFilter
-com/example/ryhmakaakkoapplication/activity_diary_day.java
- com.example.ryhmakaakkoapplication.activity_diary_day
- com.example.ryhmakaakkoapplication.activity_diary_day$1
-com/example/ryhmakaakkoapplication/activity_diary_new.java
- com.example.ryhmakaakkoapplication.activity_diary_new
 com/example/ryhmakaakkoapplication/activity_diary.java
  com.example.ryhmakaakkoapplication.activity_diary
-com/example/ryhmakaakkoapplication/activity_diary_details.java
- com.example.ryhmakaakkoapplication.activity_diary_details
- com.example.ryhmakaakkoapplication.activity_diary_details$1
- com.example.ryhmakaakkoapplication.activity_diary_details$2
- com.example.ryhmakaakkoapplication.activity_diary_details$3
-com/example/ryhmakaakkoapplication/Calculator.java
- com.example.ryhmakaakkoapplication.Calculator
+com/example/ryhmakaakkoapplication/DatabaseHelper.java
+ com.example.ryhmakaakkoapplication.DatabaseHelper
+com/example/ryhmakaakkoapplication/Steps.java
+ com.example.ryhmakaakkoapplication.Steps
+com/example/ryhmakaakkoapplication/TimeStamp.java
+ com.example.ryhmakaakkoapplication.TimeStamp
 com/example/ryhmakaakkoapplication/activity_main.java
  com.example.ryhmakaakkoapplication.activity_main

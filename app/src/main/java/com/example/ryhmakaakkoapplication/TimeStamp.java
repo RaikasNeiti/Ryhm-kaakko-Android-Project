@@ -36,10 +36,6 @@ public class TimeStamp {
 
     /**
      * Hakee kuukauden kalenterista ja palauttaa sen numerona.
-     * @param c on kalenterista saatu merkkijono.
-     * @param month on formatisoitu osa c merkkijonosta.
-     * @param formattedMonth on kuukausi merkkijonona
-     * @param monthNumber on formattedMonth muutettu luvuksi.
      * @return int monthNumber
      */
 
@@ -81,10 +77,6 @@ public class TimeStamp {
 
     /**
      * Hakee päivämäärän kalenterista ja palauttaa sen.
-     * @param c on kalenterista saatu merkkijono.
-     * @param date on formatisoitu pieni osa c merkkijonosta.
-     * @param DATE on päivämäärä date merkkijonosta.
-     *
      * @return int Date
      */
 
@@ -102,9 +94,6 @@ public class TimeStamp {
 
     /**
      * Hakee vuoden kalenterista ja palauttaa sen.
-     * @param c on kalenterista saatu merkkijono.
-     * @param year on formatisoitu pieni osa c merkkijonosta.
-     * @param formattedYear on vuosi year merkkijonosta.
      * @return int formattedYear
      */
 
@@ -121,9 +110,6 @@ public class TimeStamp {
 
     /**
      * hakee minuutit kalenterista ja palautaa ne.
-     * @param c on kalenterista saatu merkkijono.
-     * @param minutes on formatisoitu pieni osa c merkkijonosta.
-     * @param MINUTE on minuutit minutes merkkijonosta.
      * @return int MINUTE
      */
     public static int minute(){
@@ -138,9 +124,6 @@ public class TimeStamp {
 
     /**
      * Hakee tunnit kalenterista ja palauttaa ne.
-     * @param c on kalenterista saatu merkkijono.
-     * @param hour on formatisoitu pieni osa c merkkijonosta.
-     * @param HOURS on tunnit hour merkkijonosta.
      * @return int HOURS
      */
     public static int hour(){
