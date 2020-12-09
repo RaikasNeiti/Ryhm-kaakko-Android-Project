@@ -12,9 +12,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-
 import com.google.gson.Gson;
-
 import java.util.ArrayList;
 
 /**
@@ -37,7 +35,8 @@ public class activity_diary_day extends AppCompatActivity {
     private int stepcount;
     private double roundedDouble = 0;
     private Calculator calculator;
-       /*
+
+    /*
      * Funktio, joka kutsutaan kun aktiviteetti luodaan.
      * @param savedInstanceState = referenssi Bundle-objektiin, joka annetaan onCreate-funktiolle
      */
@@ -56,7 +55,6 @@ public class activity_diary_day extends AppCompatActivity {
         year = extras.getInt("EXTRA_YEAR");
         mDatabaseHelper = new DatabaseHelper(this);
         this.calculator = new Calculator();
-        System.out.println("vitun paska");
         UpdateListView();
         UpdateSteps();
         UpdateColor();
@@ -158,6 +156,7 @@ public class activity_diary_day extends AppCompatActivity {
             }
         }
     }
+
     /**
      * Haetaan tiedot tiedot funktioille, jotka vaihtavat elementtien värejä.
      */
@@ -170,10 +169,6 @@ public class activity_diary_day extends AppCompatActivity {
         calculator.sugarColor(minSugar, maxSugar, roundedDouble, sugarView);
         calculator.stepsColor(stepGoal, stepcount, stepsView);
     }
-
-
-
-
 
 
 }

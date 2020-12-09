@@ -99,12 +99,9 @@ public class TimeStamp {
 
     public static int year(){
 
-
         Date c = Calendar.getInstance().getTime();
-
         SimpleDateFormat year = new SimpleDateFormat("yyyy", Locale.getDefault());
         formattedYear = Integer.parseInt(year.format(c));
-
         return formattedYear;
     }
 

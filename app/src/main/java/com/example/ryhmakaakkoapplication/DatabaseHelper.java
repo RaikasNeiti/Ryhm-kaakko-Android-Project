@@ -64,8 +64,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
      */
     public boolean addToStepCounter(int steps, int day , int month) {
 
-
-
         SQLiteDatabase db = getWritableDatabase();
         ContentValues cv = new ContentValues();
         cv.put("DAY", day);

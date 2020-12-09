@@ -10,7 +10,6 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -42,7 +41,7 @@ public class activity_main extends AppCompatActivity implements SensorEventListe
 
 
     DatabaseHelper databaseHelper = new DatabaseHelper(activity_main.this);
-    SharedPreferences step = getSharedPreferences("Kaakko", MODE_PRIVATE);
+    SharedPreferences step;
     /*
      * Funktio, joka kutsutaan kun aktiviteetti luodaan.
      * @param savedInstanceState = referenssi Bundle-objektiin, joka annetaan onCreate-funktiolle
@@ -52,7 +51,7 @@ public class activity_main extends AppCompatActivity implements SensorEventListe
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        step = getSharedPreferences("Kaakko", MODE_PRIVATE);
         sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
         accel = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
         simpleStepDetector = new StepDetector();

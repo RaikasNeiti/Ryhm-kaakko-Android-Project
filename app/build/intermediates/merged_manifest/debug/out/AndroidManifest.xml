@@ -18,7 +18,9 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/Theme.RyhmaKaakkoApplication" >
-        <activity android:name="com.example.ryhmakaakkoapplication.activity_diary_details" />
+        <activity
+            android:name="com.example.ryhmakaakkoapplication.activity_diary_details"
+            android:label="Lisätiedot" />
         <activity
             android:name="com.example.ryhmakaakkoapplication.activity_settings"
             android:label="Tavoitteet" />
