@@ -16,7 +16,7 @@ import com.google.gson.Gson;
 import java.util.ArrayList;
 
 /**
- * activity_diary_entry_display -luokassa näytetään tietoja valitun päivän merkinnöistä
+ * activity_diary_day -luokassa näytetään tietoja valitun päivän merkinnöistä
  * @author Olli Kolkki, Felix Uimonen, Joni Tahvanainen, Teemu Olkkonen
  * @version 1.0 12/2020
  */
@@ -138,7 +138,8 @@ public class activity_diary_day extends AppCompatActivity {
                 Gson gson = new Gson();
                 String json = step.getString("steps", "");
                 Steps steps = gson.fromJson(json, Steps.class);
-                stepsView.setText(Integer.toString(steps.value()));
+                stepcount = steps.value();
+                stepsView.setText(Integer.toString(stepcount));
             }
         } else {
             while (data.moveToNext()) {                                                         //käydään läpi tietokanta keskiarvolaskuria ja oikean timestampin löytämistä varten

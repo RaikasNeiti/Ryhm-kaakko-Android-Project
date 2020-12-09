@@ -16,7 +16,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 /**
- * MainActivity-luokka sisältää UI-kenttien päivittämiseen liittyvän koodin
+ * activity_main -luokka sisältää UI-kenttien päivittämiseen liittyvän koodin
  * @author Olli Kolkki, Felix Uimonen, Joni Tahvanainen, Teemu Olkkonen
  * @version 2.0 3/2019
  */

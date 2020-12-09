@@ -12,7 +12,7 @@ import android.widget.Toast;
 
 
 /**
- * activity_diary_entry -luokassa päiväkirjaan lisätään merkintä
+ * activity_diary_new -luokassa päiväkirjaan lisätään merkintä
  * @author Olli Kolkki, Felix Uimonen, Joni Tahvanainen, Teemu Olkkonen
  * @version 1.0 12/2020
  */

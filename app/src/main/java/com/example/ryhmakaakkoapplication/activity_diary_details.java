@@ -15,7 +15,7 @@ import java.util.ArrayList;
 
 
 /**
- * activity_entry_details -Luokassa näytetään tarkempia tietoja käyttäjän valitsemasta listamerkinnästä
+ * activity_diary_details -Luokassa näytetään tarkempia tietoja käyttäjän valitsemasta listamerkinnästä
  * @author Olli Kolkki, Felix Uimonen, Joni Tahvanainen, Teemu Olkkonen
  * @version 1.0 12/2020
  */

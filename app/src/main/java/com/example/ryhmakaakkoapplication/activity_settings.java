@@ -12,7 +12,7 @@ import java.util.List;
 
 
 /**
- * activity_goal_entry-luokassa säädetään askeltavoite ja verensokeriarvoalue slidereilla
+ * activity_settings -luokassa säädetään askeltavoite ja verensokeriarvoalue slidereilla
  * @author Olli Kolkki, Felix Uimonen, Joni Tahvanainen, Teemu Olkkonen
  * @version 1.0 12/2020
  */
