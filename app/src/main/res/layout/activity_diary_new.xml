@@ -6,6 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".activity_diary_new">
 
+    <!-- @author Olli Kolkki ja Teemu Olkkonen -->
+
     <EditText
         android:id="@+id/editText"
         android:layout_width="wrap_content"

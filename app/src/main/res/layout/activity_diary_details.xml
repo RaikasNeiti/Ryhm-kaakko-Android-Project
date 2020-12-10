@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".activity_main">
 
+    <!-- @author Olli Kolkki ja Teemu Olkkonen -->
 
     <TextView
         android:id="@+id/sugarView2"

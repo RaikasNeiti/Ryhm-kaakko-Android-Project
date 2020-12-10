@@ -6,6 +6,9 @@
     android:layout_height="match_parent"
     tools:context=".activity_settings">
 
+    <!-- @author Olli Kolkki ja Teemu Olkkonen -->
+
+
     <com.google.android.material.slider.Slider
 
         android:id="@+id/stepslider"

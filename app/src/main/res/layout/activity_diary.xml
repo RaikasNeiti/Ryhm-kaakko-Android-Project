@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".activity_diary">
 
-    <!-- Add CalenderView to display the Calender -->
+    <!-- @author Olli Kolkki ja Teemu Olkkonen -->
 
     <CalendarView
         android:id="@+id/calendar"

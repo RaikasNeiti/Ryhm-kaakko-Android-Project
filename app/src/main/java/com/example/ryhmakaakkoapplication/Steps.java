@@ -1,7 +1,7 @@
 package com.example.ryhmakaakkoapplication;
 /**
  * Steps-luokka on vastuussa askelmittauksien kirjaamisesta ja antaa askeleiden määrän funktiolla steps.value().
- * @author Joni Tahvanainen (RaikasNeiti)
+ * @author Teemu Olkkonen ja Joni Tahvanainen (Raikasneiti)
  * @version 6.9 12/2020
  */
 public class Steps {

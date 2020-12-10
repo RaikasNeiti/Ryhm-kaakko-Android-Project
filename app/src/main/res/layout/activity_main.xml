@@ -6,6 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".activity_main">
 
+
+    <!-- @author Olli Kolkki ja Teemu Olkkonen -->
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="200dp"
@@ -183,7 +185,7 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.3" />
 
-    <!-- Add CalenderView to display the Calender -->
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

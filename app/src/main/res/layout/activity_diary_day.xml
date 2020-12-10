@@ -6,6 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".activity_diary_day">
 
+    <!-- @author Olli Kolkki ja Teemu Olkkonen -->
+
     <ListView
         android:id="@+id/entriesListView"
         android:layout_width="0dp"
